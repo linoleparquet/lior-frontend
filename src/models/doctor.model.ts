@@ -3,8 +3,8 @@ export class Doctor {
     name: string;
     surname: string;
     town: string;
-    departement: number;
-    timePeriod: number;
+    department: number;
+    periodicity: number;
     lastVisitId: number;
-    nextVisitDate: Date;
+    nextVisitDate: string;
 }
