@@ -15,7 +15,12 @@ import { NotificationsComponent } from '../../pages/notifications/notifications.
 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { TableDoctorComponent } from 'app/components/table-doctor/table-doctor.component';
+import { TableVisitComponent } from 'app/components/table-visit/table-visit.component';
+import { EditDoctorComponent } from 'app/components/edit-doctor/edit-doctor.component';
+import { EditVisitComponent } from 'app/components/edit-visit/edit-visit.component';
+
 
 @NgModule({
   imports: [
@@ -32,7 +37,11 @@ import { TableDoctorComponent } from 'app/components/table-doctor/table-doctor.c
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    TableDoctorComponent
+    TableDoctorComponent,
+    TableVisitComponent,
+    EditDoctorComponent,
+    EditVisitComponent
+
   ]
 })
 

@@ -34,7 +34,7 @@ export const DOCTORS: Doctor[] = [
     },
     {
         "id": 4,
-        "name": "Jean",
+        "name": "Jeannnnnnnnnn",
         "surname": "Valjean",
         "town": "Paris",
         "department": 75,
@@ -105,4 +105,4 @@ export const VISITS: Visit[] = [
     }
 ]
 
-export const DOCTOR_TABLE_HEADER: String[] = ["name", "surname", "town", "department", "periodicity", "last visit", "next visit"];
+export const DOCTOR_TABLE_HEADER: String[] = ["Name", "Surname", "Town", "Department", "Periodicity", "Last Visit", "Next Visit"];
