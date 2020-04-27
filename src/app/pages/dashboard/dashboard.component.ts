@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from 'app/services/doctor.service';
 import { Doctor } from 'models/doctor.model';
-import { DOCTORS, DOCTOR_TABLE_HEADER } from 'app/mock/database.mock';
 
 
 @Component({
@@ -12,7 +11,6 @@ import { DOCTORS, DOCTOR_TABLE_HEADER } from 'app/mock/database.mock';
 
 export class DashboardComponent implements OnInit {
 
-  doctors: Doctor[];
   doctorsActualMonth: Doctor[];
   doctorsBeforeActualMonth: Doctor[];
   doctorsProspect: Doctor[];
@@ -20,7 +18,6 @@ export class DashboardComponent implements OnInit {
   constructor(private doctorService: DoctorService) { }
 
   ngOnInit() {
-    this.doctors = DOCTORS;
     this.doctorsActualMonth = this.doctorService.getDoctorsActualMonth();
     this.doctorsBeforeActualMonth = this.doctorService.getDoctorsBeforeActualMonth();
     this.doctorsProspect = this.doctorService.getDoctorsProspect();

@@ -2,12 +2,30 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <h4 class="card-title">{{title}}</h4>
+        <div class="row justify-content-between">
+          <div class="col">
+            <h5 class="card-title">{{title}}</h5>
+          </div>
+          <div class="col">
+            <div class="input-group no-border">
+              <input type="text" value="" class="form-control" placeholder="Search...">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <i class="nc-icon nc-zoom-split"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="isAddDoctor" class="col">
+            <button type="submit" class="btn btn-success btn-round float-right">Add Doctor</button>
+          </div>
+
+        </div>
       </div>
       <div class="card-body">
         <div class="table-responsive table-hover">
           <table class="table">
-            <thead class=" text-primary">
+            <thead class="text-primary">
               <th *ngFor="let head of headElements">
                 {{head}}
               </th>

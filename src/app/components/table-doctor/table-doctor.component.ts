@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Doctor } from 'models/doctor.model';
-import { DoctorService } from 'app/services/doctor.service';
 import { DOCTORS, DOCTOR_TABLE_HEADER } from 'app/mock/database.mock';
 
 @Component({
@@ -12,9 +11,10 @@ export class TableDoctorComponent implements OnInit {
 
   @Input() doctors: Doctor[];
   @Input() title: String;
+  @Input() isAddDoctor: boolean;
   headElements: String[];
 
-  constructor(private doctorService: DoctorService) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.headElements = DOCTOR_TABLE_HEADER;

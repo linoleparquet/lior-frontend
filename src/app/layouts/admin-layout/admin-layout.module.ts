@@ -20,6 +20,9 @@ import { TableDoctorComponent } from 'app/components/table-doctor/table-doctor.c
 import { TableVisitComponent } from 'app/components/table-visit/table-visit.component';
 import { EditDoctorComponent } from 'app/components/edit-doctor/edit-doctor.component';
 import { EditVisitComponent } from 'app/components/edit-visit/edit-visit.component';
+import { DoctorsComponent } from 'app/pages/doctors/doctors.component';
+import { DoctorComponent } from 'app/pages/doctor/doctor.component';
+
 
 
 @NgModule({
@@ -40,7 +43,9 @@ import { EditVisitComponent } from 'app/components/edit-visit/edit-visit.compone
     TableDoctorComponent,
     TableVisitComponent,
     EditDoctorComponent,
-    EditVisitComponent
+    EditVisitComponent,
+    DoctorsComponent,
+    DoctorComponent
 
   ]
 })
