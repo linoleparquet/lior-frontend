@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Doctor } from 'models/doctor.model';
 import { Visit } from 'models/visit.model';
-import { DOCTORS } from 'app/mock/database.mock';
+import { DOCTORS, VISITS } from 'app/mock/database.mock';
 
 @Component({
   selector: 'app-doctor',
@@ -17,6 +17,7 @@ export class DoctorComponent implements OnInit {
 
   ngOnInit(): void {
     this.doctor = DOCTORS[0];
+    this.visits = VISITS;
   }
 
 }

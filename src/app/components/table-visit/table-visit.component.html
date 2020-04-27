@@ -4,7 +4,7 @@
       <div class="card-header">
         <div class="row justify-content-between">
           <div class="col">
-            <h5 class="card-title">{{title}}</h5>
+            <h5 class="card-title">Visits</h5>
           </div>
           <div class="col">
             <div class="input-group no-border">
@@ -16,8 +16,8 @@
               </div>
             </div>
           </div>
-          <div *ngIf="isAddDoctor" class="col">
-            <button type="submit" class="btn btn-success btn-round float-right">Add Doctor</button>
+          <div *ngIf="isAddVisit" class="col">
+            <button type="submit" class="btn btn-success btn-round float-right">Add Visit</button>
           </div>
 
         </div>
@@ -31,28 +31,12 @@
               </th>
             </thead>
             <tbody>
-              <tr *ngFor="let doctor of doctors">
+              <tr *ngFor="let visit of visits">
                 <td>
-                  {{doctor.name}}
+                  {{visit.date | date}}
                 </td>
                 <td>
-                  {{doctor.surname}}
-                </td>
-                <td>
-                  {{doctor.town}}
-                </td>
-                <td>
-                  {{doctor.department}}
-                </td>
-                <td>
-                  {{doctor.periodicity}}
-                </td>
-                <td>
-                  {{doctor.lastVisitId}} ????
-                </td>
-                <td>
-                  {{doctor.nextVisitDate | date}}
-                </td>
+                  {{visit.note}}
               </tr>
             </tbody>
           </table>

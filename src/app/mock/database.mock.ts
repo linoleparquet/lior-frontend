@@ -106,3 +106,4 @@ export const VISITS: Visit[] = [
 ]
 
 export const DOCTOR_TABLE_HEADER: String[] = ["Name", "Surname", "Town", "Department", "Periodicity", "Last Visit", "Next Visit"];
+export const VISIT_TABLE_HEADER: String[] = ["Date", "Notes"];
