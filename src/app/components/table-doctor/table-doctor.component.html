@@ -4,7 +4,7 @@
       <div class="card-header">
         <div class="row justify-content-between">
           <div class="col">
-            <h5 class="card-title">Visits</h5>
+            <h5 class="card-title">{{title}}</h5>
           </div>
           <div class="col">
             <div class="input-group no-border">
@@ -16,8 +16,8 @@
               </div>
             </div>
           </div>
-          <div class="col">
-            <button type="submit" class="btn btn-success btn-round float-right">Add Visit</button>
+          <div *ngIf="isAddDoctorButton" class="col">
+            <button type="submit" class="btn btn-success btn-round float-right">Add Doctor</button>
           </div>
 
         </div>
@@ -31,12 +31,30 @@
               </th>
             </thead>
             <tbody>
-              <tr *ngFor="let visit of visits$ | async">
+              <tr *ngFor="let doctor of doctors">
                 <td>
-                  {{visit.date | date}}
+                  <a routerLink="/doctor/{{doctor.id}}">
+                    {{doctor.name}}
+                  </a>
                 </td>
                 <td>
-                  {{visit.note}}
+                  {{doctor.surname}}
+                </td>
+                <td>
+                  {{doctor.town}}
+                </td>
+                <td>
+                  {{doctor.department}}
+                </td>
+                <td>
+                  {{doctor.periodicity}} times per year
+                </td>
+                <td>
+                  {{getLastVisit(doctor.nextVisitDate,doctor.periodicity) | date: 'dd/MM/yyyy' }}
+                </td>
+                <td>
+                  {{doctor.nextVisitDate | date: 'dd/MM/yyyy'}}
+                </td>
               </tr>
             </tbody>
           </table>

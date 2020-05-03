@@ -17,33 +17,33 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>First Name</label>
-                <input type="text" class="form-control" placeholder="First Name" value="Chet">
+                <input type="text" class="form-control" placeholder="First Name" value="{{doctor.name}}">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>Last Name</label>
-                <input type="text" class="form-control" placeholder="Last Name" value="Faker">
+                <input type="text" class="form-control" placeholder="Last Name" value="{{doctor.surname}}">
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
-                <label>City</label>
-                <input type="text" class="form-control" placeholder="City" value="Melbourne">
+                <label>Department</label>
+                <input type="text" class="form-control" placeholder="Country" value="{{doctor.department}}">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label>Country</label>
-                <input type="text" class="form-control" placeholder="Country" value="Australia">
+                <label>City</label>
+                <input type="text" class="form-control" placeholder="City" value="{{doctor.town}}">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label>Periodicity</label>
-                <input type="number" class="form-control" placeholder="Periodicity">
+                <input type="number" class="form-control" placeholder="Periodicity" value="{{doctor.periodicity}}">
               </div>
             </div>
           </div>

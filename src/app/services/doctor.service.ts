@@ -28,8 +28,9 @@ export class DoctorService {
   }
 
   getOneDoctor(id: number): Observable<Doctor> {
-    const url = `${this.localhostUrl}/${id}`;
-    return this.http.get<Doctor>(url);
+    // const url = `${this.localhostUrl}/${id}`;
+    // return this.http.get<Doctor>(url);
+    return of(DOCTORS[id - 1]);
   }
 
   putUpdateOneDoctor(doctor: Doctor): Observable<Doctor> {

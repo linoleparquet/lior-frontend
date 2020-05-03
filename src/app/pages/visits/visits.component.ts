@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { VisitService } from 'app/services/visit.service';
+import { Observable } from 'rxjs';
+import { Visit } from 'models/visit.model';
+import { VISIT_TABLE_HEADER } from 'app/mock/database.mock';
 
 @Component({
   selector: 'app-visits',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisitsComponent implements OnInit {
 
-  constructor() { }
+  visits$: Observable<Visit[]>;
+  headElements: String[];
+
+
+  constructor(private visitService: VisitService) { }
 
   ngOnInit(): void {
+    this.visits$ = this.visitService.getAllVisits();
+    this.headElements = VISIT_TABLE_HEADER;
   }
 
 }

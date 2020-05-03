@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Visit } from 'models/visit.model';
+import { VISITS } from 'app/mock/database.mock';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,10 @@ export class VisitService {
   private localhostUrl = 'http://localhost:8080/visits';
 
   getAllVisits(): Observable<Visit[]> {
-    const url = `${this.localhostUrl}`;
-    return this.http.get<Visit[]>(url);
+    // const url = `${this.localhostUrl}`;
+    // return this.http.get<Visit[]>(url);
+
+    return of(VISITS);
   }
 
   postCreateNewVisit(visit: Visit): Observable<Visit> {
