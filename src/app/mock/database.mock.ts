@@ -101,7 +101,13 @@ export const VISITS: Visit[] = [
         "id": 3,
         "doctorId": 1,
         "date": "2050-01-02",
-        "note": "haha c'était super avec Didier"
+        "note": "The  classic courtroom  adventure series  that has  sold  over  6.7\n" +
+            "million copies worldwide is finally here. Become Phoenix Wright and\n" +
+            "experience the thrill of battle as you fight to save  your innocent\n" +
+            "clients in a court of law. Play all 14 episodes, spanning the first\n" +
+            "three  games,  in one  gorgeous collection.  Solve  the  intriguing\n" +
+            "mysteries  behind  each  case  and  witness  the  final  truth  for\n" +
+            "yourself!"
     }
 ]
 

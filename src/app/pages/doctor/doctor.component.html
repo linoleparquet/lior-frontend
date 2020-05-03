@@ -1,11 +1,21 @@
-<h1>{{doctor.name}} {{doctor.surname}}</h1>
-<h3 class="text-muted">
-  <div>{{doctor.department}} - {{doctor.town}}</div>
-  <div>To see {{doctor.periodicity}} times per year</div>
-  <div>Next Visit is scheduled for : {{doctor.nextVisitDate | date}}</div>
-</h3>
+<div class="row">
+  <div class="col">
+    <h1>{{doctor.name}} {{doctor.surname}}</h1>
+    <h3 class="text-muted">
+      <div>{{doctor.department}} - {{doctor.town}}</div>
+      <div>To see {{doctor.periodicity}} times per year</div>
+      <div>Next Visit is scheduled for : {{doctor.nextVisitDate | date}}</div>
+    </h3>
+  </div>
+  <div class="col">
+    <button type="submit" class="btn btn-warning btn-round float-right">Update Profile</button>
+  </div>
+</div>
 
-<button type="submit" class="btn btn-warning btn-round float-right">Update Profile</button>
 
 
-<app-table-visit [visits]="visits" [isAddVisit]=true></app-table-visit>
+<div class="row">
+  <div class="col">
+    <app-table-visit [visits]="visits"></app-table-visit>
+  </div>
+</div>

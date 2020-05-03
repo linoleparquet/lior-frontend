@@ -10,7 +10,6 @@ import { Visit } from 'models/visit.model';
 export class TableVisitComponent implements OnInit {
 
   @Input() visits: Visit[];
-  @Input() isAddVisit: boolean;
   headElements: String[];
 
   constructor() { }
