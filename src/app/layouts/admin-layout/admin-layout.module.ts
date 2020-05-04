@@ -14,7 +14,6 @@ import { NotificationsComponent } from '../../pages/notifications/notifications.
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { TableVisitComponent } from 'app/components/table-visit/table-visit.component';
 import { EditDoctorComponent } from 'app/components/edit-doctor/edit-doctor.component';
 import { EditVisitComponent } from 'app/components/edit-visit/edit-visit.component';
 import { DoctorsComponent } from 'app/pages/doctors/doctors.component';
@@ -37,7 +36,6 @@ import { TableDoctorComponent } from 'app/components/table-doctor/table-doctor.c
     TypographyComponent,
     IconsComponent,
     NotificationsComponent,
-    TableVisitComponent,
     EditDoctorComponent,
     EditVisitComponent,
     DoctorsComponent,

@@ -31,11 +31,9 @@
               </th>
             </thead>
             <tbody>
-              <tr *ngFor="let doctor of doctors">
+              <tr *ngFor="let doctor of doctors" (click)="OpenDoctorPage(doctor.id)">
                 <td>
-                  <a routerLink="/doctor/{{doctor.id}}">
-                    {{doctor.name}}
-                  </a>
+                  {{doctor.name}}
                 </td>
                 <td>
                   {{doctor.surname}}

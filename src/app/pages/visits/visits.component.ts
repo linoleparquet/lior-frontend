@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VisitService } from 'app/services/visit.service';
 import { Observable } from 'rxjs';
 import { Visit } from 'models/visit.model';
-import { VISIT_TABLE_HEADER } from 'app/mock/database.mock';
+import { VISITS_TABLE_HEADER } from 'app/mock/database.mock';
 
 @Component({
   selector: 'app-visits',
@@ -19,7 +19,7 @@ export class VisitsComponent implements OnInit {
 
   ngOnInit(): void {
     this.visits$ = this.visitService.getAllVisits();
-    this.headElements = VISIT_TABLE_HEADER;
+    this.headElements = VISITS_TABLE_HEADER;
   }
 
 }

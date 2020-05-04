@@ -26,8 +26,9 @@ export class VisitService {
   }
 
   getOneVisit(id: number): Observable<Visit> {
-    const url = `${this.localhostUrl}/${id}`;
-    return this.http.get<Visit>(url);
+    // const url = `${this.localhostUrl}/${id}`;
+    // return this.http.get<Visit>(url);
+    return of(VISITS[id - 1])
   }
 
   putUpdateOneVisit(visit: Visit): Observable<Visit> {
