@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Doctor } from 'models/doctor.model';
 import { DoctorService } from 'app/services/doctor.service';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-edit-doctor',
@@ -10,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditDoctorComponent implements OnInit {
 
-  doctor: Doctor;
+  doctor$: Observable<Doctor>;
 
   constructor(
     private doctorService: DoctorService,
@@ -19,7 +20,7 @@ export class EditDoctorComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.doctorService.getOneDoctor(id).subscribe(d => this.doctor = d)
+    this.doctor$ = this.doctorService.getOneDoctor(id)
   }
 
 }

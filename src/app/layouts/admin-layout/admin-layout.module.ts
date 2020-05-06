@@ -14,12 +14,16 @@ import { NotificationsComponent } from '../../pages/notifications/notifications.
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { EditDoctorComponent } from 'app/components/edit-doctor/edit-doctor.component';
-import { EditVisitComponent } from 'app/components/edit-visit/edit-visit.component';
+import { EditDoctorComponent } from 'app/pages/edit-doctor/edit-doctor.component';
+import { EditVisitComponent } from 'app/pages/edit-visit/edit-visit.component';
 import { DoctorsComponent } from 'app/pages/doctors/doctors.component';
 import { DoctorComponent } from 'app/pages/doctor/doctor.component';
 import { VisitsComponent } from 'app/pages/visits/visits.component';
 import { TableDoctorComponent } from 'app/components/table-doctor/table-doctor.component';
+import { FormDoctorComponent } from 'app/components/form-doctor/form-doctor.component';
+import { FormVisitComponent } from 'app/components/form-visit/form-visit.component';
+import { NewVisitComponent } from 'app/pages/new-visit/new-visit.component';
+import { NewDoctorComponent } from 'app/pages/new-doctor/new-doctor.component';
 
 
 
@@ -42,6 +46,10 @@ import { TableDoctorComponent } from 'app/components/table-doctor/table-doctor.c
     DoctorComponent,
     VisitsComponent,
     TableDoctorComponent,
+    FormDoctorComponent,
+    FormVisitComponent,
+    NewVisitComponent,
+    NewDoctorComponent
 
   ]
 })

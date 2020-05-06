@@ -1,63 +1,63 @@
-<div class="row">
-  <div class="col">
-    <h1>{{doctor.name}} {{doctor.surname}}</h1>
-    <h3 class="text-muted">
-      <div>{{doctor.department}} - {{doctor.town}}</div>
-      <div>To see {{doctor.periodicity}} times per year</div>
-      <div>Next Visit is scheduled for : {{doctor.nextVisitDate | date}}</div>
-    </h3>
+<div *ngIf="doctor$ | async as doctor">
+  <div class="row">
+    <div class="col">
+      <h1>{{doctor.name}} {{doctor.surname}}</h1>
+      <h3 class="text-muted">
+        <div>{{doctor.department}} - {{doctor.town}}</div>
+        <div>To see {{doctor.periodicity}} times per year</div>
+        <div>Next Visit is scheduled for : {{doctor.nextVisitDate | date}}</div>
+      </h3>
+    </div>
+    <div class="col">
+      <button type="submit" class="btn btn-warning btn-round float-right" (click)="openEditDoctorPage()">Edit
+        Profile</button>
+    </div>
   </div>
-  <div class="col">
-    <button type="submit" class="btn btn-warning btn-round float-right" (click)="openEditDoctorPage()">Edit
-      Profile</button>
-  </div>
-</div>
 
-
-
-<div class="row">
-  <div class="col-md-12">
-    <div class="card">
-      <div class="card-header">
-        <div class="row justify-content-between">
-          <div class="col">
-            <h5 class="card-title">Visits</h5>
-          </div>
-          <div class="col">
-            <div class="input-group no-border">
-              <input type="text" value="" class="form-control" placeholder="Search...">
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <i class="nc-icon nc-zoom-split"></i>
+  <div *ngIf="visits$ | async as visits" class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="row justify-content-between">
+            <div class="col">
+              <h5 class="card-title">Visits</h5>
+            </div>
+            <div class="col">
+              <div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="Search...">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <i class="nc-icon nc-zoom-split"></i>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col">
-            <button type="submit" class="btn btn-success btn-round float-right" (click)="openEditVisitPage()">Add
-              Visit</button>
-          </div>
+            <div class="col">
+              <button type="submit" class="btn btn-success btn-round float-right" (click)="openEditVisitPage()">Add
+                Visit</button>
+            </div>
 
+          </div>
         </div>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive table-hover">
-          <table class="table">
-            <thead class="text-primary">
-              <th *ngFor="let head of headElements">
-                {{head}}
-              </th>
-            </thead>
-            <tbody>
-              <tr *ngFor="let visit of visits" (click)="openEditVisitPage(visit.id)">
-                <td>
-                  {{visit.date | date}}
-                </td>
-                <td>
-                  {{visit.note}}
-              </tr>
-            </tbody>
-          </table>
+        <div class="card-body">
+          <div class="table-responsive table-hover">
+            <table class="table">
+              <thead class="text-primary">
+                <th *ngFor="let head of headElements">
+                  {{head}}
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let visit of visits" (click)="openEditVisitPage(visit.id)">
+                  <td>
+                    {{visit.date | date}}
+                  </td>
+                  <td>
+                    {{visit.note}}
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ import { DOCTORS, VISITS, VISIT_PER_DOCTOR_TABLE_HEADER } from 'app/mock/databas
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { DoctorService } from 'app/services/doctor.service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-doctor',
@@ -14,9 +14,10 @@ import { Observable } from 'rxjs';
 })
 export class DoctorComponent implements OnInit {
 
-  visits: Visit[];
-  doctor: Doctor;
+  visits$: Observable<Visit[]>;
+  doctor$: Observable<Doctor>;
   headElements: String[];
+  id: number;
 
   constructor(
     private doctorService: DoctorService,
@@ -25,15 +26,14 @@ export class DoctorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.doctorService.getOneDoctor(id).subscribe(d => this.doctor = d)
-    this.visits = VISITS;
-
+    this.id = +this.route.snapshot.paramMap.get('id');
+    this.doctor$ = this.doctorService.getOneDoctor(this.id)
+    this.visits$ = of(VISITS);
     this.headElements = VISIT_PER_DOCTOR_TABLE_HEADER;
   }
 
   openEditDoctorPage() {
-    this.router.navigate([`/doctor/${this.doctor.id}/edit`]);
+    this.router.navigate([`/doctor/${this.id}/edit`]);
   }
 
   openEditVisitPage(id: number) {

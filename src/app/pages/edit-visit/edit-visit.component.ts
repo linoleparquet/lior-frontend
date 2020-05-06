@@ -13,8 +13,9 @@ import { Doctor } from 'models/doctor.model';
 })
 export class EditVisitComponent implements OnInit {
 
-  visit: Visit;
-  doctors$: Observable<Doctor[]>
+  visit$: Observable<Visit>;
+  doctors$: Observable<Doctor[]>;
+
 
   constructor(
     private visitService: VisitService,
@@ -24,7 +25,9 @@ export class EditVisitComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.visitService.getOneVisit(id).subscribe(v => this.visit = v);
+    this.visit$ = this.visitService.getOneVisit(id);
     this.doctors$ = this.doctorService.getAllDoctors();
   }
+
+
 }

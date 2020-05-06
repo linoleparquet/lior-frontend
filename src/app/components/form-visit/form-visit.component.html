@@ -1,0 +1,70 @@
+<div *ngIf="doctor$ | async as doctor ">
+  <div class="row">
+    <div class="col">
+      <div class="card card-user">
+        <div class="card-header">
+          <div class="row justify-content-between">
+            <div class="col">
+              <h5 class="card-title">Edit Profile</h5>
+            </div>
+            <div class="col">
+              <button type="submit" class="btn btn-danger btn-round float-right">Delete Profile</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>First Name</label>
+                  <input type="text" class="form-control" placeholder="First Name" value="{{doctor.name}}">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Last Name</label>
+                  <input type="text" class="form-control" placeholder="Last Name" value="{{doctor.surname}}">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Department</label>
+                  <input type="text" class="form-control" placeholder="Country" value="{{doctor.department}}">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>City</label>
+                  <input type="text" class="form-control" placeholder="City" value="{{doctor.town}}">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Periodicity</label>
+                  <input type="number" class="form-control" placeholder="Periodicity" value="{{doctor.periodicity}}">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Address (disabled)</label>
+                  <input type="text" class="form-control" disabled="" placeholder="Home Address"
+                    value="Melbourne, Australia">
+                </div>
+                <div class="row">
+                  <div class="update ml-auto mr-auto">
+                    <button type="submit" class="btn btn-primary btn-round">Update Profile</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
