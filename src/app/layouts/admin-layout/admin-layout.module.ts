@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
-import { Table1Component } from '../../pages/table1/table1.component';
 import { TypographyComponent } from '../../pages/typography/typography.component';
 import { IconsComponent } from '../../pages/icons/icons.component';
 import { NotificationsComponent } from '../../pages/notifications/notifications.component';
@@ -24,6 +23,7 @@ import { FormDoctorComponent } from 'app/components/form-doctor/form-doctor.comp
 import { FormVisitComponent } from 'app/components/form-visit/form-visit.component';
 import { NewVisitComponent } from 'app/pages/new-visit/new-visit.component';
 import { NewDoctorComponent } from 'app/pages/new-doctor/new-doctor.component';
+import { TestComponent } from 'app/components/test/test.component';
 
 
 
@@ -36,7 +36,6 @@ import { NewDoctorComponent } from 'app/pages/new-doctor/new-doctor.component';
   ],
   declarations: [
     DashboardComponent,
-    Table1Component,
     TypographyComponent,
     IconsComponent,
     NotificationsComponent,
@@ -49,7 +48,8 @@ import { NewDoctorComponent } from 'app/pages/new-doctor/new-doctor.component';
     FormDoctorComponent,
     FormVisitComponent,
     NewVisitComponent,
-    NewDoctorComponent
+    NewDoctorComponent,
+    TestComponent
 
   ]
 })

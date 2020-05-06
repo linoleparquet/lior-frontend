@@ -11,12 +11,12 @@
       <a class="navbar-brand" href="javascript:void(0)">{{getTitle()}}</a>
     </div>
     <button class="navbar-toggler" type="button" (click)="collapse()" [attr.aria-expanded]="!isCollapsed"
-      aria-controls="collapseExample">
+      aria-controls="collapseItems">
       <span class="navbar-toggler-bar navbar-kebab"></span>
       <span class="navbar-toggler-bar navbar-kebab"></span>
       <span class="navbar-toggler-bar navbar-kebab"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end" id="collapseExample" [ngbCollapse]="isCollapsed">
+    <div class="collapse navbar-collapse justify-content-end" id="collapseItems" [ngbCollapse]="isCollapsed">
       <form>
         <div class="input-group no-border">
           <input type="text" value="" class="form-control" placeholder="Search...">
@@ -33,12 +33,12 @@
           <a class="nav-link" ngbDropdownToggle id="navbarDropdownMenuLink">
             <i class="nc-icon nc-simple-add"></i>
             <p>
-              <span class="d-lg-none d-md-block">Some Actions</span>
+              <span class="d-lg-none d-md-block">Add</span>
             </p>
           </a>
           <div ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-right">
-            <a ngbDropdownItem href="javascript:void(0)">Add a visit</a>
-            <a ngbDropdownItem href="javascript:void(0)">Add a doctor</a>
+            <a ngbDropdownItem routerLink="/visits/new">Add a visit</a>
+            <a ngbDropdownItem routerLink="/doctors/new">Add a doctor</a>
           </div>
         </li>
         <li class="nav-item">
