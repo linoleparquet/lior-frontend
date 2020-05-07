@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Visit } from 'models/visit.model';
 import { ActivatedRoute } from '@angular/router';
 import { VisitService } from 'app/services/visit.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-new-visit',
@@ -14,8 +15,11 @@ export class NewVisitComponent implements OnInit {
   title: String;
   button: string;
 
-  constructor(private route: ActivatedRoute,
-    private visitService: VisitService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private visitService: VisitService,
+    private location: Location
+  ) { }
 
   ngOnInit(): void {
     this.visit = new Visit();
@@ -29,6 +33,7 @@ export class NewVisitComponent implements OnInit {
   create() {
     this.visitService.postCreateNewVisit(this.visit);
     console.log("create");
+    this.location.back();
   }
 
 }

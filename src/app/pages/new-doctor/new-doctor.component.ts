@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Doctor } from 'models/doctor.model';
+import { Location } from '@angular/common';
+import { DoctorService } from 'app/services/doctor.service';
 
 @Component({
   selector: 'app-new-doctor',
@@ -9,11 +11,23 @@ import { Doctor } from 'models/doctor.model';
 export class NewDoctorComponent implements OnInit {
 
   doctor: Doctor;
+  title: String;
+  button: String;
 
-  constructor() { }
+  constructor(
+    private doctorService: DoctorService,
+    private location: Location,
+  ) { }
 
   ngOnInit(): void {
     this.doctor = new Doctor();
+    this.title = 'New Doctor';
+    this.button = 'Confirm';
   }
 
+  create() {
+    this.doctorService.putUpdateOneDoctor(this.doctor);
+    console.log('create');
+    this.location.back();
+  }
 }
