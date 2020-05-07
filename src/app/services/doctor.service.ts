@@ -43,7 +43,7 @@ export class DoctorService {
     return this.http.delete<Doctor>(url);
   }
 
-  // ------------------ 
+  // ------------------ TO DO: use Date.parse()
 
   getDoctorsActualMonth(): Doctor[] {
     const now = new Date(Date.now());

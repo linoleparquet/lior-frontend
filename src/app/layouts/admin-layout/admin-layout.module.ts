@@ -24,6 +24,7 @@ import { FormVisitComponent } from 'app/components/form-visit/form-visit.compone
 import { NewVisitComponent } from 'app/pages/new-visit/new-visit.component';
 import { NewDoctorComponent } from 'app/pages/new-doctor/new-doctor.component';
 import { TestComponent } from 'app/components/test/test.component';
+import { TableVisitPerDoctorComponent } from 'app/components/table-visit-per-doctor/table-visit-per-doctor.component';
 
 
 
@@ -49,7 +50,8 @@ import { TestComponent } from 'app/components/test/test.component';
     FormVisitComponent,
     NewVisitComponent,
     NewDoctorComponent,
-    TestComponent
+    TestComponent,
+    TableVisitPerDoctorComponent
 
   ]
 })

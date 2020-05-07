@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Visit } from 'models/visit.model';
+import { Observable } from 'rxjs';
+import { Doctor } from 'models/doctor.model';
+import { DoctorService } from 'app/services/doctor.service';
 
 @Component({
   selector: 'app-form-visit',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormVisitComponent implements OnInit {
 
-  constructor() { }
+  @Input() visit: Visit;
+  doctors$: Observable<Doctor[]>;
+
+  constructor(
+    private doctorService: DoctorService
+  ) { }
 
   ngOnInit(): void {
+    this.doctors$ = this.doctorService.getAllDoctors();
   }
 
 }

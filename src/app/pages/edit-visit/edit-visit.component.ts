@@ -14,19 +14,16 @@ import { Doctor } from 'models/doctor.model';
 export class EditVisitComponent implements OnInit {
 
   visit$: Observable<Visit>;
-  doctors$: Observable<Doctor[]>;
 
 
   constructor(
     private visitService: VisitService,
     private route: ActivatedRoute,
-    private doctorService: DoctorService
   ) { }
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.visit$ = this.visitService.getOneVisit(id);
-    this.doctors$ = this.doctorService.getAllDoctors();
   }
 
 

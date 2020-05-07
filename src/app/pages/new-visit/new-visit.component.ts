@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Visit } from 'models/visit.model';
 
 @Component({
   selector: 'app-new-visit',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewVisitComponent implements OnInit {
 
+  visit: Visit;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.visit = new Visit();
   }
 
 }

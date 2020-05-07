@@ -29,15 +29,7 @@ export class DoctorComponent implements OnInit {
     this.id = +this.route.snapshot.paramMap.get('id');
     this.doctor$ = this.doctorService.getOneDoctor(this.id)
     this.visits$ = of(VISITS);
-    this.headElements = VISIT_PER_DOCTOR_TABLE_HEADER;
   }
 
-  openEditDoctorPage() {
-    this.router.navigate([`/doctor/${this.id}/edit`]);
-  }
-
-  openEditVisitPage(id: number) {
-    this.router.navigate([`/visit/${id}/edit`]);
-  }
 
 }
