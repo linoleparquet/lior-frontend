@@ -4,10 +4,11 @@
         <div class="card-header">
           <div class="row justify-content-between">
             <div class="col">
-              <h5 class="card-title">Edit Visit</h5>
+              <h5 class="card-title">{{title}}</h5>
             </div>
-            <div class="col">
-              <button type="submit" class="btn btn-danger btn-round float-right">Delete Visit</button>
+            <div *ngIf="isEdit" class="col">
+              <button type="submit" class="btn btn-danger btn-round float-right" (click)="onDelete()">Delete
+                Visit</button>
             </div>
           </div>
         </div>
@@ -28,7 +29,7 @@
 
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>Date date.now() ????</label>
+                  <label>Date</label>
                   <input type="date" class="form-control" value="{{visit.date}}">
                 </div>
               </div>
@@ -45,7 +46,8 @@
             </div>
             <div class="row">
               <div class="update ml-auto mr-auto">
-                <button type="submit" class="btn btn-primary btn-round">Update Visit</button>
+                <button type="submit" class="btn btn-success btn-round"
+                  (click)="onConfirmation()">{{getConfimrationButton()}}</button>
 
               </div>
             </div>

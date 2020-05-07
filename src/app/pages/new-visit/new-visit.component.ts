@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Visit } from 'models/visit.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-new-visit',
@@ -9,11 +10,16 @@ import { Visit } from 'models/visit.model';
 export class NewVisitComponent implements OnInit {
 
   visit: Visit;
+  title: String;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.visit = new Visit();
+    this.title = "New Visit";
+    this.route.queryParams.subscribe(params => {
+      this.visit.doctorId = params['doctor']
+    })
   }
 
 }

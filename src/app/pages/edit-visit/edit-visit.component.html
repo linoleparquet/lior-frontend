@@ -1,3 +1,4 @@
 <div *ngIf="visit$ | async as visit">
-  <app-form-visit [visit]="visit"></app-form-visit>
+  <app-form-visit [visit]="visit" [isEdit]="true" [title]="title" (confirmation)="update(visit)"
+    (delete)="delete(visit.id)"></app-form-visit>
 </div>

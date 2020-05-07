@@ -14,6 +14,7 @@ import { Doctor } from 'models/doctor.model';
 export class EditVisitComponent implements OnInit {
 
   visit$: Observable<Visit>;
+  title: String;
 
 
   constructor(
@@ -24,7 +25,16 @@ export class EditVisitComponent implements OnInit {
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.visit$ = this.visitService.getOneVisit(id);
+    this.title = 'Edit Visit';
   }
 
+  update(visit: Visit): void {
+    this.visitService.putUpdateOneVisit(visit);
+    console.log('update');
+  }
 
+  delete(id: number): void {
+    this.visitService.deleteOneVisit(id);
+    console.log('delete');
+  }
 }

@@ -10,6 +10,8 @@
     </div>
     <div class="col">
       <a [routerLink]="['/doctor',doctor.id,'edit']" class="btn btn-warning btn-round float-right">Edit Profile</a>
+      <a [routerLink]="['/visits/new']" [queryParams]="{doctor: this.doctor.id}"
+        class="btn btn-success btn-round float-right">Add a visit</a>
     </div>
   </div>
 
