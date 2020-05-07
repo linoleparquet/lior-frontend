@@ -15,6 +15,7 @@ export class FormVisitComponent implements OnInit {
   @Input() visit: Visit;
   @Input() isEdit: boolean;
   @Input() title: String;
+  @Input() button: String;
   @Output() confirmation: EventEmitter<MouseEvent>;
   @Output() delete: EventEmitter<MouseEvent>;
 
@@ -23,7 +24,6 @@ export class FormVisitComponent implements OnInit {
 
   constructor(
     private doctorService: DoctorService,
-    private visitService: VisitService
   ) {
     this.confirmation = new EventEmitter();
     this.delete = new EventEmitter();
@@ -48,16 +48,10 @@ export class FormVisitComponent implements OnInit {
   }
 
   onConfirmation(): void {
-    // if (this.isEdit) {
-    //   this.visitService.putUpdateOneVisit(this.visit);
-    // } else {
-    //   this.visitService.postCreateNewVisit(this.visit);
-    // }
     this.confirmation.emit();
   }
 
   onDelete(): void {
-    // this.visitService.deleteOneVisit(this.visit.id);
     this.delete.emit();
   }
 
