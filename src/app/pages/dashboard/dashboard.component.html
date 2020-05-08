@@ -1,8 +1,12 @@
-<app-table-doctor *ngIf="!doctorsActualMonth.length == 0" [title]="'Doctors to visit this month'"
-  [doctors]="doctorsActualMonth">
-</app-table-doctor>
-<app-table-doctor *ngIf="!doctorsBeforeActualMonth.length == 0" [title]="'Doctors late'"
-  [doctors]="doctorsBeforeActualMonth">
-</app-table-doctor>
-<app-table-doctor *ngIf="!doctorsProspect.length == 0" [title]="'Prospects'" [doctors]="doctorsProspect">
-</app-table-doctor>
+<div *ngIf="doctorsActualMonth$ | async as doctors">
+  <app-table-doctor *ngIf="doctors != 0" [title]="'Doctors to visit this month'" [doctors]="doctors">
+  </app-table-doctor>
+</div>
+<div *ngIf="doctorsBeforeActualMonth$ | async as doctors">
+  <app-table-doctor *ngIf="doctors != 0" [title]="'Doctors late'" [doctors]="doctors">
+  </app-table-doctor>
+</div>
+<div *ngIf="doctorsProspect$ | async as doctors">
+  <app-table-doctor *ngIf="doctors.length != 0" [title]="'Prospects'" [doctors]="doctors">
+  </app-table-doctor>
+</div>

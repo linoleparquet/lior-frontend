@@ -46,9 +46,9 @@ export class VisitService {
   getVisitsByDoctor(id: number) {
     return this.getAllVisits()
       .pipe(
-        map(visits => visits
-          .filter(
-            visit => visit.doctorId == id
+        map(visits =>
+          visits.filter(visit =>
+            visit.doctorId == id
           ))
       );
   }

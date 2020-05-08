@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Doctor } from 'models/doctor.model';
 import { DOCTORS } from 'app/mock/database.mock';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -43,47 +44,40 @@ export class DoctorService {
     return this.http.delete<Doctor>(url);
   }
 
-  // ------------------ TO DO: use Date.parse()
+  // -----------------------------------------------------
 
-  getDoctorsActualMonth(): Doctor[] {
+  getDoctorsActualMonth(): Observable<Doctor[]> {
     const now = new Date(Date.now());
-    let doc: Doctor[];
-    this.getAllDoctors().subscribe(doctors =>
-      doc = doctors.filter(doctor => {
-        const nextVisit = new Date(doctor.nextVisitDate);
-        if (doctor.nextVisitDate != "0" &&
-          now.getMonth() == nextVisit.getMonth() &&
-          now.getFullYear() == nextVisit.getFullYear()) { return true }
-      }));
-
-    return doc;
+    return this.getAllDoctors()
+      .pipe(
+        map(doctors =>
+          doctors.filter(doctor => {
+            const visit = new Date(doctor.nextVisitDate);
+            if (doctor.nextVisitDate != "0" &&
+              now.getMonth() == visit.getMonth() &&
+              now.getFullYear() == visit.getFullYear()) { return true }
+          })));
   }
 
 
-  getDoctorsBeforeActualMonth(): Doctor[] {
+  getDoctorsBeforeActualMonth(): Observable<Doctor[]> {
     const now = new Date(Date.now());
-
-    let doc: Doctor[];
-    this.getAllDoctors().subscribe(doctors =>
-      doc = doctors.filter(doctor => {
-        const nextVisit = new Date(doctor.nextVisitDate);
-
-        if (doctor.nextVisitDate != "0"
-          &&
-          (((nextVisit.getMonth() < now.getMonth() && now.getFullYear() == nextVisit.getFullYear()))
-            || nextVisit.getFullYear() < now.getFullYear())) { return true }
-      }));
-
-    return doc;
+    return this.getAllDoctors()
+      .pipe(
+        map(doctors =>
+          doctors.filter(doctor => {
+            const nextVisit = new Date(doctor.nextVisitDate);
+            if (doctor.nextVisitDate != "0" &&
+              (((nextVisit.getMonth() < now.getMonth() && now.getFullYear() == nextVisit.getFullYear()))
+                || nextVisit.getFullYear() < now.getFullYear())) { return true }
+          })));
   }
 
-  getDoctorsProspect(): Doctor[] {
-    let doc: Doctor[];
-    this.getAllDoctors().subscribe(doctors =>
-      doc = doctors.filter(doctor => {
-        if (doctor.nextVisitDate == "0") { return true }
-      }));
-
-    return doc;
+  getDoctorsProspect(): Observable<Doctor[]> {
+    return this.getAllDoctors().pipe(
+      map(doctors =>
+        doctors.filter(doctor => {
+          if (doctor.nextVisitDate == "0") { return true }
+        })));
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from 'app/services/doctor.service';
 import { Doctor } from 'models/doctor.model';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -11,16 +12,15 @@ import { Doctor } from 'models/doctor.model';
 
 export class DashboardComponent implements OnInit {
 
-  doctorsActualMonth: Doctor[];
-  doctorsBeforeActualMonth: Doctor[];
-  doctorsProspect: Doctor[];
+  doctorsActualMonth$: Observable<Doctor[]>;
+  doctorsBeforeActualMonth$: Observable<Doctor[]>;
+  doctorsProspect$: Observable<Doctor[]>;
 
   constructor(private doctorService: DoctorService) { }
 
   ngOnInit() {
-    this.doctorsActualMonth = this.doctorService.getDoctorsActualMonth();
-    this.doctorsBeforeActualMonth = this.doctorService.getDoctorsBeforeActualMonth();
-    this.doctorsProspect = this.doctorService.getDoctorsProspect();
-
+    this.doctorsActualMonth$ = this.doctorService.getDoctorsActualMonth();
+    this.doctorsBeforeActualMonth$ = this.doctorService.getDoctorsBeforeActualMonth();
+    this.doctorsProspect$ = this.doctorService.getDoctorsProspect();
   }
 }
