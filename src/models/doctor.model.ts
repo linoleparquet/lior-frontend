@@ -2,7 +2,7 @@ export class Doctor {
     id: number;
     name: string;
     surname: string;
-    town: string;
+    city: string;
     department: number;
     periodicity: number;
     lastVisitId: number;
@@ -12,7 +12,7 @@ export class Doctor {
         this.id = null;
         this.name = null;
         this.surname = null;
-        this.town = null;
+        this.city = null;
         this.department = null;
         this.periodicity = null;
         this.lastVisitId = null;

@@ -3,7 +3,7 @@
     <div class="col">
       <h1>{{doctor.name}} {{doctor.surname}}</h1>
       <h3 class="text-muted">
-        <div>{{doctor.department}} - {{doctor.town}}</div>
+        <div>{{doctor.department}} - {{doctor.city}}</div>
         <div>To see {{doctor.periodicity}} times per year</div>
         <div>Next Visit is scheduled for : {{doctor.nextVisitDate | date}}</div>
       </h3>
@@ -18,3 +18,4 @@
 
   <div *ngIf="visits$ | async as visits">
     <app-table-visit-per-doctor [visits]="visits"></app-table-visit-per-doctor>
+  </div>

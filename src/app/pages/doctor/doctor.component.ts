@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { DoctorService } from 'app/services/doctor.service';
 import { Observable, of } from 'rxjs';
+import { VisitService } from 'app/services/visit.service';
 
 @Component({
   selector: 'app-doctor',
@@ -16,19 +17,19 @@ export class DoctorComponent implements OnInit {
 
   visits$: Observable<Visit[]>;
   doctor$: Observable<Doctor>;
-  headElements: String[];
   id: number;
 
   constructor(
     private doctorService: DoctorService,
+    private visitService: VisitService,
     private route: ActivatedRoute,
-    public router: Router
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.id = +this.route.snapshot.paramMap.get('id');
-    this.doctor$ = this.doctorService.getOneDoctor(this.id)
-    this.visits$ = of(VISITS);
+    this.doctor$ = this.doctorService.getOneDoctor(this.id);
+    this.visits$ = this.visitService.getVisitsByDoctor(this.id);
   }
 
 

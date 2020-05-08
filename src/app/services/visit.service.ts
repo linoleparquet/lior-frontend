@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { map, filter } from 'rxjs/operators'
 import { Visit } from 'models/visit.model';
 import { VISITS } from 'app/mock/database.mock';
 
@@ -39,5 +40,16 @@ export class VisitService {
   deleteOneVisit(visit: number): Observable<Visit> {
     const url = `${this.localhostUrl}/${visit}`;
     return this.http.delete<Visit>(url);
+  }
+
+
+  getVisitsByDoctor(id: number) {
+    return this.getAllVisits()
+      .pipe(
+        map(visits => visits
+          .filter(
+            visit => visit.doctorId == id
+          ))
+      );
   }
 }

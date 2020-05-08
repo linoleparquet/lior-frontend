@@ -18,10 +18,10 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Doctor</label>
-                  <!-- a taffer value="{{visit.doctorId}}" -->
-                  <select class="form-control">
-                    <option value="" disabled selected>Select the doctor</option>
-                    <option *ngFor="let doctor of doctors$ | async" value="{{doctor.id}}">{{doctor.name}}
+                  <select class="form-control" [value]="visit.doctorId">
+                    <option disabled selected>Select the doctor</option>
+                    <option *ngFor="let doctor of doctors$ | async" [value]="doctor.id" ng-selected>
+                      {{doctor.name}}
                       {{doctor.surname}}</option>
                   </select>
                 </div>
@@ -30,7 +30,7 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Date</label>
-                  <input type="date" class="form-control" value="{{visit.date}}">
+                  <input type="date" class="form-control" value="visit.date">
                 </div>
               </div>
 
@@ -38,7 +38,7 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <label>About Me</label>
+                  <label>Notes</label>
                   <textarea class="form-control textarea"
                     placeholder="Write something here ...">{{visit.note}}</textarea>
                 </div>
@@ -47,7 +47,6 @@
             <div class="row">
               <div class="update ml-auto mr-auto">
                 <button type="submit" class="btn btn-success btn-round" (click)="onConfirmation()">{{button}}</button>
-
               </div>
             </div>
           </form>

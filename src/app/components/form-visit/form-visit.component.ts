@@ -3,7 +3,6 @@ import { Visit } from 'models/visit.model';
 import { Observable } from 'rxjs';
 import { Doctor } from 'models/doctor.model';
 import { DoctorService } from 'app/services/doctor.service';
-import { VisitService } from 'app/services/visit.service';
 
 @Component({
   selector: 'app-form-visit',
@@ -19,7 +18,6 @@ export class FormVisitComponent implements OnInit {
   @Output() confirmation: EventEmitter<MouseEvent>;
   @Output() delete: EventEmitter<MouseEvent>;
 
-  // event emitter?
   doctors$: Observable<Doctor[]>;
 
   constructor(
@@ -31,20 +29,6 @@ export class FormVisitComponent implements OnInit {
 
   ngOnInit(): void {
     this.doctors$ = this.doctorService.getAllDoctors();
-  }
-  getTitle(): String {
-    if (this.isEdit) {
-      return "Edit Visit";
-    }
-    return "New Visit";
-
-  }
-
-  getConfimrationButton(): String {
-    if (this.isEdit) {
-      return "Update";
-    }
-    return "Confirm";
   }
 
   onConfirmation(): void {

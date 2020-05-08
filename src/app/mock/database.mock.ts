@@ -6,7 +6,7 @@ export const DOCTORS: Doctor[] = [
         "id": 1,
         "name": "Didier",
         "surname": "Raoult",
-        "town": "Marseille",
+        "city": "Marseille",
         "department": 13,
         "periodicity": 12,
         "lastVisitId": 1,
@@ -16,7 +16,7 @@ export const DOCTORS: Doctor[] = [
         "id": 2,
         "name": "Dominique-Jean",
         "surname": "Larray",
-        "town": "Paris",
+        "city": "Paris",
         "department": 75,
         "periodicity": 1,
         "lastVisitId": 2,
@@ -26,7 +26,7 @@ export const DOCTORS: Doctor[] = [
         "id": 3,
         "name": "Maurice",
         "surname": "Teboul",
-        "town": "Pechabou",
+        "city": "Pechabou",
         "department": 3,
         "periodicity": 6,
         "lastVisitId": 3,
@@ -36,7 +36,7 @@ export const DOCTORS: Doctor[] = [
         "id": 4,
         "name": "Jeannnnnnnnnn",
         "surname": "Valjean",
-        "town": "Paris",
+        "city": "Paris",
         "department": 75,
         "periodicity": 1,
         "lastVisitId": 4,
@@ -46,7 +46,7 @@ export const DOCTORS: Doctor[] = [
         "id": 5,
         "name": "Patrick",
         "surname": "Nian",
-        "town": "Afrique",
+        "city": "Afrique",
         "department": 37,
         "periodicity": 6,
         "lastVisitId": 5,
@@ -56,7 +56,7 @@ export const DOCTORS: Doctor[] = [
         "id": 6,
         "name": "Suzanne",
         "surname": "Valadon",
-        "town": "Paris",
+        "city": "Paris",
         "department": 75,
         "periodicity": 1,
         "lastVisitId": 6,
@@ -66,7 +66,7 @@ export const DOCTORS: Doctor[] = [
         "id": 7,
         "name": "Maurice",
         "surname": "Léléphan",
-        "town": "Boulogne sur Mer",
+        "city": "Boulogne sur Mer",
         "department": 75,
         "periodicity": 1,
         "lastVisitId": 7,
@@ -76,7 +76,7 @@ export const DOCTORS: Doctor[] = [
         "id": 8,
         "name": "Eric",
         "surname": "Ramzi",
-        "town": "La lune",
+        "city": "La lune",
         "department": 75,
         "periodicity": 1,
         "lastVisitId": 6,
@@ -111,6 +111,6 @@ export const VISITS: Visit[] = [
     }
 ]
 
-export const DOCTOR_TABLE_HEADER: String[] = ["Name", "Surname", "Town", "Department", "Periodicity", "Last Visit", "Next Visit"];
+export const DOCTOR_TABLE_HEADER: String[] = ["Name", "Surname", "city", "Department", "Periodicity", "Last Visit", "Next Visit"];
 export const VISITS_TABLE_HEADER: String[] = ["Doctor", "Date", "Notes"];
 export const VISIT_PER_DOCTOR_TABLE_HEADER: String[] = ["Date", "Notes"];
