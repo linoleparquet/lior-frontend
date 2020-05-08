@@ -13,56 +13,76 @@
         </div>
       </div>
       <div class="card-body">
-        <form>
+        <form [formGroup]="doctorForm">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
                 <label>First Name</label>
-                <input required type="text" class="form-control" placeholder="First Name" value="{{doctor.name}}">
+                <input required id="name" class="form-control" formControlName="name">
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                  <div *ngIf="name.errors.required">
+                    Name is required.
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>Last Name</label>
-                <input type="text" class="form-control" placeholder="Last Name" value="{{doctor.surname}}">
+                <input required id="surname" class="form-control" formControlName="surname">
+                <div *ngIf="surname.invalid && (surname.dirty || surname.touched)" class="alert alert-danger">
+                  <div *ngIf="surname.errors.required">
+                    Surname is required.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
                 <label>Department</label>
-                <input type="text" class="form-control" placeholder="Country" value="{{doctor.department}}">
+                <input required name="department" class="form-control" formControlName="department">
+                <div *ngIf="department.invalid && (department.dirty || department.touched)" class="alert alert-danger">
+                  <div *ngIf="department.errors.required">
+                    Department is required.
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label>City</label>
-                <input type="text" class="form-control" placeholder="City" value="{{doctor.city}}">
+                <input required name="city" class="form-control" formControlName="city">
+                <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+                  <div *ngIf="city.errors.required">
+                    City is required.
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label>Periodicity</label>
-                <input type="number" class="form-control" placeholder="Periodicity" value="{{doctor.periodicity}}">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Address (disabled)</label>
-                <input type="text" class="form-control" disabled="" placeholder="Home Address"
-                  value="Melbourne, Australia">
-              </div>
-              <div class="row">
-                <div class="update ml-auto mr-auto">
-                  <button type="submit" class="btn btn-success btn-round" (click)="onConfirmation()">{{button}}</button>
+                <input required type="number" name="periodicity" class="form-control" formControlName="periodicity">
+                <div *ngIf="periodicity.invalid && (periodicity.dirty || periodicity.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="periodicity.errors.required">
+                    Periodicity is required.
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
         </form>
+        <div class="row">
+          <div class="ml-auto mr-auto">
+            <button type="submit" class="btn btn-success btn-round" [disabled]="doctorForm.invalid"
+              (click)="onConfirmation()">{{button}}</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

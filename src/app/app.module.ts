@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from "ngx-toastr";
 import { HttpClientModule } from '@angular/common/http';
+//why can't I put it there?
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './shared/footer/footer.module';
@@ -31,6 +33,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     FooterModule,
     FixedPluginModule,
     HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
