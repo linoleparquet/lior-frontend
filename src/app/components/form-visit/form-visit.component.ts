@@ -44,8 +44,7 @@ export class FormVisitComponent implements OnInit {
   }
 
   onConfirmation(): void {
-    console.log(this.form.value)
-    // this.confirmation.emit(this.form.value);
+    this.confirmation.emit(this.form.value);
   }
 
   onDelete(): void {

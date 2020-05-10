@@ -1,2 +1,4 @@
-<app-table-doctor [title]="'Doctors'" [doctors]="doctors$ | async">
-</app-table-doctor>
+<div *ngIf="doctors$ | async as doctors">
+  <app-table-doctor [title]="'Doctors'" [doctors]="doctors">
+  </app-table-doctor>
+</div>

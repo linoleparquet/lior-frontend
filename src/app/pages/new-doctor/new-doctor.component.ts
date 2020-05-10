@@ -26,7 +26,6 @@ export class NewDoctorComponent implements OnInit {
   }
 
   create(doctor: Doctor) {
-    this.doctorService.postCreateNewDoctor(doctor).subscribe(r => console.log(r))
-    this.location.back();
+    this.doctorService.postCreateNewDoctor(doctor).subscribe(() => this.location.back());
   }
 }

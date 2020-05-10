@@ -31,7 +31,7 @@ export class EditVisitComponent implements OnInit {
   }
 
   update(visit: Visit): void {
-    this.visitService.putUpdateOneVisit(visit).subscribe((a) => { console.log(a); this.location.back() })
+    this.visitService.putUpdateOneVisit(visit).subscribe(() => this.location.back())
   }
 
   delete(id: number): void {
