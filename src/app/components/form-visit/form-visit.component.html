@@ -1,67 +1,63 @@
-  <div class="row">
-    <div class="col">
-      <div class="card card-user">
-        <div class="card-header">
-          <div class="row justify-content-between">
-            <div class="col">
-              <h5 class="card-title">{{title}}</h5>
-            </div>
-            <div *ngIf="isEdit" class="col">
-              <button type="submit" class="btn btn-danger btn-round float-right" (click)="onDelete()">Delete
-                Visit</button>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <form [formGroup]="form">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label>Doctor</label>
-                  <select required class="form-control" formControlName="doctorId" name="doctorId">
-                    <option [ngValue]="null" ng-selected>Select the doctor</option>
-                    <option *ngFor="let doctor of doctors$ | async" [ngValue]="doctor.id" ng-selected>
-                      {{doctor.name}}
-                      {{doctor.surname}}</option>
-                  </select>
-                  <div *ngIf="doctorId.invalid && (doctorId.dirty || doctorId.touched)" class="alert alert-danger">
-                    <div *ngIf="doctorId.errors.required">
-                      Doctor is required.
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label>Date</label>
-                  <input required type="date" name="date" class="form-control" formControlName="date">
-                  <div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert alert-danger">
-                    <div *ngIf="date.errors.required">
-                      Date is required.
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label>Notes</label>
-                  <textarea class="form-control textarea" formControlName="note"
-                    placeholder="Write something here ..."></textarea>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="update ml-auto mr-auto">
-                <button type="submit" class="btn btn-success btn-round" [disabled]="form.invalid"
-                  (click)="onConfirmation()">{{button}}</button>
-              </div>
-            </div>
-          </form>
-        </div>
+<div class="card card-user">
+  <div class="card-header">
+    <div class="row justify-content-between">
+      <div class="col">
+        <h5 class="card-title">{{title}}</h5>
+      </div>
+      <div *ngIf="isEdit" class="col">
+        <button type="submit" class="btn btn-danger btn-round float-right" (click)="onDelete()">Delete
+          Visit</button>
       </div>
     </div>
   </div>
+  <div class="card-body">
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Doctor</label>
+            <select required class="form-control" formControlName="doctorId" name="doctorId">
+              <option [ngValue]="null" ng-selected>Select the doctor</option>
+              <option *ngFor="let doctor of doctors$ | async" [ngValue]="doctor.id" ng-selected>
+                {{doctor.name}}
+                {{doctor.surname}}</option>
+            </select>
+            <div *ngIf="doctorId.invalid && (doctorId.dirty || doctorId.touched)" class="alert alert-danger">
+              <div *ngIf="doctorId.errors.required">
+                Doctor is required.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Date</label>
+            <input required type="date" name="date" class="form-control" formControlName="date">
+            <div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert alert-danger">
+              <div *ngIf="date.errors.required">
+                Date is required.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Notes</label>
+            <textarea class="form-control textarea" formControlName="note"
+              placeholder="Write something here ..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="update ml-auto mr-auto">
+          <button type="submit" class="btn btn-success btn-round" [disabled]="form.invalid"
+            (click)="onConfirmation()">{{button}}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

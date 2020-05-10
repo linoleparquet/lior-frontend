@@ -1,88 +1,83 @@
-<div class="row">
-  <div class="col">
-    <div class="card card-user">
-      <div class="card-header">
-        <div class="row">
-          <div class="col">
-            <h5 class="card-title">{{title}}</h5>
+<div class="card card-user">
+  <div class="card-header">
+    <div class="row">
+      <div class="col">
+        <h5 class="card-title">{{title}}</h5>
+      </div>
+      <div *ngIf="isEdit" class="col">
+        <button type="submit" class="btn btn-danger btn-round float-right" (click)='onDelete()'>Delete
+          Profile</button>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>First Name</label>
+            <input required id="name" class="form-control" formControlName="name">
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+              <div *ngIf="name.errors.required">
+                Name is required.
+              </div>
+            </div>
           </div>
-          <div *ngIf="isEdit" class="col">
-            <button type="submit" class="btn btn-danger btn-round float-right" (click)='onDelete()'>Delete
-              Profile</button>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Last Name</label>
+            <input required id="surname" class="form-control" formControlName="surname">
+            <div *ngIf="surname.invalid && (surname.dirty || surname.touched)" class="alert alert-danger">
+              <div *ngIf="surname.errors.required">
+                Surname is required.
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card-body">
-        <form [formGroup]="form">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>First Name</label>
-                <input required id="name" class="form-control" formControlName="name">
-                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
-                  <div *ngIf="name.errors.required">
-                    Name is required.
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Last Name</label>
-                <input required id="surname" class="form-control" formControlName="surname">
-                <div *ngIf="surname.invalid && (surname.dirty || surname.touched)" class="alert alert-danger">
-                  <div *ngIf="surname.errors.required">
-                    Surname is required.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Department</label>
-                <input required type="number" name="department" class="form-control" formControlName="department">
-                <div *ngIf="department.invalid && (department.dirty || department.touched)" class="alert alert-danger">
-                  <div *ngIf="department.errors.required">
-                    Department is required.
-                  </div>
-                </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Department</label>
+            <input required type="number" name="department" class="form-control" formControlName="department">
+            <div *ngIf="department.invalid && (department.dirty || department.touched)" class="alert alert-danger">
+              <div *ngIf="department.errors.required">
+                Department is required.
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>City</label>
-                <input required name="city" class="form-control" formControlName="city">
-                <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
-                  <div *ngIf="city.errors.required">
-                    City is required.
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Periodicity</label>
-                <input required type="number" name="periodicity" class="form-control" formControlName="periodicity">
-                <div *ngIf="periodicity.invalid && (periodicity.dirty || periodicity.touched)"
-                  class="alert alert-danger">
-                  <div *ngIf="periodicity.errors.required">
-                    Periodicity is required.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </form>
-        <div class="row">
-          <div class="ml-auto mr-auto">
-            <button type="submit" class="btn btn-success btn-round" [disabled]="form.invalid"
-              (click)="onConfirmation()">{{button}}</button>
           </div>
         </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>City</label>
+            <input required name="city" class="form-control" formControlName="city">
+            <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+              <div *ngIf="city.errors.required">
+                City is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Periodicity</label>
+            <input required type="number" name="periodicity" class="form-control" formControlName="periodicity">
+            <div *ngIf="periodicity.invalid && (periodicity.dirty || periodicity.touched)" class="alert alert-danger">
+              <div *ngIf="periodicity.errors.required">
+                Periodicity is required.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+    <div class="row">
+      <div class="ml-auto mr-auto">
+        <button type="submit" class="btn btn-success btn-round" [disabled]="form.invalid"
+          (click)="onConfirmation()">{{button}}</button>
       </div>
     </div>
   </div>
