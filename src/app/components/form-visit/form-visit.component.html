@@ -13,24 +13,34 @@
           </div>
         </div>
         <div class="card-body">
-          <form>
-            <div class="row justify-content-between">
+          <form [formGroup]="form">
+            <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Doctor</label>
-                  <select class="form-control" [value]="visit.doctorId">
-                    <option disabled selected>Select the doctor</option>
-                    <option *ngFor="let doctor of doctors$ | async" [value]="doctor.id" ng-selected>
+                  <select required class="form-control" formControlName="doctorId" name="doctorId">
+                    <option [ngValue]="null" ng-selected>Select the doctor</option>
+                    <option *ngFor="let doctor of doctors$ | async" [ngValue]="doctor.id" ng-selected>
                       {{doctor.name}}
                       {{doctor.surname}}</option>
                   </select>
+                  <div *ngIf="doctorId.invalid && (doctorId.dirty || doctorId.touched)" class="alert alert-danger">
+                    <div *ngIf="doctorId.errors.required">
+                      Doctor is required.
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Date</label>
-                  <input type="date" class="form-control" value="visit.date">
+                  <input required type="date" name="date" class="form-control" formControlName="date">
+                  <div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert alert-danger">
+                    <div *ngIf="date.errors.required">
+                      Date is required.
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -39,14 +49,15 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Notes</label>
-                  <textarea class="form-control textarea"
-                    placeholder="Write something here ...">{{visit.note}}</textarea>
+                  <textarea class="form-control textarea" formControlName="note"
+                    placeholder="Write something here ..."></textarea>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="update ml-auto mr-auto">
-                <button type="submit" class="btn btn-success btn-round" (click)="onConfirmation()">{{button}}</button>
+                <button type="submit" class="btn btn-success btn-round" [disabled]="form.invalid"
+                  (click)="onConfirmation()">{{button}}</button>
               </div>
             </div>
           </form>

@@ -13,19 +13,22 @@ export class FormDoctorComponent implements OnInit {
   @Input() isEdit: boolean;
   @Input() title: String;
   @Input() button: String;
-  @Output() confirmation: EventEmitter<MouseEvent>;
+  @Output() confirmation: EventEmitter<Doctor>;
   @Output() delete: EventEmitter<MouseEvent>;
 
-  doctorForm: FormGroup;
+  form: FormGroup;
 
 
   constructor() {
-    this.confirmation = new EventEmitter();
-    this.delete = new EventEmitter();
+    this.confirmation = new EventEmitter<Doctor>();
+    this.delete = new EventEmitter<MouseEvent>();
   }
 
   ngOnInit(): void {
-    this.doctorForm = new FormGroup({
+    this.form = new FormGroup({
+      'id': new FormControl(this.doctor.id, []),
+      'lastVisitId': new FormControl(this.doctor.lastVisitId, []),
+      'nextVisitDate': new FormControl(this.doctor.nextVisitDate, []),
       'name': new FormControl(this.doctor.name, [
         Validators.required
       ]),
@@ -45,16 +48,16 @@ export class FormDoctorComponent implements OnInit {
   }
 
   onConfirmation(): void {
-    this.confirmation.emit();
+    this.confirmation.emit(this.form.value);
   }
 
   onDelete(): void {
     this.delete.emit();
   }
 
-  get name() { return this.doctorForm.get('name'); }
-  get surname() { return this.doctorForm.get('surname'); }
-  get department() { return this.doctorForm.get('department'); }
-  get city() { return this.doctorForm.get('city'); }
-  get periodicity() { return this.doctorForm.get('periodicity'); }
+  get name() { return this.form.get('name'); }
+  get surname() { return this.form.get('surname'); }
+  get department() { return this.form.get('department'); }
+  get city() { return this.form.get('city'); }
+  get periodicity() { return this.form.get('periodicity'); }
 }

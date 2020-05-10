@@ -1,4 +1,4 @@
 <div *ngIf="doctor$ | async as doctor">
-  <app-form-doctor [doctor]="doctor" [isEdit]="true" [title]="title" [button]='button' (confirmation)="update(doctor)"
+  <app-form-doctor [doctor]="doctor" [isEdit]="true" [title]="title" [button]='button' (confirmation)="update($event)"
     (delete)="delete(doctor.id)"></app-form-doctor>
 </div>

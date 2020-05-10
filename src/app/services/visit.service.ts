@@ -15,8 +15,8 @@ export class VisitService {
   private localhostUrl = 'http://localhost:8080/visits';
 
   getAllVisits(): Observable<Visit[]> {
-    // const url = `${this.localhostUrl}`;
-    // return this.http.get<Visit[]>(url);
+    const url = `${this.localhostUrl}`;
+    return this.http.get<Visit[]>(url);
 
     return of(VISITS);
   }
@@ -27,8 +27,8 @@ export class VisitService {
   }
 
   getOneVisit(id: number): Observable<Visit> {
-    // const url = `${this.localhostUrl}/${id}`;
-    // return this.http.get<Visit>(url);
+    const url = `${this.localhostUrl}/${id}`;
+    return this.http.get<Visit>(url);
     return of(VISITS[id - 1])
   }
 

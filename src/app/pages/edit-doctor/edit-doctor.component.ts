@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Doctor } from 'models/doctor.model';
 import { DoctorService } from 'app/services/doctor.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Location } from '@angular/common';
 
@@ -21,6 +21,7 @@ export class EditDoctorComponent implements OnInit {
     private doctorService: DoctorService,
     private route: ActivatedRoute,
     private location: Location,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -31,14 +32,11 @@ export class EditDoctorComponent implements OnInit {
   }
 
   update(doctor: Doctor) {
-    this.doctorService.putUpdateOneDoctor(doctor);
-    console.log('update');
-    this.location.back();
+    this.doctorService.putUpdateOneDoctor(doctor).subscribe(() => this.location.back())
+
   }
 
   delete(id: number) {
-    this.doctorService.deleteOneDoctor(id);
-    console.log('delete');
-    this.location.back();
+    this.doctorService.deleteOneDoctor(id).subscribe(() => this.router.navigate(['/doctors']))
   }
 }

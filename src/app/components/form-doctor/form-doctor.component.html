@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="card-body">
-        <form [formGroup]="doctorForm">
+        <form [formGroup]="form">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
@@ -43,7 +43,7 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label>Department</label>
-                <input required name="department" class="form-control" formControlName="department">
+                <input required type="number" name="department" class="form-control" formControlName="department">
                 <div *ngIf="department.invalid && (department.dirty || department.touched)" class="alert alert-danger">
                   <div *ngIf="department.errors.required">
                     Department is required.
@@ -79,7 +79,7 @@
         </form>
         <div class="row">
           <div class="ml-auto mr-auto">
-            <button type="submit" class="btn btn-success btn-round" [disabled]="doctorForm.invalid"
+            <button type="submit" class="btn btn-success btn-round" [disabled]="form.invalid"
               (click)="onConfirmation()">{{button}}</button>
           </div>
         </div>

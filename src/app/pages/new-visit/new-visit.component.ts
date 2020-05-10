@@ -26,14 +26,12 @@ export class NewVisitComponent implements OnInit {
     this.title = "New Visit";
     this.button = "Confirm";
     this.route.queryParams.subscribe(params => {
-      this.visit.doctorId = params['doctor']
+      this.visit.doctorId = Number(params['doctor']) || undefined
     })
   }
 
-  create() {
-    this.visitService.postCreateNewVisit(this.visit);
-    console.log("create");
-    this.location.back();
+  create(visit: Visit) {
+    this.visitService.postCreateNewVisit(visit).subscribe(() => this.location.back());
   }
 
 }

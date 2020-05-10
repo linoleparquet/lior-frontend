@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VisitService } from 'app/services/visit.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Visit } from 'models/visit.model';
-import { DoctorService } from 'app/services/doctor.service';
 import { Observable } from 'rxjs';
-import { Doctor } from 'models/doctor.model';
 import { Location } from '@angular/common';
 
 @Component({
@@ -33,14 +31,10 @@ export class EditVisitComponent implements OnInit {
   }
 
   update(visit: Visit): void {
-    this.visitService.putUpdateOneVisit(visit);
-    console.log('update');
-    this.location.back();
+    this.visitService.putUpdateOneVisit(visit).subscribe((a) => { console.log(a); this.location.back() })
   }
 
   delete(id: number): void {
-    this.visitService.deleteOneVisit(id);
-    console.log('delete');
-    this.location.back();
+    this.visitService.deleteOneVisit(id).subscribe(() => this.location.back())
   }
 }

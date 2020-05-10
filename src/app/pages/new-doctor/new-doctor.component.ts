@@ -25,9 +25,8 @@ export class NewDoctorComponent implements OnInit {
     this.button = 'Confirm';
   }
 
-  create() {
-    this.doctorService.putUpdateOneDoctor(this.doctor);
-    console.log('create');
+  create(doctor: Doctor) {
+    this.doctorService.postCreateNewDoctor(doctor).subscribe(r => console.log(r))
     this.location.back();
   }
 }
