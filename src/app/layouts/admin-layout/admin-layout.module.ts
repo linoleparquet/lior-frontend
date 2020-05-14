@@ -23,7 +23,7 @@ import { FormDoctorComponent } from 'app/components/form-doctor/form-doctor.comp
 import { FormVisitComponent } from 'app/components/form-visit/form-visit.component';
 import { NewVisitComponent } from 'app/pages/new-visit/new-visit.component';
 import { NewDoctorComponent } from 'app/pages/new-doctor/new-doctor.component';
-import { TestComponent } from 'app/components/test/test.component';
+import { TestComponent, NgbdSortableHeader } from 'app/components/test/test.component';
 import { TableVisitPerDoctorComponent } from 'app/components/table-visit-per-doctor/table-visit-per-doctor.component';
 import { TableVisitComponent } from 'app/components/table-visit/table-visit.component';
 
@@ -36,6 +36,7 @@ import { TableVisitComponent } from 'app/components/table-visit/table-visit.comp
     NgbModule,
     FormsModule,
     ReactiveFormsModule
+
   ],
   declarations: [
     DashboardComponent,
@@ -54,8 +55,8 @@ import { TableVisitComponent } from 'app/components/table-visit/table-visit.comp
     NewDoctorComponent,
     TestComponent,
     TableVisitPerDoctorComponent,
-    TableVisitComponent
-
+    TableVisitComponent,
+    NgbdSortableHeader
   ]
 })
 

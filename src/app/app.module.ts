@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from "ngx-toastr";
 import { HttpClientModule } from '@angular/common/http';
-//why can't I put it there?
+//why can't I put it there? Maybe I need to include them in the @NgModule/Export
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SidebarModule } from './sidebar/sidebar.module';
