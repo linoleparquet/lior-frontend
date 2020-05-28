@@ -16,7 +16,7 @@
         <div class="col-md-4">
           <div class="form-group">
             <label>Doctor</label>
-            <select required class="form-control" formControlName="doctorId" name="doctorId">
+            <select required class="custom-select" formControlName="doctorId" name="doctorId">
               <option [ngValue]="null" ng-selected>Select the doctor</option>
               <option *ngFor="let doctor of doctors$ | async" [ngValue]="doctor.id" ng-selected>
                 {{doctor.name}}

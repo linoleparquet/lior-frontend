@@ -1,9 +1,14 @@
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
 import { Doctor } from 'models/doctor.model';
 
-export type SortColumn = keyof Doctor | '';
+export type SortColumn = any;
 export type SortDirection = 'asc' | 'desc' | '';
-const rotate: { [key: string]: SortDirection } = { 'asc': 'desc', 'desc': '', '': 'asc' };
+const rotate: { [key: string]: SortDirection } =
+{
+    'asc': 'desc',
+    'desc': '',
+    '': 'asc'
+};
 
 export interface SortEvent {
     column: SortColumn;

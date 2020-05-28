@@ -23,13 +23,11 @@ export interface Country {
 })
 export class TestComponent {
   countries$: Observable<Country[]>;
-  total$: Observable<number>;
 
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
 
   constructor(public service: CountryService) {
     this.countries$ = service.countries$;
-    this.total$ = service.total$;
   }
 
   onSort({ column, direction }: SortEvent) {

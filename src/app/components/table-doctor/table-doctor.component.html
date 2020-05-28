@@ -39,9 +39,6 @@
               {{doctor.department}}
             </td>
             <td>
-              {{doctor.periodicity}} times per year
-            </td>
-            <td>
               {{getLastVisit(doctor.nextVisitDate,doctor.periodicity) | date: 'dd/MM/yyyy' }}
             </td>
             <td>

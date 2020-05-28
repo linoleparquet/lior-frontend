@@ -27,6 +27,7 @@ import { TableVisitPerDoctorComponent } from 'app/components/table-visit-per-doc
 import { TableVisitComponent } from 'app/components/table-visit/table-visit.component';
 import { TestComponent } from 'app/components/test/test.component';
 import { NgbdSortableHeader } from 'app/directive/sortable.directive';
+import { Test2Component } from 'app/components/test2/test2.component';
 
 
 
@@ -55,6 +56,7 @@ import { NgbdSortableHeader } from 'app/directive/sortable.directive';
     NewVisitComponent,
     NewDoctorComponent,
     TestComponent,
+    Test2Component,
     TableVisitPerDoctorComponent,
     TableVisitComponent,
     NgbdSortableHeader

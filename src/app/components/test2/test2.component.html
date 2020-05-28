@@ -1,0 +1,44 @@
+<table class="table table-striped">
+  <thead class="text-primary">
+    <!-- <th *ngFor="let head of headElements" scope="col" [sortable]="head.name" (sort)="onSort($event)">
+      {{head.header}}
+    </th> -->
+
+    <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
+    <th scope="col" sortable="surname" (sort)="onSort($event)">Surname</th>
+    <th scope="col" sortable="city" (sort)="onSort($event)">City</th>
+    <th scope="col" sortable="department" (sort)="onSort($event)">Department</th>
+    <th scope="col" sortable="lastVisitId" (sort)="onSort($event)">Last Visit</th>
+    <th scope="col" sortable="nextVisitDate" (sort)="onSort($event)">Next Visit</th>
+
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let doctor of doctors$ | async">
+      <td>
+        <ngb-highlight [result]="doctor.name" [term]="service.searchTerm"></ngb-highlight>
+      </td>
+      <td>
+        <ngb-highlight [result]="doctor.surname" [term]="service.searchTerm"></ngb-highlight>
+      </td>
+      <td>
+        <ngb-highlight [result]="doctor.city" [term]="service.searchTerm"></ngb-highlight>
+      </td>
+      <td>
+        <ngb-highlight [result]="doctor.department" [term]="service.searchTerm"></ngb-highlight>
+      </td>
+      <td>
+        <ngb-highlight [result]="'blblb'" [term]="service.searchTerm"></ngb-highlight>
+      </td>
+      <td>
+        <ngb-highlight [result]="doctor.nextVisitDate | date: 'dd/MM/yyyy'" [term]="service.searchTerm"></ngb-highlight>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="form-group form-inline">
+  Full text search: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm" />
+</div>
+
+{{doctors$ | async | json}}

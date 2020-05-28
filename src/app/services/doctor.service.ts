@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { Doctor } from 'models/doctor.model';
 import { DOCTORS } from 'app/mock/database.mock';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,36 +12,36 @@ export class DoctorService {
 
   constructor(private http: HttpClient) { }
 
-  private localhostUrl = 'http://localhost:8080/doctors';
+  private _localhostUrl = 'http://localhost:8080/doctors';
 
   // ------------------- HTTP Request -------------------
 
   getAllDoctors(): Observable<Doctor[]> {
-    const url = `${this.localhostUrl}`;
+    const url = `${this._localhostUrl}`;
     return this.http.get<Doctor[]>(url);
 
     return of(DOCTORS);
   }
 
   postCreateNewDoctor(doctor: Doctor): Observable<Doctor> {
-    const url = `${this.localhostUrl}`;
+    const url = `${this._localhostUrl}`;
     return this.http.post<Doctor>(url, doctor);
   }
 
   getOneDoctor(id: number): Observable<Doctor> {
-    const url = `${this.localhostUrl}/${id}`;
+    const url = `${this._localhostUrl}/${id}`;
     return this.http.get<Doctor>(url);
     return of(DOCTORS[id - 1]);
   }
 
   putUpdateOneDoctor(doctor: Doctor): Observable<Doctor> {
-    const url = `${this.localhostUrl}/${doctor.id}`;
+    const url = `${this._localhostUrl}/${doctor.id}`;
     this.http.get<Doctor>(url);
     return this.http.put<Doctor>(url, doctor);
   }
 
   deleteOneDoctor(doctor: number): Observable<Doctor> {
-    const url = `${this.localhostUrl}/${doctor}`;
+    const url = `${this._localhostUrl}/${doctor}`;
     return this.http.delete<Doctor>(url);
   }
 
