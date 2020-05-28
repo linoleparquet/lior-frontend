@@ -1,8 +1,5 @@
 <table class="table table-striped">
   <thead class="text-primary">
-    <!-- <th *ngFor="let head of headElements" scope="col" [sortable]="head.name" (sort)="onSort($event)">
-      {{head.header}}
-    </th> -->
 
     <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
     <th scope="col" sortable="surname" (sort)="onSort($event)">Surname</th>
@@ -40,5 +37,3 @@
 <div class="form-group form-inline">
   Full text search: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm" />
 </div>
-
-{{doctors$ | async | json}}

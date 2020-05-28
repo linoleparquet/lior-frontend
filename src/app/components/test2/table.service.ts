@@ -8,6 +8,7 @@ import { SortColumn, SortDirection } from '../../directive/sortable.directive';
 import { DOCTORS } from 'app/mock/database.mock';
 import { DoctorService } from 'app/services/doctor.service';
 import { Doctor } from 'models/doctor.model';
+import { HttpClient } from '@angular/common/http';
 
 
 interface SearchResult {
@@ -16,8 +17,6 @@ interface SearchResult {
 }
 
 interface State {
-  page: number;
-  pageSize: number;
   searchTerm: string;
   sortColumn: SortColumn;
   sortDirection: SortDirection;
@@ -41,26 +40,20 @@ function matches(country: Doctor, term: string, pipe: PipeTransform) {
 }
 @Injectable({ providedIn: 'root' })
 export class TableService {
-  private _loading$ = new BehaviorSubject<boolean>(true);
   private _search$ = new Subject<void>();
   private _countries$ = new BehaviorSubject<Doctor[]>([]);
   private _total$ = new BehaviorSubject<number>(0);
 
   private _state: State = {
-    page: 1,
-    pageSize: 4,
     searchTerm: '',
     sortColumn: '',
     sortDirection: ''
   };
+  private DOCTORS: Doctor[] = DOCTORS;
 
-  constructor(private pipe: DecimalPipe) {
+  constructor(private pipe: DecimalPipe, private doctorService: DoctorService, private http: HttpClient) {
     this._search$.pipe(
-      tap(() => this._loading$.next(true)),
-      debounceTime(200),
       switchMap(() => this._search()),
-      delay(200),
-      tap(() => this._loading$.next(false))
     ).subscribe(result => {
       this._countries$.next(result.countries);
       this._total$.next(result.total);
@@ -71,13 +64,8 @@ export class TableService {
 
   get countries$() { return this._countries$.asObservable(); }
   get total$() { return this._total$.asObservable(); }
-  get loading$() { return this._loading$.asObservable(); }
-  get page() { return this._state.page; }
-  get pageSize() { return this._state.pageSize; }
   get searchTerm() { return this._state.searchTerm; }
 
-  set page(page: number) { this._set({ page }); }
-  set pageSize(pageSize: number) { this._set({ pageSize }); }
   set searchTerm(searchTerm: string) { this._set({ searchTerm }); }
   set sortColumn(sortColumn: SortColumn) { this._set({ sortColumn }); }
   set sortDirection(sortDirection: SortDirection) { this._set({ sortDirection }); }
@@ -88,17 +76,15 @@ export class TableService {
   }
 
   private _search(): Observable<SearchResult> {
-    const { sortColumn, sortDirection, pageSize, page, searchTerm } = this._state;
+    const { sortColumn, sortDirection, searchTerm } = this._state;
 
     // 1. sort
-    let countries = sort(DOCTORS, sortColumn, sortDirection);
+    let countries = sort(this.DOCTORS, sortColumn, sortDirection);
 
     // 2. filter
     countries = countries.filter(country => matches(country, searchTerm, this.pipe));
     const total = countries.length;
 
-    // 3. paginate
-    countries = countries.slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize);
     return of({ countries, total });
   }
 }
