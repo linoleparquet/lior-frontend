@@ -1,4 +1,4 @@
-import { Injectable, PipeTransform } from '@angular/core';
+import { Injectable, PipeTransform, Inject } from '@angular/core';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { DecimalPipe, AsyncPipe } from '@angular/common';
 import { debounceTime, delay, switchMap, tap, map, filter } from 'rxjs/operators';
@@ -41,9 +41,11 @@ export class TableService {
     sortColumn: '',
     sortDirection: ''
   };
-  private _DOCTORS: Doctor[] = DOCTORS;
+  //private _DOCTORS: Doctor[] = [];
 
-  constructor(private pipe: DecimalPipe, private doctorService: DoctorService, private http: HttpClient) {
+  constructor(
+    @Inject('dooctors2') private _DOCTORS: Doctor[]
+  ) {
     this._search$.pipe(
       switchMap(() => this._search()),
     ).subscribe(result => {
@@ -59,6 +61,7 @@ export class TableService {
   set searchTerm(searchTerm: string) { this._set({ searchTerm }); }
   set sortColumn(sortColumn: SortColumn) { this._set({ sortColumn }); }
   set sortDirection(sortDirection: SortDirection) { this._set({ sortDirection }); }
+  //set DOCTORS(doctors: Doctor[]) { this._DOCTORS = doctors }
 
   private _set(patch: Partial<State>) {
     Object.assign(this._state, patch);

@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChildren, QueryList, PipeTransform } from '@angular/core';
-import { DOCTOR_TABLE_HEADER } from 'app/mock/database.mock';
+import { DOCTOR_TABLE_HEADER, DOCTORS } from 'app/mock/database.mock';
 import { DoctorService } from 'app/services/doctor.service';
 import { NgbdSortableHeader, SortEvent, SortColumn, SortDirection } from 'app/directive/sortable.directive';
-import { CountryService } from '../test/country.service';
+//import { CountryService } from '../test/country.service';
 import { DecimalPipe, AsyncPipe } from '@angular/common';
 import { Subject, Observable, of, BehaviorSubject } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
@@ -14,7 +14,7 @@ import { Doctor } from 'models/doctor.model';
   selector: 'app-test2',
   templateUrl: './test2.component.html',
   styleUrls: ['./test2.component.css'],
-  providers: [TableService, AsyncPipe, DecimalPipe]
+  providers: [{ provide: 'dooctors2', useValue: '123' }]
 })
 
 export class Test2Component {
@@ -22,9 +22,16 @@ export class Test2Component {
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
 
   doctors$: Observable<Doctor[]>
+  dooctors: Doctor[] = DOCTORS;
 
   constructor(public service: TableService, public doctorService: DoctorService) {
     this.doctors$ = service.countries$;
+  }
+
+  ngOnInit() {
+    // this.doctorService.getAllDoctors().subscribe((doc) => {
+    //   this.dooctors = doc;
+    // })
   }
 
   onSort({ column, direction }: SortEvent) {

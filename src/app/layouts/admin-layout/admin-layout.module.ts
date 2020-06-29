@@ -10,9 +10,7 @@ import { TypographyComponent } from '../../pages/typography/typography.component
 import { IconsComponent } from '../../pages/icons/icons.component';
 import { NotificationsComponent } from '../../pages/notifications/notifications.component';
 
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { EditDoctorComponent } from 'app/pages/edit-doctor/edit-doctor.component';
 import { EditVisitComponent } from 'app/pages/edit-visit/edit-visit.component';
 import { DoctorsComponent } from 'app/pages/doctors/doctors.component';
@@ -34,9 +32,7 @@ import { Test2Component } from 'app/components/test2/test2.component';
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(AdminLayoutRoutes),
-    NgbModule,
-    FormsModule,
+    RouterModule.forChild(AdminLayoutRoutes), NgbModule, FormsModule,
     ReactiveFormsModule
 
   ],
