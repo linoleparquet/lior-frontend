@@ -11,8 +11,6 @@ import { EditVisitComponent } from 'app/pages/edit-visit/edit-visit.component';
 import { DoctorComponent } from 'app/pages/doctor/doctor.component';
 import { NewDoctorComponent } from 'app/pages/new-doctor/new-doctor.component';
 import { NewVisitComponent } from 'app/pages/new-visit/new-visit.component';
-import { TestComponent } from 'app/components/test/test.component';
-import { Test2Component } from 'app/components/test2/test2.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -26,6 +24,4 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'visits', component: VisitsComponent },
     { path: 'visit/:id/edit', component: EditVisitComponent },
     { path: 'visits/new', component: NewVisitComponent },
-    { path: 'test', component: TestComponent },
-    { path: 'test2', component: Test2Component }
 ];

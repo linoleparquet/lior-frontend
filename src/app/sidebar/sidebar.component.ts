@@ -16,8 +16,6 @@ export const ROUTES: RouteInfo[] = [
     { path: '/notifications', title: 'Notifications', icon: 'nc-bell-55', isSidebarLink: true },
     { path: '/table', title: 'Table List', icon: 'nc-tile-56', isSidebarLink: true },
     { path: '/typography', title: 'Typography', icon: 'nc-caps-small', isSidebarLink: true },
-    { path: '/test', title: 'Test', icon: '', isSidebarLink: true },
-    { path: '/test2', title: 'Test 2', icon: '', isSidebarLink: true },
 
 ];
 

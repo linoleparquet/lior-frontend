@@ -23,9 +23,7 @@ import { NewVisitComponent } from 'app/pages/new-visit/new-visit.component';
 import { NewDoctorComponent } from 'app/pages/new-doctor/new-doctor.component';
 import { TableVisitPerDoctorComponent } from 'app/components/table-visit-per-doctor/table-visit-per-doctor.component';
 import { TableVisitComponent } from 'app/components/table-visit/table-visit.component';
-import { TestComponent } from 'app/components/test/test.component';
 import { NgbdSortableHeader } from 'app/directive/sortable.directive';
-import { Test2Component } from 'app/components/test2/test2.component';
 
 
 
@@ -51,8 +49,6 @@ import { Test2Component } from 'app/components/test2/test2.component';
     FormVisitComponent,
     NewVisitComponent,
     NewDoctorComponent,
-    TestComponent,
-    Test2Component,
     TableVisitPerDoctorComponent,
     TableVisitComponent,
     NgbdSortableHeader
