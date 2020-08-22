@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Doctor } from 'models/doctor.model';
 import { DOCTORS } from 'app/mock/database.mock';
-import { map, catchError } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +19,6 @@ export class DoctorService {
   getAllDoctors(): Observable<Doctor[]> {
     const url = `${this._localhostUrl}`;
     return this.http.get<Doctor[]>(url);
-
-    return of(DOCTORS);
   }
 
   postCreateNewDoctor(doctor: Doctor): Observable<Doctor> {
@@ -31,7 +29,6 @@ export class DoctorService {
   getOneDoctor(id: number): Observable<Doctor> {
     const url = `${this._localhostUrl}/${id}`;
     return this.http.get<Doctor>(url);
-    return of(DOCTORS[id - 1]);
   }
 
   putUpdateOneDoctor(doctor: Doctor): Observable<Doctor> {
