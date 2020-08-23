@@ -2,13 +2,21 @@
   <div class="card-header">
     <div class="row">
       <div class="col">
-        <h5 class="card-title">{{title}}</h5>
+        <h5>{{title}}</h5>
+      </div>
+      <div class="col">
+        <span class="p-input-icon-right float-right">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" (input)="table.filterGlobal($event.target.value, 'contains')"
+            placeholder="Search..." />
+        </span>
       </div>
     </div>
   </div>
   <div class="card-body">
 
-    <p-table [value]="doctors" class="table table-responsive table-hover">
+    <p-table #table [value]="doctors" class="table table-responsive table-hover"
+      [globalFilterFields]="['name','surname','city','department','nextVisitDate']">
       <ng-template pTemplate="header">
         <tr>
           <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon>
@@ -19,9 +27,9 @@
           </th>
           <th pSortableColumn="department">Department <p-sortIcon field="department"></p-sortIcon>
           </th>
-          <th pSortableColumn="lastVisit">Last Visit <p-sortIcon field="lastVisit"></p-sortIcon>
+          <th pSortableColumn="lastVisitId">Last Visit <p-sortIcon field="lastVisitId"></p-sortIcon>
           </th>
-          <th pSortableColumn="nextVisit">Next Visit <p-sortIcon field="nextVisit"></p-sortIcon>
+          <th pSortableColumn="nextVisitDate">Next Visit <p-sortIcon field="nextVisitDate"></p-sortIcon>
           </th>
         </tr>
       </ng-template>
@@ -49,4 +57,3 @@
       </ng-template>
     </p-table>
   </div>
-</div>

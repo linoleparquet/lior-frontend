@@ -2,11 +2,6 @@
   <div class="row">
     <div class="col">
       <h1>{{doctor.name}} {{doctor.surname}}</h1>
-      <h3 class="text-muted">
-        <div>{{doctor.department}} - {{doctor.city}}</div>
-        <div>To see {{doctor.periodicity}} times per year</div>
-        <div>Next Visit is scheduled for : {{doctor.nextVisitDate | date}}</div>
-      </h3>
     </div>
     <div class="col">
       <a [routerLink]="['/doctor',doctor.id,'edit']" class="btn btn-warning btn-round float-right">Edit Profile</a>
@@ -14,8 +9,15 @@
         class="btn btn-success btn-round float-right">Add a visit</a>
     </div>
   </div>
+  <h3 class="text-muted">
+    <div>{{doctor.department}} - {{doctor.city}}</div>
+    <div>To see every {{doctor.periodicity}} months</div>
+    <div>Next Visit is scheduled for : {{doctor.nextVisitDate | date}}</div>
+  </h3>
+  <div class="label-field"> aa</div>
+</div>
 
 
-  <div *ngIf="visits$ | async as visits">
-    <app-table-visit-per-doctor [visits]="visits"></app-table-visit-per-doctor>
-  </div>
+<div *ngIf="visits$ | async as visits">
+  <app-table-visit-per-doctor [visits]="visits"></app-table-visit-per-doctor>
+</div>
