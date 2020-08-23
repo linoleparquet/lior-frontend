@@ -1,32 +1,38 @@
 <div class="card">
   <div class="card-header">
-    <div class="row justify-content-between">
+    <div class="row">
       <div class="col">
         <h5 class="card-title">{{title}}</h5>
       </div>
-
     </div>
   </div>
   <div class="card-body">
-    <div class="table-responsive table-hover">
-      <table class="table">
-        <thead class="text-primary">
-          <th *ngFor="let head of headElements">
-            {{head}}
+
+    <p-table [value]="visits" class="table table-responsive table-hover">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="doctor">Doctor <p-sortIcon field="doctor"></p-sortIcon>
           </th>
-        </thead>
-        <tbody>
-          <tr *ngFor="let visit of visits" (click)="openEditVisitPage(visit.id)">
-            <td>
-              {{visit.doctorId }}
-            </td>
-            <td>
-              {{visit.date | date: 'dd/MM/yyyy'}}
-            </td>
-            <td>
-              {{visit.note}}
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          <th pSortableColumn="date">Date <p-sortIcon field="date"></p-sortIcon>
+          </th>
+          <th pSortableColumn="note">Note <p-sortIcon field="note"></p-sortIcon>
+          </th>
+
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-visit>
+        <tr (click)="openEditVisitPage(visit.id)">
+          <td>
+            {{visit.doctorId}}
+          </td>
+          <td>
+            {{visit.date | date: 'dd/MM/yyyy'}}
+          </td>
+          <td>
+            {{visit.note}}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
   </div>
+</div>

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DOCTOR_TABLE_HEADER } from 'app/mock/database.mock';
 import { Doctor } from 'models/doctor.model';
 import { Router } from '@angular/router';
 
@@ -17,11 +16,11 @@ export class TableDoctorComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.headElements = DOCTOR_TABLE_HEADER;;
   }
 
-  getLastVisit(nextVisit: string, periodicity: number) {
-    const date = new Date(nextVisit);
+  getLastVisit(doctor: Doctor) {
+    const date = new Date(doctor.nextVisitDate);
+    const periodicity = doctor.periodicity;
     return date.setMonth(date.getMonth() - periodicity);
   }
 

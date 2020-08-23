@@ -12,15 +12,17 @@ import { Observable } from 'rxjs';
 
 export class DashboardComponent implements OnInit {
 
-  doctorsActualMonth$: Observable<Doctor[]>;
-  doctorsBeforeActualMonth$: Observable<Doctor[]>;
-  doctorsProspect$: Observable<Doctor[]>;
+  doctorsVisitPlannedForActualMonth: Doctor[];
+  doctorsVisitPlannedBeforeActualMonth: Doctor[];
+  doctorsProspect: Doctor[];
+
+  data;
 
   constructor(private doctorService: DoctorService) { }
 
   ngOnInit() {
-    this.doctorsActualMonth$ = this.doctorService.getDoctorsActualMonth();
-    this.doctorsBeforeActualMonth$ = this.doctorService.getDoctorsBeforeActualMonth();
-    this.doctorsProspect$ = this.doctorService.getDoctorsProspect();
+    this.doctorService.getDoctorsVisitPlannedForActualMonth().toPromise().then(data => this.doctorsVisitPlannedForActualMonth = data)
+    this.doctorService.getDoctorsVisitPlannedBeforeActualMonth().toPromise().then(data => this.doctorsVisitPlannedBeforeActualMonth = data)
+    this.doctorService.getDoctorsProspect().toPromise().then(data => this.doctorsProspect = data)
   }
 }

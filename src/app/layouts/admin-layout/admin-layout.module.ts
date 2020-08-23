@@ -23,15 +23,19 @@ import { NewVisitComponent } from 'app/pages/new-visit/new-visit.component';
 import { NewDoctorComponent } from 'app/pages/new-doctor/new-doctor.component';
 import { TableVisitPerDoctorComponent } from 'app/components/table-visit-per-doctor/table-visit-per-doctor.component';
 import { TableVisitComponent } from 'app/components/table-visit/table-visit.component';
-import { NgbdSortableHeader } from 'app/directive/sortable.directive';
+
+import { TableModule } from 'primeng/table';
 
 
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(AdminLayoutRoutes), NgbModule, FormsModule,
-    ReactiveFormsModule
+    RouterModule.forChild(AdminLayoutRoutes),
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TableModule
 
   ],
   declarations: [
@@ -50,8 +54,7 @@ import { NgbdSortableHeader } from 'app/directive/sortable.directive';
     NewVisitComponent,
     NewDoctorComponent,
     TableVisitPerDoctorComponent,
-    TableVisitComponent,
-    NgbdSortableHeader
+    TableVisitComponent
   ]
 })
 

@@ -63,7 +63,8 @@
         <div class="col-md-4">
           <div class="form-group">
             <label>Periodicity</label>
-            <input required type="number" name="periodicity" class="form-control" formControlName="periodicity">
+            <input required type="number" name="periodicity" class="form-control" formControlName="periodicity"
+              placeholder="How many time per year?">
             <div *ngIf="periodicity.invalid && (periodicity.dirty || periodicity.touched)" class="alert alert-danger">
               <div *ngIf="periodicity.errors.required">
                 Periodicity is required.

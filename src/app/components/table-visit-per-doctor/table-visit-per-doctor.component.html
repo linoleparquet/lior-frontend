@@ -4,27 +4,30 @@
       <div class="col">
         <h5 class="card-title">Visits</h5>
       </div>
-
     </div>
   </div>
   <div class="card-body">
-    <div class="table-responsive table-hover">
-      <table class="table">
-        <thead class="text-primary">
-          <th *ngFor="let head of headElements">
-            {{head}}
+
+    <p-table [value]="visits" class="table table-responsive table-hover">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="date">Date <p-sortIcon field="date"></p-sortIcon>
           </th>
-        </thead>
-        <tbody>
-          <tr *ngFor="let visit of visits" (click)="openEditVisitPage(visit.id)">
-            <td>
-              {{visit.date | date: 'dd/MM/yyyy'}}
-            </td>
-            <td>
-              {{visit.note}}
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          <th pSortableColumn="notes">Notes <p-sortIcon field="notes"></p-sortIcon>
+          </th>
+
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-visit>
+        <tr (click)="openEditVisitPage(visit.id)">
+          <td>
+            {{visit.date | date: 'dd/MM/yyyy'}}
+          </td>
+          <td>
+            {{visit.note}}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
   </div>
 </div>

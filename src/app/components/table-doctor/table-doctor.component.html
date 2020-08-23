@@ -7,35 +7,46 @@
     </div>
   </div>
   <div class="card-body">
-    <div class="table-responsive table-hover">
-      <table class="table">
-        <thead class="text-primary">
-          <th *ngFor="let head of headElements">
-            {{head}}
+
+    <p-table [value]="doctors" class="table table-responsive table-hover">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon>
           </th>
-        </thead>
-        <tbody>
-          <tr *ngFor="let doctor of doctors" (click)="OpenDoctorPage(doctor.id)">
-            <td>
-              {{doctor.name}}
-            </td>
-            <td>
-              {{doctor.surname}}
-            </td>
-            <td>
-              {{doctor.city}}
-            </td>
-            <td>
-              {{doctor.department}}
-            </td>
-            <td>
-              {{getLastVisit(doctor.nextVisitDate,doctor.periodicity) | date: 'dd/MM/yyyy' }}
-            </td>
-            <td>
-              {{doctor.nextVisitDate | date: 'dd/MM/yyyy'}}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          <th pSortableColumn="surname">Surname <p-sortIcon field="surname"></p-sortIcon>
+          </th>
+          <th pSortableColumn="city">City <p-sortIcon field="city"></p-sortIcon>
+          </th>
+          <th pSortableColumn="department">Department <p-sortIcon field="department"></p-sortIcon>
+          </th>
+          <th pSortableColumn="lastVisit">Last Visit <p-sortIcon field="lastVisit"></p-sortIcon>
+          </th>
+          <th pSortableColumn="nextVisit">Next Visit <p-sortIcon field="nextVisit"></p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-doctor>
+        <tr (click)="OpenDoctorPage(doctor.id)">
+          <td>
+            {{doctor.name}}
+          </td>
+          <td>
+            {{doctor.surname}}
+          </td>
+          <td>
+            {{doctor.city}}
+          </td>
+          <td>
+            {{doctor.department}}
+          </td>
+          <td>
+            {{getLastVisit(doctor) | date: 'dd/MM/yyyy' }}
+          </td>
+          <td>
+            {{doctor.nextVisitDate | date: 'dd/MM/yyyy'}}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
   </div>
+</div>

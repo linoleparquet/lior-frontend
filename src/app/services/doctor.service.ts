@@ -44,30 +44,34 @@ export class DoctorService {
 
   // -----------------------------------------------------
 
-  getDoctorsActualMonth(): Observable<Doctor[]> {
+  getDoctorsVisitPlannedForActualMonth(): Observable<Doctor[]> {
     const now = new Date(Date.now());
+    now.setHours(0, 0, 0, 0);
+    now.setDate(1)
     return this.getAllDoctors()
       .pipe(
         map(doctors =>
           doctors.filter(doctor => {
             const visit = new Date(doctor.nextVisitDate);
-            if (doctor.nextVisitDate != "0" &&
-              now.getMonth() == visit.getMonth() &&
-              now.getFullYear() == visit.getFullYear()) { return true }
+            visit.setHours(0, 0, 0, 0)
+            visit.setDate(1)
+            if (doctor.nextVisitDate != "0" && now.getTime() == visit.getTime()) { return true }
           })));
   }
 
 
-  getDoctorsBeforeActualMonth(): Observable<Doctor[]> {
+  getDoctorsVisitPlannedBeforeActualMonth(): Observable<Doctor[]> {
     const now = new Date(Date.now());
+    now.setHours(0, 0, 0, 0);
+    now.setDate(1)
     return this.getAllDoctors()
       .pipe(
         map(doctors =>
           doctors.filter(doctor => {
-            const nextVisit = new Date(doctor.nextVisitDate);
-            if (doctor.nextVisitDate != "0" &&
-              (((nextVisit.getMonth() < now.getMonth() && now.getFullYear() == nextVisit.getFullYear()))
-                || nextVisit.getFullYear() < now.getFullYear())) { return true }
+            const visit = new Date(doctor.nextVisitDate);
+            visit.setHours(0, 0, 0, 0)
+            visit.setDate(1)
+            if (doctor.nextVisitDate != "0" && visit.getTime() < now.getTime()) { return true }
           })));
   }
 

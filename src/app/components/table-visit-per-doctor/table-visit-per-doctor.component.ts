@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Visit } from 'models/visit.model';
 import { Router } from '@angular/router';
-import { VISIT_PER_DOCTOR_TABLE_HEADER } from 'app/mock/database.mock';
 
 @Component({
   selector: 'app-table-visit-per-doctor',
@@ -11,14 +10,12 @@ import { VISIT_PER_DOCTOR_TABLE_HEADER } from 'app/mock/database.mock';
 export class TableVisitPerDoctorComponent implements OnInit {
 
   @Input() visits: Visit[];
-  headElements: String[];
 
   constructor(
     public router: Router
   ) { }
 
   ngOnInit(): void {
-    this.headElements = VISIT_PER_DOCTOR_TABLE_HEADER;
   }
 
   openEditVisitPage(id: number) {
