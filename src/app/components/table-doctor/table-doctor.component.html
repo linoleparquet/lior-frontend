@@ -48,7 +48,7 @@
             {{doctor.department}}
           </td>
           <td>
-            {{getLastVisit(doctor) | date: 'dd/MM/yyyy' }}
+            {{doctor.lastVisitDate | date: 'dd/MM/yyyy' }}
           </td>
           <td>
             {{doctor.nextVisitDate | date: 'dd/MM/yyyy'}}

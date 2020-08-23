@@ -6,6 +6,7 @@ export class Doctor {
     department: number;
     periodicity: number;
     lastVisitId: number;
+    lastVisitDate: string;
     nextVisitDate: string;
 
     constructor() {
@@ -16,6 +17,7 @@ export class Doctor {
         this.department = null;
         this.periodicity = null;
         this.lastVisitId = null;
+        this.lastVisitDate = null;
         this.nextVisitDate = null;
     }
 }

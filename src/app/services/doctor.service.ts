@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Doctor } from 'models/doctor.model';
-import { DOCTORS } from 'app/mock/database.mock';
 import { map } from 'rxjs/operators';
 
 @Injectable({

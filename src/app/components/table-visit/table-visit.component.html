@@ -31,7 +31,7 @@
       <ng-template pTemplate="body" let-visit>
         <tr (click)="openEditVisitPage(visit.id)">
           <td>
-            {{visit.doctorId}}
+            {{visit.doctor}}
           </td>
           <td>
             {{visit.date | date: 'dd/MM/yyyy'}}

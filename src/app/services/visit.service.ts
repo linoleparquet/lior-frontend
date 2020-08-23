@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, filter } from 'rxjs/operators'
 import { Visit } from 'models/visit.model';
-import { VISITS } from 'app/mock/database.mock';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +16,6 @@ export class VisitService {
   getAllVisits(): Observable<Visit[]> {
     const url = `${this.localhostUrl}`;
     return this.http.get<Visit[]>(url);
-
-    return of(VISITS);
   }
 
   postCreateNewVisit(visit: Visit): Observable<Visit> {
@@ -29,7 +26,6 @@ export class VisitService {
   getOneVisit(id: number): Observable<Visit> {
     const url = `${this.localhostUrl}/${id}`;
     return this.http.get<Visit>(url);
-    return of(VISITS[id - 1])
   }
 
   putUpdateOneVisit(visit: Visit): Observable<Visit> {
