@@ -1,4 +1,15 @@
-<div *ngIf="visit$ | async as visit">
+<div *ngIf="visit">
   <app-form-visit [visit]="visit" [isEdit]="true" [title]="title" [button]='button' (confirmation)="update($event)"
-    (delete)="delete(visit.id)"></app-form-visit>
+    (delete)="toggleModal()"></app-form-visit>
 </div>
+
+<p-dialog header="Confirmation" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+  [draggable]="false" [resizable]="false">
+
+  <p>Are you sure you want to delete this visit ? </p>
+
+  <p-footer>
+    <button type="submit" class="btn btn-success btn-round" (click)="delete(visit.id)">Yes</button>
+    <button type="submit" class="btn btn-danger btn-round" (click)="toggleModal()">No</button>
+  </p-footer>
+</p-dialog>

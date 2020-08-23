@@ -24,7 +24,10 @@ import { NewDoctorComponent } from 'app/pages/new-doctor/new-doctor.component';
 import { TableVisitPerDoctorComponent } from 'app/components/table-visit-per-doctor/table-visit-per-doctor.component';
 import { TableVisitComponent } from 'app/components/table-visit/table-visit.component';
 
+
 import { TableModule } from 'primeng/table';
+import { DialogModule } from 'primeng/dialog';
+
 
 
 
@@ -35,7 +38,8 @@ import { TableModule } from 'primeng/table';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    TableModule
+    TableModule,
+    DialogModule
 
   ],
   declarations: [

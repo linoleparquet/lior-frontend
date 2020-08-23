@@ -19,9 +19,14 @@ export class TableDoctorComponent implements OnInit {
   }
 
   getLastVisit(doctor: Doctor) {
-    const date = new Date(doctor.nextVisitDate);
-    const periodicity = doctor.periodicity;
-    return date.setMonth(date.getMonth() - periodicity);
+    // appeler le service et recup le last visit date grace au last date id 
+    if (doctor.nextVisitDate != null) {
+      const date = new Date(doctor.nextVisitDate);
+      const periodicity = doctor.periodicity;
+      return date.setMonth(date.getMonth() - periodicity);
+    }
+
+    return null;
   }
 
   OpenDoctorPage(id: number) {

@@ -12,9 +12,10 @@ import { Location } from '@angular/common';
 })
 export class EditVisitComponent implements OnInit {
 
-  visit$: Observable<Visit>;
+  visit: Visit;
   title: String;
   button: String;
+  displayModal: boolean;
 
 
   constructor(
@@ -25,7 +26,7 @@ export class EditVisitComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.visit$ = this.visitService.getOneVisit(id);
+    this.visitService.getOneVisit(id).subscribe(data => this.visit = data);
     this.title = 'Edit Visit';
     this.button = 'Update';
   }
@@ -37,4 +38,9 @@ export class EditVisitComponent implements OnInit {
   delete(id: number): void {
     this.visitService.deleteOneVisit(id).subscribe(() => this.location.back())
   }
+
+  toggleModal() {
+    this.displayModal = !this.displayModal;
+  }
+
 }

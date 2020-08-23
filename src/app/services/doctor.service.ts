@@ -55,7 +55,7 @@ export class DoctorService {
             const visit = new Date(doctor.nextVisitDate);
             visit.setHours(0, 0, 0, 0)
             visit.setDate(1)
-            if (doctor.nextVisitDate != "0" && now.getTime() == visit.getTime()) { return true }
+            if (doctor.nextVisitDate != null && now.getTime() == visit.getTime()) { return true }
           })));
   }
 
@@ -71,7 +71,7 @@ export class DoctorService {
             const visit = new Date(doctor.nextVisitDate);
             visit.setHours(0, 0, 0, 0)
             visit.setDate(1)
-            if (doctor.nextVisitDate != "0" && visit.getTime() < now.getTime()) { return true }
+            if (doctor.nextVisitDate != null && visit.getTime() < now.getTime()) { return true }
           })));
   }
 
@@ -79,7 +79,7 @@ export class DoctorService {
     return this.getAllDoctors().pipe(
       map(doctors =>
         doctors.filter(doctor => {
-          if (doctor.nextVisitDate == "0") { return true }
+          if (doctor.nextVisitDate == null) { return true }
         })));
   }
 }

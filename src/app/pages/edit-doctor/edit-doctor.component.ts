@@ -12,9 +12,10 @@ import { Location } from '@angular/common';
 })
 export class EditDoctorComponent implements OnInit {
 
-  doctor$: Observable<Doctor>;
+  doctor: Doctor;
   title: String;
   button: String;
+  displayModal: boolean;
 
 
   constructor(
@@ -26,7 +27,7 @@ export class EditDoctorComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.doctor$ = this.doctorService.getOneDoctor(id);
+    this.doctorService.getOneDoctor(id).toPromise().then(data => this.doctor = data);
     this.title = 'Edit Profile';
     this.button = 'Update';
   }
@@ -37,6 +38,13 @@ export class EditDoctorComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.doctorService.deleteOneDoctor(id).subscribe(() => this.router.navigate(['/doctors']))
+    this.doctorService.deleteOneDoctor(id).subscribe(() => {
+      this.router.navigate(['/doctors']);
+      this.toggleModal();
+    })
+  }
+
+  toggleModal() {
+    this.displayModal = !this.displayModal;
   }
 }

@@ -10,3 +10,5 @@
   <app-table-doctor *ngIf="doctors.length != 0" [title]="'Prospects'" [doctors]="doctors">
   </app-table-doctor>
 </div>
+
+<h4 *ngIf="noDoctorToDisplay">No doctor to display</h4>

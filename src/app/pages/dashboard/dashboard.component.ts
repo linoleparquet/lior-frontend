@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from 'app/services/doctor.service';
 import { Doctor } from 'models/doctor.model';
-import { Observable } from 'rxjs';
 
 
 @Component({
@@ -15,14 +14,15 @@ export class DashboardComponent implements OnInit {
   doctorsVisitPlannedForActualMonth: Doctor[];
   doctorsVisitPlannedBeforeActualMonth: Doctor[];
   doctorsProspect: Doctor[];
-
-  data;
+  noDoctorToDisplay: boolean;
 
   constructor(private doctorService: DoctorService) { }
 
   ngOnInit() {
-    this.doctorService.getDoctorsVisitPlannedForActualMonth().toPromise().then(data => this.doctorsVisitPlannedForActualMonth = data)
-    this.doctorService.getDoctorsVisitPlannedBeforeActualMonth().toPromise().then(data => this.doctorsVisitPlannedBeforeActualMonth = data)
-    this.doctorService.getDoctorsProspect().toPromise().then(data => this.doctorsProspect = data)
+    this.doctorService.getDoctorsVisitPlannedForActualMonth().subscribe(data => this.doctorsVisitPlannedForActualMonth = data)
+    this.doctorService.getDoctorsVisitPlannedBeforeActualMonth().subscribe(data => this.doctorsVisitPlannedBeforeActualMonth = data)
+    this.doctorService.getDoctorsProspect().subscribe(data => this.doctorsProspect = data)
+
+    //this.noDoctorToDisplay = this.doctorsVisitPlannedForActualMonth.length + this.doctorsVisitPlannedBeforeActualMonth.length + this.doctorsProspect.length == 0;
   }
 }
