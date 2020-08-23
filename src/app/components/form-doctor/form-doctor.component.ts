@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Doctor } from 'models/doctor.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { DEPARTMENT } from 'assets/json/departments';
 
 @Component({
   selector: 'app-form-doctor',
@@ -17,6 +18,7 @@ export class FormDoctorComponent implements OnInit {
   @Output() delete: EventEmitter<MouseEvent>;
 
   form: FormGroup;
+  departmentSuggestion: any[];
 
 
   constructor() {
@@ -25,6 +27,7 @@ export class FormDoctorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.departmentSuggestion = DEPARTMENT;
     this.form = new FormGroup({
       'id': new FormControl(this.doctor.id, []),
       'lastVisitId': new FormControl(this.doctor.lastVisitId, []),

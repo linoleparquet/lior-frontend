@@ -10,9 +10,9 @@
     </div>
   </div>
   <h3 class="text-muted">
-    <div>{{doctor.department}} - {{doctor.city}}</div>
-    <div>To see every {{doctor.periodicity}} months</div>
-    <div>Next Visit is scheduled for : {{doctor.nextVisitDate | date}}</div>
+    <div>{{getDepartmentName(doctor.department)}} - {{doctor.city}}</div>
+    <div>{{getPeriodicityText(doctor.periodicity)}}</div>
+    <div>Next Visit : {{doctor.nextVisitDate | date}}</div>
   </h3>
   <div class="label-field"> aa</div>
 </div>

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Doctor } from 'models/doctor.model';
 import { Visit } from 'models/visit.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { DoctorService } from 'app/services/doctor.service';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { VisitService } from 'app/services/visit.service';
+import { DEPARTMENT } from 'assets/json/departments';
 
 @Component({
   selector: 'app-doctor',
@@ -20,8 +21,7 @@ export class DoctorComponent implements OnInit {
   constructor(
     private doctorService: DoctorService,
     private visitService: VisitService,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -30,5 +30,21 @@ export class DoctorComponent implements OnInit {
     this.visits$ = this.visitService.getVisitsByDoctor(this.id);
   }
 
+  getDepartmentName(number: number): string {
+    return DEPARTMENT.find(department => department.num_dep == number).dep_name;
+  }
+
+  getPeriodicityText(periodicity: number): string {
+    switch (periodicity) {
+      case 1:
+        return "Every month"
+      case 6:
+        return "Twice a year"
+      case 12:
+        return "Once a year"
+      default:
+        return "Every" + periodicity + "months"
+    }
+  }
 
 }
