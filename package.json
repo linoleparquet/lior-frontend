@@ -1,15 +1,17 @@
 {
-  "name": "paper-dashboard-angular",
-  "version": "2.1.0",
+  "name": "lior",
+  "version": "0.1.0",
   "license": "MIT",
+  "main": "electron.ts",
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
+    "electron:build": "ng build --base-href ./ && electron .",
+    "electron:start": "electron .",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -19,9 +21,11 @@
     "@angular/compiler": "9.0.6",
     "@angular/core": "9.0.6",
     "@angular/forms": "9.0.6",
+    "@angular/localize": "^10.0.14",
     "@angular/platform-browser": "9.0.6",
     "@angular/platform-browser-dynamic": "9.0.6",
     "@angular/router": "9.0.6",
+    "@ng-bootstrap/ng-bootstrap": "^7.0.0",
     "@ngui/map": "0.30.3",
     "@types/googlemaps": "3.36.5",
     "arrive": "2.4.1",
@@ -49,6 +53,8 @@
     "@types/jquery": "3.3.33",
     "@types/node": "13.9.1",
     "codelyzer": "5.2.1",
+    "electron": "^10.1.0",
+    "electron-packager": "^15.1.0",
     "jasmine-core": "3.5.0",
     "jasmine-spec-reporter": "4.2.1",
     "karma": "4.4.1",

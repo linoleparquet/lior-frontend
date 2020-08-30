@@ -1,1 +1,4 @@
 node_modules
+dist
+h2
+lior-win32-x64
