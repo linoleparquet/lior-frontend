@@ -19,7 +19,9 @@
       [globalFilterFields]="['doctor','date','note']">
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="doctor">Doctor <p-sortIcon field="doctor"></p-sortIcon>
+          <th pSortableColumn="doctor">
+            <span>Doctor</span>
+            <p-sortIcon field="doctor"></p-sortIcon>
           </th>
           <th pSortableColumn="date">Date <p-sortIcon field="date"></p-sortIcon>
           </th>
