@@ -46,6 +46,9 @@ export class FormDoctorComponent implements OnInit {
       ]),
       'periodicity': new FormControl(this.doctor.periodicity, [
         Validators.required
+      ]),
+      'establishment': new FormControl(this.doctor.establishment, [
+        Validators.required
       ])
     });
   }

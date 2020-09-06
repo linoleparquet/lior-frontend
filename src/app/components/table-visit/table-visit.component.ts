@@ -18,7 +18,7 @@ export class TableVisitComponent implements OnInit {
 
   ngOnInit(): void {
     this.visits.forEach(visit =>
-      this.doctorService.getOneDoctor(visit.doctorId).subscribe(doctor => visit.doctor = doctor.name + " " + doctor.surname)
+      this.doctorService.getOneDoctor(visit.doctorId).subscribe(doctor => visit.doctor = doctor.surname + " " + doctor.name)
     )
   }
 
