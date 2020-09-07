@@ -14,8 +14,6 @@ export class FormVisitComponent implements OnInit {
 
   @Input() visit: Visit;
   @Input() isEdit: boolean;
-  @Input() title: String;
-  @Input() button: String;
   @Output() confirmation: EventEmitter<Visit>;
   @Output() delete: EventEmitter<MouseEvent>;
 

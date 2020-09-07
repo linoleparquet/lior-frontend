@@ -12,8 +12,6 @@ import { Location } from '@angular/common';
 export class NewVisitComponent implements OnInit {
 
   visit: Visit;
-  title: String;
-  button: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,8 +21,6 @@ export class NewVisitComponent implements OnInit {
 
   ngOnInit(): void {
     this.visit = new Visit();
-    this.title = "New Visit";
-    this.button = "Confirm";
     this.route.queryParams.subscribe(params => {
       this.visit.doctorId = Number(params['doctor']) || undefined
     })

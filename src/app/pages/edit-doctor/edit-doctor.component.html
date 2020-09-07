@@ -1,6 +1,6 @@
 <div *ngIf="doctor">
-  <app-form-doctor [doctor]="doctor" [isEdit]="true" [title]="title" [button]='button' (confirmation)="update($event)"
-    (delete)="toggleModal()"></app-form-doctor>
+  <app-form-doctor [doctor]="doctor" [isEdit]="true" (confirmation)="update($event)" (delete)="toggleModal()">
+  </app-form-doctor>
 </div>
 
 <p-dialog header="Confirmation" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"

@@ -13,8 +13,6 @@ import { Location } from '@angular/common';
 export class EditDoctorComponent implements OnInit {
 
   doctor: Doctor;
-  title: String;
-  button: String;
   displayModal: boolean;
 
 
@@ -28,8 +26,6 @@ export class EditDoctorComponent implements OnInit {
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.doctorService.getOneDoctor(id).toPromise().then(data => this.doctor = data);
-    this.title = 'Edit Profile';
-    this.button = 'Update';
   }
 
   update(doctor: Doctor) {

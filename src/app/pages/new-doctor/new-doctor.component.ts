@@ -11,8 +11,6 @@ import { DoctorService } from 'app/services/doctor.service';
 export class NewDoctorComponent implements OnInit {
 
   doctor: Doctor;
-  title: String;
-  button: String;
 
   constructor(
     private doctorService: DoctorService,
@@ -21,8 +19,6 @@ export class NewDoctorComponent implements OnInit {
 
   ngOnInit(): void {
     this.doctor = new Doctor();
-    this.title = 'New Doctor';
-    this.button = 'Confirm';
   }
 
   create(doctor: Doctor) {

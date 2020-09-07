@@ -4,14 +4,16 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DEPARTMENT } from 'assets/json/departments';
 
 @Component({
-  selector: 'app-form-doctor',
-  templateUrl: './form-doctor.component.html',
-  styleUrls: ['./form-doctor.component.css']
+  selector: 'app-form-etablishment',
+  templateUrl: './form-etablishment.component.html',
+  styleUrls: ['./form-etablishment.component.css']
 })
-export class FormDoctorComponent implements OnInit {
+export class FormEtablishmentComponent implements OnInit {
 
   @Input() doctor: Doctor;
   @Input() isEdit: boolean;
+  @Input() title: String;
+  @Input() button: String;
   @Output() confirmation: EventEmitter<Doctor>;
   @Output() delete: EventEmitter<MouseEvent>;
 

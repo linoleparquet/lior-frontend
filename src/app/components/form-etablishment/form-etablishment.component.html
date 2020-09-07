@@ -2,7 +2,7 @@
   <div class="card-header">
     <div class="row">
       <div class="col">
-        <h5 class="card-title">{{isEdit? 'Edit Profile': 'New Doctor'}}</h5>
+        <h5 class="card-title">{{title}}</h5>
       </div>
       <div *ngIf="isEdit" class="col">
         <button type="submit" class="btn btn-danger btn-round float-right" (click)='onDelete()'>Delete
@@ -95,7 +95,7 @@
     <div class="row">
       <div class="ml-auto mr-auto">
         <button type="submit" class="btn btn-success btn-round" [disabled]="form.invalid"
-          (click)="onConfirmation()">{{isEdit? 'Update': 'Confirm'}}</button>
+          (click)="onConfirmation()">{{button}}</button>
       </div>
     </div>
   </div>

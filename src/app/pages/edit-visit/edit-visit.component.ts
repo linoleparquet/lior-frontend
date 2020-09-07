@@ -13,10 +13,7 @@ import { Location } from '@angular/common';
 export class EditVisitComponent implements OnInit {
 
   visit: Visit;
-  title: String;
-  button: String;
   displayModal: boolean;
-
 
   constructor(
     private visitService: VisitService,
@@ -27,8 +24,6 @@ export class EditVisitComponent implements OnInit {
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.visitService.getOneVisit(id).subscribe(data => this.visit = data);
-    this.title = 'Edit Visit';
-    this.button = 'Update';
   }
 
   update(visit: Visit): void {

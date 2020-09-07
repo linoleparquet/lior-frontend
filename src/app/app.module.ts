@@ -15,12 +15,14 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { FormEtablishmentComponent } from './components/form-etablishment/form-etablishment.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    FormEtablishmentComponent
   ],
   imports: [
     BrowserAnimationsModule,

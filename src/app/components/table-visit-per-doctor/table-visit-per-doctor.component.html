@@ -15,12 +15,12 @@
   </div>
   <div class="card-body">
 
-    <p-table #table [value]="visits" class="table table-responsive table-hover" [globalFilterFields]="['date','note']">
+    <p-table #table [value]="visits" class="table table-responsive table-hover" [globalFilterFields]="['date','notes']">
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="date">Date <p-sortIcon field="date"></p-sortIcon>
+          <th pSortableColumn="date">Date<p-sortIcon field="date"></p-sortIcon>
           </th>
-          <th pSortableColumn="note">Notes <p-sortIcon field="note"></p-sortIcon>
+          <th pSortableColumn="notes">Notes<p-sortIcon field="notes"></p-sortIcon>
           </th>
 
         </tr>
@@ -31,7 +31,7 @@
             {{visit.date | date: 'dd/MM/yyyy'}}
           </td>
           <td>
-            {{visit.note}}
+            {{visit.notes}}
           </td>
         </tr>
       </ng-template>
