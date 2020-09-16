@@ -1,0 +1,17 @@
+<div *ngIf="establishment">
+  <app-form-establishment [establishment]="establishment" [isEdit]="true" (confirmation)="update($event)"
+    (delete)="toggleModal()">
+  </app-form-establishment>
+</div>
+
+<p-dialog header="Confirmation" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+  [draggable]="false" [resizable]="false">
+
+  <p>Are you sure you want to delete this Establishment ?
+    All doctors linked to this establishment need to be deleted before</p>
+
+  <p-footer>
+    <button type="submit" class="btn btn-success btn-round" (click)="delete(establishment.id)">Yes</button>
+    <button type="submit" class="btn btn-danger btn-round" (click)="toggleModal()">No</button>
+  </p-footer>
+</p-dialog>

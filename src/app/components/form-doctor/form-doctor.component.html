@@ -39,7 +39,7 @@
 
       <div class="row">
         <div class="col-md-4">
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label>Department</label>
             <select required name="department" class="custom-select" formControlName="department">
               <option [ngValue]="null" ng-selected>Select the department</option>
@@ -52,18 +52,7 @@
                 Department is required.
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>City</label>
-            <input required name="city" class="form-control" formControlName="city">
-            <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
-              <div *ngIf="city.errors.required">
-                City is required.
-              </div>
-            </div>
-          </div>
+          </div> -->
         </div>
         <div class="col-md-4">
           <div class="form-group">
@@ -78,12 +67,17 @@
           </div>
         </div>
         <div class="col-md-4">
+
           <div class="form-group">
             <label>Establishment</label>
-            <input required name="establishment" class="form-control" formControlName="establishment">
-            <div *ngIf="establishment.invalid && (establishment.dirty || establishment.touched)"
+            <select required class="custom-select" formControlName="establishmentId" name="establishment">
+              <option [ngValue]="null" ng-selected>Select the establishment</option>
+              <option *ngFor="let establishment of establishments$ | async" [ngValue]="establishment.id" ng-selected>
+                {{establishment.name}}</option>
+            </select>
+            <div *ngIf="establishmentId.invalid && (establishmentId.dirty || establishmentId.touched)"
               class="alert alert-danger">
-              <div *ngIf="establishment.errors.required">
+              <div *ngIf="establishmentId.errors.required">
                 Establishment is required.
               </div>
             </div>

@@ -13,25 +13,13 @@ export class TableDoctorComponent implements OnInit {
   @Input() doctors: Doctor[];
   @Input() isAddDoctorButton: boolean;
 
-  constructor(private router: Router,
-    private visitService: VisitService) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.getLastVisitDate()
-  }
-
-  getLastVisitDate() {
-    this.doctors.forEach(doctor => {
-      if (doctor.lastVisitId != undefined) {
-        this.visitService.getOneVisit(doctor.lastVisitId).subscribe(visit => doctor.lastVisitDate = visit.date)
-      } else {
-        doctor.lastVisitDate = null;
-      }
-    })
   }
 
   OpenDoctorPage(id: number) {
-    this.router.navigate([`/doctor/${id}`]);
+    this.router.navigate([`/doctors/${id}/view`]);
   }
 
 }

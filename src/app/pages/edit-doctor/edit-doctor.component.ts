@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Doctor } from 'models/doctor.model';
 import { DoctorService } from 'app/services/doctor.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Location } from '@angular/common';
 
 @Component({
@@ -14,7 +13,6 @@ export class EditDoctorComponent implements OnInit {
 
   doctor: Doctor;
   displayModal: boolean;
-
 
   constructor(
     private doctorService: DoctorService,

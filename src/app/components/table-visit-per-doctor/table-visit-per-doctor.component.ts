@@ -19,7 +19,7 @@ export class TableVisitPerDoctorComponent implements OnInit {
   }
 
   openEditVisitPage(id: number) {
-    this.router.navigate([`/visit/${id}/edit`]);
+    this.router.navigate([`/visits/${id}/edit`]);
   }
 
 }

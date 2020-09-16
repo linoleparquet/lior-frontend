@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, filter } from 'rxjs/operators'
 import { Visit } from 'models/visit.model';
@@ -14,7 +14,7 @@ export class VisitService {
   private localhostUrl = 'http://localhost:8080/visits';
 
   getAllVisits(): Observable<Visit[]> {
-    const url = `${this.localhostUrl}`;
+    const url = `${this.localhostUrl}/all`;
     return this.http.get<Visit[]>(url);
   }
 
@@ -38,14 +38,9 @@ export class VisitService {
     return this.http.delete<Visit>(url);
   }
 
-
   getVisitsByDoctor(id: number) {
-    return this.getAllVisits()
-      .pipe(
-        map(visits =>
-          visits.filter(visit =>
-            visit.doctorId == id
-          ))
-      );
+    const url = `${this.localhostUrl}`;
+    let params = new HttpParams().set('doctor', "" + id);
+    return this.http.get<Visit[]>(url, { params: params });
   }
 }

@@ -1,7 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Doctor } from 'models/doctor.model';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { DEPARTMENT } from 'assets/json/departments';
+import { EstablishmentService } from 'app/services/establishment.service';
+import { Establishment } from 'models/establishment.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form-doctor',
@@ -17,38 +20,29 @@ export class FormDoctorComponent implements OnInit {
 
   form: FormGroup;
   departmentSuggestion: any[];
+  establishments$: Observable<Establishment[]>;
 
 
-  constructor() {
+  constructor(
+    private fb: FormBuilder,
+    private establishmentService: EstablishmentService
+  ) {
     this.confirmation = new EventEmitter<Doctor>();
     this.delete = new EventEmitter<MouseEvent>();
+
   }
 
   ngOnInit(): void {
     this.departmentSuggestion = DEPARTMENT;
-    this.form = new FormGroup({
-      'id': new FormControl(this.doctor.id, []),
-      'lastVisitId': new FormControl(this.doctor.lastVisitId, []),
-      'nextVisitDate': new FormControl(this.doctor.nextVisitDate, []),
-      'name': new FormControl(this.doctor.name, [
-        Validators.required
-      ]),
-      'surname': new FormControl(this.doctor.surname, [
-        Validators.required
-      ]),
-      'department': new FormControl(this.doctor.department, [
-        Validators.required
-      ]),
-      'city': new FormControl(this.doctor.city, [
-        Validators.required
-      ]),
-      'periodicity': new FormControl(this.doctor.periodicity, [
-        Validators.required
-      ]),
-      'establishment': new FormControl(this.doctor.establishment, [
-        Validators.required
-      ])
-    });
+    this.form = this.fb.group({
+      id: [this.doctor.id],
+      establishmentId: [this.doctor.establishmentId, Validators.required],
+      name: [this.doctor.name, Validators.required],
+      surname: [this.doctor.surname, Validators.required],
+      periodicity: [this.doctor.periodicity, Validators.required]
+    })
+
+    this.establishments$ = this.establishmentService.getAllEstablishments();
   }
 
   onConfirmation(): void {
@@ -59,10 +53,8 @@ export class FormDoctorComponent implements OnInit {
     this.delete.emit();
   }
 
+  get establishmentId() { return this.form.get('establishmentId') }
   get name() { return this.form.get('name') }
   get surname() { return this.form.get('surname') }
-  get department() { return this.form.get('department') }
-  get city() { return this.form.get('city') }
   get periodicity() { return this.form.get('periodicity') }
-  get establishment() { return this.form.get('establishment') }
 }

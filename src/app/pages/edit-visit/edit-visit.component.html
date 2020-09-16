@@ -5,7 +5,7 @@
 
 <p-dialog header="Confirmation" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
   [draggable]="false" [resizable]="false">
-  <p>Are you sure you want to delete this visit ? </p>
+  <p>Are you sure you want to delete this visit ?</p>
   <p-footer>
     <button type="submit" class="btn btn-success btn-round" (click)="delete(visit.id)">Yes</button>
     <button type="submit" class="btn btn-danger btn-round" (click)="toggleModal()">No</button>

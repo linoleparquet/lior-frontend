@@ -1,0 +1,4 @@
+<div *ngIf="establishments$ | async as establishments">
+  <app-table-establishment [title]="'Establishments'" [establishments]="establishments">
+  </app-table-establishment>
+</div>

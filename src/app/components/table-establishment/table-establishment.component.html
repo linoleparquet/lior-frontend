@@ -15,32 +15,31 @@
   </div>
   <div class="card-body">
 
-    <p-table #table [value]="visits" class="table table-responsive table-hover"
-      [globalFilterFields]="['doctor','date','notes']">
+    <p-table #table [value]="establishments" class="table table-responsive table-hover"
+      [globalFilterFields]="['name','department','city']">
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="doctor">Doctor<p-sortIcon field="doctor"></p-sortIcon>
+          <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon>
           </th>
-          <th pSortableColumn="date">Date<p-sortIcon field="date"></p-sortIcon>
+          <th pSortableColumn="department">Department<p-sortIcon field="department"></p-sortIcon>
           </th>
-          <th pSortableColumn="notes">Notes<p-sortIcon field="notes"></p-sortIcon>
+          <th pSortableColumn="city">City<p-sortIcon field="city"></p-sortIcon>
           </th>
-
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-visit>
-        <tr (click)="openEditVisitPage(visit.id)">
+      <ng-template pTemplate="body" let-establishment>
+        <tr (click)="OpenEstablishmentPage(establishment.id)">
           <td>
-            {{visit.doctorName}}
+            {{establishment.name}}
           </td>
           <td>
-            {{visit.date | date: 'dd/MM/yyyy'}}
+            {{establishment.department}}
           </td>
           <td>
-            {{visit.notes}}
+            {{establishment.city}}
           </td>
+
         </tr>
       </ng-template>
     </p-table>
   </div>
-</div>

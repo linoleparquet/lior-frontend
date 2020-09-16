@@ -45,13 +45,13 @@
             {{doctor.department}}
           </td>
           <td>
-            {{doctor.establishment}}
+            {{doctor.establishmentName}}
           </td>
           <td>
-            {{doctor.lastVisitDate | date: 'dd/MM/yyyy' }}
+            {{doctor.lastVisit | date: 'dd/MM/yyyy'}}
           </td>
           <td>
-            {{doctor.nextVisitDate | date: 'dd/MM/yyyy'}}
+            {{doctor.nextVisit | date: 'dd/MM/yyyy'}}
           </td>
         </tr>
       </ng-template>

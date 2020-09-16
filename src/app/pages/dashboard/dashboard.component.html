@@ -1,6 +1,7 @@
 <div *ngIf="doctorsVisitPlannedForActualMonth as doctors">
   <app-table-doctor *ngIf="doctors != 0" [title]="'Doctors to visit this month'" [doctors]="doctors">
   </app-table-doctor>
+  <!-- ngIf !doctor.length -->
 </div>
 <div *ngIf="doctorsVisitPlannedBeforeActualMonth as doctors">
   <app-table-doctor *ngIf="doctors != 0" [title]="'Doctors late'" [doctors]="doctors">
@@ -11,4 +12,4 @@
   </app-table-doctor>
 </div>
 
-<h4 *ngIf="noDoctorToDisplay">No doctor to display</h4>
+<h3 class="text-muted" *ngIf="noDoctors">No doctors to display</h3>

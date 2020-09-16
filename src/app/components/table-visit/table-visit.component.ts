@@ -17,13 +17,10 @@ export class TableVisitComponent implements OnInit {
     private doctorService: DoctorService) { }
 
   ngOnInit(): void {
-    this.visits.forEach(visit =>
-      this.doctorService.getOneDoctor(visit.doctorId).subscribe(doctor => visit.doctor = doctor.surname + " " + doctor.name)
-    )
   }
 
   openEditVisitPage(id: number) {
-    this.router.navigate([`/visit/${id}/edit`]);
+    this.router.navigate([`/visits/${id}/edit`]);
   }
 
 }

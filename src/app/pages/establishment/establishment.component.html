@@ -1,0 +1,22 @@
+<div *ngIf="establishment$ | async as establishment">
+  <div class="row">
+    <div class="col">
+      <h1>{{establishment.name}}</h1>
+    </div>
+    <div class="col">
+      <a [routerLink]="['/establishments',establishment.id,'edit']" class="btn btn-warning btn-round float-right">Edit
+        Establishment</a>
+      <a [routerLink]="['/doctors/new']" [queryParams]="{establishment: this.establishment.id}"
+        class="btn btn-success btn-round float-right">Add a doctor</a>
+      <!-- a tester -->
+    </div>
+  </div>
+  <h3 class="text-muted">
+    <div>{{getDepartmentName(establishment.department)}} - {{establishment.city}}</div>
+  </h3>
+</div>
+
+
+<div *ngIf="doctors$ | async as doctors">
+  <app-table-doctor [title]='"Doctors"' [doctors]="doctors"></app-table-doctor>
+</div>

@@ -4,15 +4,15 @@
       <h1>{{doctor.name}} {{doctor.surname}}</h1>
     </div>
     <div class="col">
-      <a [routerLink]="['/doctor',doctor.id,'edit']" class="btn btn-warning btn-round float-right">Edit Profile</a>
+      <a [routerLink]="['/doctors',doctor.id,'edit']" class="btn btn-warning btn-round float-right">Edit Profile</a>
       <a [routerLink]="['/visits/new']" [queryParams]="{doctor: this.doctor.id}"
         class="btn btn-success btn-round float-right">Add a visit</a>
     </div>
   </div>
   <h3 class="text-muted">
-    <div>{{getDepartmentName(doctor.department)}} - {{doctor.city}}</div>
+    <div>{{getDepartmentName(doctor.department)}} - {{doctor.establishmentName}}</div>
     <div>{{getPeriodicityText(doctor.periodicity)}}</div>
-    <div>Next Visit : {{doctor.nextVisitDate | date}}</div>
+    <div>Next Visit : {{doctor.nextVisit | date}}</div>
   </h3>
 </div>
 

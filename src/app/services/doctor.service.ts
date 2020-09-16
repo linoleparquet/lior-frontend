@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Doctor } from 'models/doctor.model';
 import { map } from 'rxjs/operators';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,11 @@ export class DoctorService {
   // ------------------- HTTP Request -------------------
 
   getAllDoctors(): Observable<Doctor[]> {
-    const url = `${this._localhostUrl}`;
+    const url = `${this._localhostUrl}/all`;
     return this.http.get<Doctor[]>(url);
   }
 
-  postCreateNewDoctor(doctor: Doctor): Observable<Doctor> {
+  postCreateOneDoctor(doctor: Doctor): Observable<Doctor> {
     const url = `${this._localhostUrl}`;
     return this.http.post<Doctor>(url, doctor);
   }
@@ -41,44 +42,9 @@ export class DoctorService {
     return this.http.delete<Doctor>(url);
   }
 
-  // -----------------------------------------------------
-
-  getDoctorsVisitPlannedForActualMonth(): Observable<Doctor[]> {
-    const now = new Date(Date.now());
-    now.setHours(0, 0, 0, 0);
-    now.setDate(1)
-    return this.getAllDoctors()
-      .pipe(
-        map(doctors =>
-          doctors.filter(doctor => {
-            const visit = new Date(doctor.nextVisitDate);
-            visit.setHours(0, 0, 0, 0)
-            visit.setDate(1)
-            if (doctor.nextVisitDate != null && now.getTime() == visit.getTime()) { return true }
-          })));
-  }
-
-
-  getDoctorsVisitPlannedBeforeActualMonth(): Observable<Doctor[]> {
-    const now = new Date(Date.now());
-    now.setHours(0, 0, 0, 0);
-    now.setDate(1)
-    return this.getAllDoctors()
-      .pipe(
-        map(doctors =>
-          doctors.filter(doctor => {
-            const visit = new Date(doctor.nextVisitDate);
-            visit.setHours(0, 0, 0, 0)
-            visit.setDate(1)
-            if (doctor.nextVisitDate != null && visit.getTime() < now.getTime()) { return true }
-          })));
-  }
-
-  getDoctorsProspect(): Observable<Doctor[]> {
-    return this.getAllDoctors().pipe(
-      map(doctors =>
-        doctors.filter(doctor => {
-          if (doctor.nextVisitDate == null) { return true }
-        })));
+  getDoctorsByEstablishment(id: number) {
+    const url = `${this._localhostUrl}`;
+    let params = new HttpParams().set('establishment', "" + id);
+    return this.http.get<Doctor[]>(url, { params: params });
   }
 }

@@ -11,7 +11,6 @@ import { Observable } from 'rxjs';
 export class DoctorsComponent implements OnInit {
 
   doctors$: Observable<Doctor[]>;
-  headElements: String[];
 
   constructor(private doctorService: DoctorService) { }
 

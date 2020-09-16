@@ -3,7 +3,7 @@ import { Visit } from 'models/visit.model';
 import { Observable } from 'rxjs';
 import { Doctor } from 'models/doctor.model';
 import { DoctorService } from 'app/services/doctor.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-form-visit',
@@ -22,6 +22,7 @@ export class FormVisitComponent implements OnInit {
 
   constructor(
     private doctorService: DoctorService,
+    private fb: FormBuilder
   ) {
     this.confirmation = new EventEmitter();
     this.delete = new EventEmitter();
@@ -29,16 +30,12 @@ export class FormVisitComponent implements OnInit {
 
   ngOnInit(): void {
     this.doctors$ = this.doctorService.getAllDoctors();
-    this.form = new FormGroup({
-      'id': new FormControl(this.visit.id),
-      'doctorId': new FormControl(this.visit.doctorId, [
-        Validators.required
-      ]),
-      'date': new FormControl(this.visit.date, [
-        Validators.required
-      ]),
-      'note': new FormControl(this.visit.note)
-    });
+    this.form = this.fb.group({
+      id: [this.visit.id],
+      doctorId: [this.visit.doctorId, Validators.required],
+      date: [this.visit.date, Validators.required],
+      notes: [this.visit.notes]
+    })
   }
 
   onConfirmation(): void {
@@ -50,7 +47,7 @@ export class FormVisitComponent implements OnInit {
   }
 
   get date() { return this.form.get('date'); }
-  get note() { return this.form.get('name'); }
+  get notes() { return this.form.get('names'); }
   get doctorId() { return this.form.get('doctorId'); }
 
 }
