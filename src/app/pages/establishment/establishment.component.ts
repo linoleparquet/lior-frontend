@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DoctorService } from 'app/services/doctor.service';
 import { EstablishmentService } from 'app/services/establishment.service';
+import { DEPARTMENT } from 'assets/json/departments';
 import { Doctor } from 'models/doctor.model';
 import { Establishment } from 'models/establishment.model';
 import { Observable } from 'rxjs';
-import { DEPARTMENT } from '../../../../dist/assets/json/departments';
+
 
 @Component({
   selector: 'app-establishment',
