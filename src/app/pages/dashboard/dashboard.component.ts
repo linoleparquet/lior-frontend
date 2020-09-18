@@ -16,13 +16,11 @@ export class DashboardComponent implements OnInit {
   doctorsProspect: Doctor[];
   doctors: Doctor[]
   noDoctors: boolean;
-  isSpinner = true;
 
   constructor(private doctorService: DoctorService) { }
 
   ngOnInit() {
     this.doctorService.getAllDoctors().subscribe(data => {
-      this.isSpinner = false;
       this.doctors = data
       this.setDoctorsVisitPlannedBeforeActualMonth();
       this.setDoctorsVisitPlannedForActualMonth();
@@ -41,7 +39,7 @@ export class DashboardComponent implements OnInit {
       const visit = new Date(doctor.nextVisit);
       visit.setHours(0, 0, 0, 0)
       visit.setDate(1)
-      if (doctor.nextVisit != null && now.getTime() == visit.getTime()) { return true }
+      return doctor.nextVisit != null && now.getTime() == visit.getTime()
     });
 
   }
@@ -54,13 +52,13 @@ export class DashboardComponent implements OnInit {
       const visit = new Date(doctor.nextVisit);
       visit.setHours(0, 0, 0, 0)
       visit.setDate(1)
-      if (doctor.nextVisit != null && visit.getTime() < now.getTime()) { return true }
+      return doctor.nextVisit != null && visit.getTime() < now.getTime()
     });
   }
 
   setDoctorsProspect(): void {
     this.doctorsProspect = this.doctors.filter(doctor => {
-      if (doctor.lastVisit == null) { return true }
+      return doctor.lastVisit == null
     });
   }
 }

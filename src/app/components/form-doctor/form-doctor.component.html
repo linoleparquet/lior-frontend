@@ -13,7 +13,7 @@
   <div class="card-body">
     <form [formGroup]="form">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col">
           <div class="form-group">
             <label>Surame</label>
             <input required id="surname" class="form-control" formControlName="surname">
@@ -24,7 +24,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col">
           <div class="form-group">
             <label>Name</label>
             <input required id="name" class="form-control" formControlName="name">
@@ -38,36 +38,7 @@
       </div>
 
       <div class="row">
-        <div class="col-md-4">
-          <!-- <div class="form-group">
-            <label>Department</label>
-            <select required name="department" class="custom-select" formControlName="department">
-              <option [ngValue]="null" ng-selected>Select the department</option>
-              <option *ngFor="let department of departmentSuggestion" [ngValue]="department.num_dep" ng-selected>
-                {{department.num_dep}}
-                {{department.dep_name}}</option>
-            </select>
-            <div *ngIf="department.invalid && (department.dirty || department.touched)" class="alert alert-danger">
-              <div *ngIf="department.errors.required">
-                Department is required.
-              </div>
-            </div>
-          </div> -->
-        </div>
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Periodicity</label>
-            <input required type="number" min="1" name="periodicity" class="form-control" formControlName="periodicity"
-              placeholder="Every x months">
-            <div *ngIf="periodicity.invalid && (periodicity.dirty || periodicity.touched)" class="alert alert-danger">
-              <div *ngIf="periodicity.errors.required">
-                Periodicity is required.
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-
+        <div class="col">
           <div class="form-group">
             <label>Establishment</label>
             <select required class="custom-select" formControlName="establishmentId" name="establishment">
@@ -79,6 +50,18 @@
               class="alert alert-danger">
               <div *ngIf="establishmentId.errors.required">
                 Establishment is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label>Periodicity</label>
+            <input required type="number" min="1" name="periodicity" class="form-control" formControlName="periodicity"
+              placeholder="Every x months">
+            <div *ngIf="periodicity.invalid && (periodicity.dirty || periodicity.touched)" class="alert alert-danger">
+              <div *ngIf="periodicity.errors.required">
+                Periodicity is required.
               </div>
             </div>
           </div>

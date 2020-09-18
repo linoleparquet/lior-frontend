@@ -13,7 +13,7 @@
   <div class="card-body">
     <form [formGroup]="form">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col">
           <div class="form-group">
             <label>Doctor</label>
             <select required class="custom-select" formControlName="doctorId" name="doctorId">
@@ -30,7 +30,7 @@
           </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col">
           <div class="form-group">
             <label>Date</label>
             <input required type="date" name="date" class="form-control" formControlName="date">
@@ -44,7 +44,7 @@
 
       </div>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col">
           <div class="form-group">
             <label>Notes</label>
             <textarea class="form-control textarea" formControlName="notes"
