@@ -15,12 +15,14 @@ export class DashboardComponent implements OnInit {
   doctorsVisitPlannedBeforeActualMonth: Doctor[];
   doctorsProspect: Doctor[];
   doctors: Doctor[]
-  noDoctors: boolean
+  noDoctors: boolean;
+  isSpinner = true;
 
   constructor(private doctorService: DoctorService) { }
 
   ngOnInit() {
     this.doctorService.getAllDoctors().subscribe(data => {
+      this.isSpinner = false;
       this.doctors = data
       this.setDoctorsVisitPlannedBeforeActualMonth();
       this.setDoctorsVisitPlannedForActualMonth();

@@ -23,6 +23,7 @@ import { TableVisitComponent } from 'app/components/table-visit/table-visit.comp
 
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { EstablishmentComponent } from 'app/pages/establishment/establishment.component';
 import { EditEstablishmentComponent } from 'app/pages/edit-establishment/edit-establishment.component';
 import { NewEstablishmentComponent } from 'app/pages/new-establishment/new-establishment.component';
@@ -41,7 +42,8 @@ import { FormEstablishmentComponent } from 'app/components/form-establishment/fo
     FormsModule,
     ReactiveFormsModule,
     TableModule,
-    DialogModule
+    DialogModule,
+    ProgressSpinnerModule
 
   ],
   declarations: [
