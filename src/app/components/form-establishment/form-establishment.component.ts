@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { DEPARTMENT } from 'assets/json/departments';
+import { AddressService } from 'app/services/address.service';
 import { Establishment } from 'models/establishment.model';
 
 
@@ -17,16 +17,35 @@ export class FormEstablishmentComponent implements OnInit {
   @Output() delete: EventEmitter<MouseEvent>;
 
   form: FormGroup;
-  departmentSuggestion: any[];
 
+  text: string;
 
-  constructor() {
+  results: string[];
+
+  search(event) {
+      this.addressService.getAdressResults(event.query).subscribe
+        (data => {
+          this.results = data.features.map(feature => feature.properties.label);
+            console.log( data.features.map(feature => feature.properties.label));
+      });
+  }
+
+  fillInputs(adress) {
+    this.addressService.getAdressResults(adress).subscribe(
+      data => {
+        this.form.controls['department'].setValue(data.features[0].properties.context);
+        this.form.controls['city'].setValue(data.features[0].properties.city);
+        this.form.controls['address'].setValue(data.features[0].properties.name);
+      }
+    )
+  }
+
+  constructor(private addressService: AddressService) {
     this.confirmation = new EventEmitter<Establishment>();
     this.delete = new EventEmitter<MouseEvent>();
   }
 
   ngOnInit(): void {
-    this.departmentSuggestion = DEPARTMENT;
     this.form = new FormGroup({
       'id': new FormControl(this.establishment.id, []),
       'name': new FormControl(this.establishment.name, [
@@ -56,5 +75,8 @@ export class FormEstablishmentComponent implements OnInit {
   get department() { return this.form.get('department') }
   get city() { return this.form.get('city') }
   get address() { return this.form.get('address') }
+
+  // comment l'utiliser?
+  set name(value) { this.form.controls['name'].setValue(value)}
 
 }

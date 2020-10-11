@@ -20,7 +20,7 @@ import { NewDoctorComponent } from 'app/pages/new-doctor/new-doctor.component';
 import { TableVisitPerDoctorComponent } from 'app/components/table-visit-per-doctor/table-visit-per-doctor.component';
 import { TableVisitComponent } from 'app/components/table-visit/table-visit.component';
 
-
+import {AutoCompleteModule} from 'primeng/autocomplete';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
@@ -43,7 +43,8 @@ import { FormEstablishmentComponent } from 'app/components/form-establishment/fo
     ReactiveFormsModule,
     TableModule,
     DialogModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    AutoCompleteModule
 
   ],
   declarations: [
