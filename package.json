@@ -8,7 +8,7 @@
     "start": "ng serve -o",
     "electron:build": "ng build --base-href ./ && electron .",
     "electron:start": "electron .",
-    "electron:package": "electron-packager . -platform=win32",
+    "electron:package": "ng build --base-href ./ && electron-packager . -platform=win32",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
