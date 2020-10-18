@@ -30,6 +30,7 @@ import { NewEstablishmentComponent } from 'app/pages/new-establishment/new-estab
 import { TableEstablishmentComponent } from 'app/components/table-establishment/table-establishment.component';
 import { EstablishmentsComponent } from 'app/pages/establishments/establishments.component';
 import { FormEstablishmentComponent } from 'app/components/form-establishment/form-establishment.component';
+import { MapComponent } from 'app/components/map/map.component';
 
 
 
@@ -66,7 +67,8 @@ import { FormEstablishmentComponent } from 'app/components/form-establishment/fo
     EditEstablishmentComponent,
     TableEstablishmentComponent,
     EstablishmentsComponent,
-    FormEstablishmentComponent
+    FormEstablishmentComponent,
+    MapComponent
   ]
 })
 

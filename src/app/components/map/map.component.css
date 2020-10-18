@@ -1,0 +1,9 @@
+#map {
+  width: 100%;
+  height: 600px;
+}
+
+.map-border {
+  border: 5px solid lightgray;
+  height: 100%;
+}
