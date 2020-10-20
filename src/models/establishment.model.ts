@@ -4,6 +4,8 @@ export class Establishment {
     department: number;
     city: String;
     address: String;
+    x: number;
+    y: number;
 
     constructor() { }
 }

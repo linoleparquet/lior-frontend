@@ -30,7 +30,7 @@
         <div class="col-md-4">
           <div class="form-group">
             <label>Department</label>
-            <input required name="department"  class="form-control" formControlName="department">
+            <input readonly required name="department"  class="form-control" formControlName="department">
 
             <div *ngIf="department.invalid && (department.dirty || department.touched)" class="alert alert-danger">
               <div *ngIf="department.errors.required">
@@ -42,7 +42,7 @@
         <div class="col-md-4">
           <div class="form-group">
             <label>City</label>
-            <input required name="city" class="form-control" formControlName="city">
+            <input readonly required name="city" class="form-control" formControlName="city">
             <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
               <div *ngIf="city.errors.required">
                 City is required.
@@ -53,7 +53,7 @@
         <div class="col-md-4">
           <div class="form-group">
             <label>Address</label>
-            <input required name="city" class="form-control" formControlName="address">
+            <input  readonly required name="city" class="form-control" formControlName="address">
             <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
               <div *ngIf="address.errors.required">
                 Address is required.

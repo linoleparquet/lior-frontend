@@ -5,7 +5,6 @@ import { ActivatedRoute } from '@angular/router';
 import { DoctorService } from 'app/services/doctor.service';
 import { Observable } from 'rxjs';
 import { VisitService } from 'app/services/visit.service';
-import { DEPARTMENT } from 'assets/json/departments';
 
 @Component({
   selector: 'app-doctor',
@@ -30,20 +29,17 @@ export class DoctorComponent implements OnInit {
     this.visits$ = this.visitService.getVisitsByDoctor(this.id);
   }
 
-  getDepartmentName(number: number): string {
-    return DEPARTMENT.find(department => department.num_dep == number).dep_name;
-  }
 
   getPeriodicityText(periodicity: number): string {
     switch (periodicity) {
       case 1:
-        return "Every month"
+        return "Every months"
       case 6:
-        return "Twice a year"
+        return "Twice a year" 
       case 12:
         return "Once a year"
       default:
-        return "Every" + periodicity + "months"
+        return "Every " + periodicity + " months"
     }
   }
 

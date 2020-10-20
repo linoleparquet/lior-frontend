@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Doctor } from 'models/doctor.model';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { DEPARTMENT } from 'assets/json/departments';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { EstablishmentService } from 'app/services/establishment.service';
 import { Establishment } from 'models/establishment.model';
 import { Observable } from 'rxjs';
@@ -19,7 +18,6 @@ export class FormDoctorComponent implements OnInit {
   @Output() delete: EventEmitter<MouseEvent>;
 
   form: FormGroup;
-  departmentSuggestion: any[];
   establishments$: Observable<Establishment[]>;
 
 
@@ -33,7 +31,6 @@ export class FormDoctorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.departmentSuggestion = DEPARTMENT;
     this.form = this.fb.group({
       id: [this.doctor.id],
       establishmentId: [this.doctor.establishmentId, Validators.required],

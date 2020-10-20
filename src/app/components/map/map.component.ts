@@ -9,21 +9,24 @@ import * as L from 'leaflet';
 })
 export class MapComponent implements OnInit {
 
+  map;
+
   constructor() { }
 
   ngOnInit(): void {
-    const map = L.map('map').setView([50.6311634, 3.0599573], 12);
- 
+    this.initMap();
+  }
+
+  initMap(){
+    this.map = L.map('map').setView([50.6311634, 3.0599573], 12);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
       attribution: 'Map',
       id: 'mapbox/light-v9'
-    }).addTo(map);
+    }).addTo(this.map);
+  }
 
-    const marker = L.marker([50.6311634, 3.0599573]).setIcon(L.icon({
-      iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/marker-icon.png'
-    })).bindPopup("<b>Hello world!</b><br>I am a popup.").addTo(map);
-
-
+  button(){
+    const marker = L.marker([50.6311634, 3.0599573]).bindPopup("<b>Hello world!</b><br>I am a popup.").addTo(this.map);
   }
 
 }
