@@ -13,7 +13,7 @@
   <div class="card-body">
     <form [formGroup]="form">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="form-group">
             <label>Name</label>
             <input required id="name" class="form-control" formControlName="name">
@@ -27,10 +27,18 @@
       </div>
 
       <div class="row">
+        <div class="col-md-6">
+          <label>Fill the following fields by typing the adress : </label>
+          <p-autoComplete [(ngModel)]="text" [suggestions]="results" (completeMethod)="search($event)"
+            (onSelect)="fillInputs($event)"></p-autoComplete>
+        </div>
+      </div>
+
+      <div class="row">
         <div class="col-md-4">
           <div class="form-group">
             <label>Department</label>
-            <input readonly required name="department"  class="form-control" formControlName="department">
+            <input readonly required name="department" class="form-control" formControlName="department">
 
             <div *ngIf="department.invalid && (department.dirty || department.touched)" class="alert alert-danger">
               <div *ngIf="department.errors.required">
@@ -53,7 +61,7 @@
         <div class="col-md-4">
           <div class="form-group">
             <label>Address</label>
-            <input  readonly required name="city" class="form-control" formControlName="address">
+            <input readonly required name="city" class="form-control" formControlName="address">
             <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
               <div *ngIf="address.errors.required">
                 Address is required.
@@ -62,12 +70,7 @@
           </div>
         </div>
       </div>
-
     </form>
-
-
-    <label>Addddress</label>
-    <p-autoComplete [(ngModel)]="text" [suggestions]="results" (completeMethod)="search($event)" (onSelect)="fillInputs($event)"></p-autoComplete>
 
     <div class="row">
       <div class="ml-auto mr-auto">
