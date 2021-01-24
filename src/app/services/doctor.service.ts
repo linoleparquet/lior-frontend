@@ -47,25 +47,5 @@ export class DoctorService {
     return this.http.get<Doctor[]>(url, { params: params });
   }
 
-  // ----------------- OTHER -----------------------------
 
-  numberAndDuration2Days(number: number, duration: String): Number {
-    if (duration === "months") {
-      return 30 * number;
-    }
-
-    if (duration === "weeks") {
-      return 7 * number;
-    }
-  }
-
-  days2NumberAndDuration(days: number) {
-    if (days % 30 == 0) {
-      return { number: days / 30, duration: "months" };
-    }
-
-    if (days % 7 == 0) {
-      return { number: days / 30, duration: "weeks" };
-    }
-  }
 }

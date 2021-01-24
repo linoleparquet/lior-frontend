@@ -18,7 +18,7 @@ export class FormEstablishmentComponent implements OnInit {
 
   form: FormGroup;
 
-  text: string;
+  isFilled: boolean;
 
   results: string[];
 
@@ -37,6 +37,7 @@ export class FormEstablishmentComponent implements OnInit {
         this.form.controls['address'].setValue(data.features[0].properties.name);
         this.form.controls['x'].setValue(data.features[0].geometry.coordinates[0]);
         this.form.controls['y'].setValue(data.features[0].geometry.coordinates[1]);
+        this.isFilled = true;
       }
     )
   }

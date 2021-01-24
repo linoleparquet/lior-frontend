@@ -27,14 +27,14 @@
       </div>
 
       <div class="row">
-        <div class="col-md-6">
-          <label>Fill the following fields by typing the adress : </label>
-          <p-autoComplete [(ngModel)]="text" [suggestions]="results" (completeMethod)="search($event)"
-            (onSelect)="fillInputs($event)"></p-autoComplete>
+        <div class="col-md-4">
+          <p>Search for the address : </p>
+          <p-autoComplete [suggestions]="results" (completeMethod)="search($event)" (onSelect)="fillInputs($event)">
+          </p-autoComplete>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" *ngIf="isFilled">
         <div class="col-md-4">
           <div class="form-group">
             <label>Department</label>
