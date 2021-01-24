@@ -28,8 +28,10 @@ export class MapComponent implements OnInit {
   }
 
   button() {
-    this.routingService.getVrptw([1, 2, 3, 4]).subscribe((routingDto) => {
+    this.routingService.getVrptwAll().subscribe((routingDto) => {
       console.log(routingDto);
+
+     let bounds = []
 
       routingDto.destinations.forEach((destination) => {
         const x = destination.coordinate.x;
@@ -46,10 +48,18 @@ export class MapComponent implements OnInit {
 
         const marker = L.marker([y, x])
           .bindPopup(
-            `<b>${doctorName}</b><br>${arrivalTime}<br>x = ${x}<br>y = ${y}`
+            `<b>${doctorName}</b>
+            <br>${address}
+            <br>Destination number: ${index}
+            <br>Arrival time: ${arrivalTime}`
           )
           .addTo(this.map);
+
+          bounds.push([y,x])
       });
+
+      this.map.fitBounds(bounds)
+
     });
   }
 }

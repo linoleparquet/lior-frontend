@@ -18,4 +18,9 @@ export class RoutingService {
     let params = new HttpParams().set("ids", ids.toString());
     return this.http.get<any>(url, { params: params });
   }
+
+  getVrptwAll(): Observable<any> {
+    const url = `${this._localhostUrl}/VRPTW/all`;
+    return this.http.get<any>(url);
+  }
 }
