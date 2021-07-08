@@ -1,11 +1,33 @@
-1 : Select the Doctors
+<button class="btn btn-success btn-round" (click)="button()"> Find Route </button>
 
+<div *ngIf="destinations">
+  <app-map [destinations]=destinations></app-map>
 
+  Destinations:
+  <p-table [value]="destinations">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Index</th>
+        <th>Doctor</th>
+        <th>Adress</th>
+        <th>Arrival Time</th>
+        <th>Depature Time</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-destination>
+      <tr>
+        <td>{{destination.index}}</td>
+        <td>{{destination.doctorName}}</td>
+        <td>{{destination.address}}</td>
+        <td>{{destination.arrivalTime}}</td>
+        <td>{{destination.endTime}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
 
---- réutiliser le composant dashboard
+  Doctors not visited:
+  <ul>
+    <li *ngFor="let destination of destinationsNotVisited">{{ destination.doctorName }}</li>
+  </ul>
 
-
-
-
-
-<app-map></app-map>
+</div>

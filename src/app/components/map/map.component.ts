@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { RoutingService } from "app/services/routing.service";
 import * as L from "leaflet";
 
@@ -10,10 +10,13 @@ import * as L from "leaflet";
 export class MapComponent implements OnInit {
   map;
 
-  constructor(private routingService: RoutingService) {}
+  @Input() destinations: any[];
+
+  constructor() {}
 
   ngOnInit(): void {
     this.initMap();
+    this.initMarkers();
   }
 
   initMap() {
@@ -27,13 +30,10 @@ export class MapComponent implements OnInit {
     ).addTo(this.map);
   }
 
-  button() {
-    this.routingService.getVrptwAll().subscribe((routingDto) => {
-      console.log(routingDto);
-
+  initMarkers() {
      let bounds = []
 
-      routingDto.destinations.forEach((destination) => {
+      this.destinations.forEach((destination) => {
         const x = destination.coordinate.x;
         const y = destination.coordinate.y;
         const id = destination.id;
@@ -58,8 +58,7 @@ export class MapComponent implements OnInit {
           bounds.push([y,x])
       });
 
+      // this centers the map
       this.map.fitBounds(bounds)
-
-    });
   }
 }
