@@ -1,0 +1,9 @@
+dist
+e2e
+resources
+node_modules
+.gitignore
+*.md
+.editorconfig
+karma.conf.js
+protractor.conf.js
