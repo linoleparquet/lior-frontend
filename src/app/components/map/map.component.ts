@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import * as L from "leaflet";
+import 'leaflet.motion/dist/leaflet.motion.js'
 import * as PolyUtils from "polyline-encoded";
 import { Destination } from "models/destination.model";
 
@@ -20,9 +21,25 @@ export class MapComponent implements OnInit {
   ngOnInit(): void {
     this.initMap();
     this.initMarkers();
-
-    L.polyline(PolyUtils.decode(this.encodedPolyline), {color: 'red'}).addTo(this.map);
+    this.initPolyline()
    }
+
+  initPolyline() {
+    (L as any).motion.polyline(PolyUtils.decode(this.encodedPolyline), {
+      color: "red"
+    }, {
+      auto: true,
+      duration: 10000,
+      easing: (L as any).Motion.Ease.linear
+
+    }
+    , {
+      removeOnEnd: true,
+      showMarker: false,
+      icon: L.divIcon({html: "<i class='fa fa-car fa-2x' aria-hidden='true'></i>", iconSize: L.point(27.5, 24)})
+    }
+    ).addTo(this.map);
+  }
 
   initMap() {
     this.map = L.map("map").setView([50.6311634, 3.0599573], 12);
@@ -62,8 +79,6 @@ export class MapComponent implements OnInit {
         .addTo(this.map);
 
         bounds.push([y,x])
-
-
 
     // Destinations Marker
     this.destinations.forEach((destination) => {
