@@ -9,9 +9,9 @@
       <tr>
         <th>Index</th>
         <th>Doctor</th>
-        <th>Adress</th>
+        <th>Address</th>
         <th>Arrival Time</th>
-        <th>Depature Time</th>
+        <th>Duration</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-destination>
@@ -19,8 +19,8 @@
         <td>{{destination.index}}</td>
         <td>{{destination.doctorName}}</td>
         <td>{{destination.address}}</td>
-        <td>{{destination.arrivalTime}}</td>
-        <td>{{destination.endTime}}</td>
+        <td>{{destination.arrivalTime | slice:0:-3}}</td>
+        <td>{{destination.duration | slice:0:-3}}</td>
       </tr>
     </ng-template>
   </p-table>
