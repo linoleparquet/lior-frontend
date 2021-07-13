@@ -33,6 +33,35 @@ export class MapComponent implements OnInit {
 
   initMarkers() {
     let bounds = []
+    
+    // StartingDestination Marker
+    const x = this.startingDestination.coordinate.x;
+    const y = this.startingDestination.coordinate.y;
+    const id = this.startingDestination.id;
+    const establishmentName = this.startingDestination.establishmentName;
+    const doctorName = this.startingDestination.doctorName;
+    const horaires = this.startingDestination.horaires;
+    const address = this.startingDestination.address;
+    const coordinate = this.startingDestination.coordinate;
+    const index = this.startingDestination.index;
+    const arrivalTime = this.startingDestination.arrivalTime;
+    const endTime = this.startingDestination.endTime;
+    const duration = this.startingDestination.duration;
+
+    const marker = L.marker([y, x])
+        .bindPopup(
+          `<b>${doctorName}</b>
+          <br>${address}
+          <br>Destination number: ${index}
+          <br>Arrival time: ${arrivalTime}`
+        )
+        .addTo(this.map);
+
+        bounds.push([y,x])
+
+
+
+    // Destinations Marker
     this.destinations.forEach((destination) => {
       const x = destination.coordinate.x;
       const y = destination.coordinate.y;
