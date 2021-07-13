@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutingService } from 'app/services/routing.service';
+import { Destination } from 'models/destination.model';
 
 @Component({
   selector: 'app-find-route',
@@ -13,12 +14,13 @@ export class FindRouteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  destinations: any[]
-  destinationsNotVisited : any[]
+  startingDestination: Destination;
+  destinations: Destination[]
+  destinationsNotVisited : Destination[]
 
   button() {
     this.routingService.getVrptwAll().subscribe((routingDto) => {
-      console.log(routingDto);
+      this.startingDestination = routingDto.startingDestination;
       this.destinations = routingDto.destinations;
       this.destinationsNotVisited = routingDto.destinationsNotVisited;
 

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { RoutingService } from "app/services/routing.service";
 import * as L from "leaflet";
+import { Destination } from "models/destination.model";
 
 @Component({
   selector: "app-map",
@@ -10,7 +10,8 @@ import * as L from "leaflet";
 export class MapComponent implements OnInit {
   map;
 
-  @Input() destinations: any[];
+  @Input() startingDestination: Destination;
+  @Input() destinations: Destination[];
 
   constructor() {}
 
@@ -31,34 +32,34 @@ export class MapComponent implements OnInit {
   }
 
   initMarkers() {
-     let bounds = []
+    let bounds = []
+    this.destinations.forEach((destination) => {
+      const x = destination.coordinate.x;
+      const y = destination.coordinate.y;
+      const id = destination.id;
+      const establishmentName = destination.establishmentName;
+      const doctorName = destination.doctorName;
+      const horaires = destination.horaires;
+      const address = destination.address;
+      const coordinate = destination.coordinate;
+      const index = destination.index;
+      const arrivalTime = destination.arrivalTime;
+      const endTime = destination.endTime;
+      const duration = destination.duration;
 
-      this.destinations.forEach((destination) => {
-        const x = destination.coordinate.x;
-        const y = destination.coordinate.y;
-        const id = destination.id;
-        const establishmentName = destination.establishmentName;
-        const doctorName = destination.doctorName;
-        const horaires = destination.horaires;
-        const address = destination.address;
-        const coordinate = destination.coordinate;
-        const index = destination.index;
-        const arrivalTime = destination.arrivalTime;
-        const endTime = destination.endTime;
+      const marker = L.marker([y, x])
+        .bindPopup(
+          `<b>${doctorName}</b>
+          <br>${address}
+          <br>Destination number: ${index}
+          <br>Arrival time: ${arrivalTime}`
+        )
+        .addTo(this.map);
 
-        const marker = L.marker([y, x])
-          .bindPopup(
-            `<b>${doctorName}</b>
-            <br>${address}
-            <br>Destination number: ${index}
-            <br>Arrival time: ${arrivalTime}`
-          )
-          .addTo(this.map);
+        bounds.push([y,x])
+    });
 
-          bounds.push([y,x])
-      });
-
-      // this centers the map
-      this.map.fitBounds(bounds)
+    // this centers the map
+    this.map.fitBounds(bounds)
   }
 }
