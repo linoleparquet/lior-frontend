@@ -12,14 +12,17 @@ export class FindRouteComponent implements OnInit {
   constructor(private routingService :RoutingService) { }
 
   ngOnInit(): void {
+    this.button()
   }
 
   startingDestination: Destination;
-  destinations: Destination[]
-  destinationsNotVisited : Destination[]
+  destinations: Destination[];
+  destinationsNotVisited : Destination[];
+  encodedPolyline: string;
 
   button() {
     this.routingService.getVrptwAll().subscribe((routingDto) => {
+      this.encodedPolyline = routingDto.encodedPolyline;
       this.startingDestination = routingDto.startingDestination;
       this.destinations = routingDto.destinations;
       this.destinationsNotVisited = routingDto.destinationsNotVisited;

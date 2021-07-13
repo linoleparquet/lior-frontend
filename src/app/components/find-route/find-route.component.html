@@ -1,7 +1,8 @@
 <button class="btn btn-success btn-round" (click)="button()"> Find Route </button>
 
 <div *ngIf="destinations">
-  <app-map [destinations]=destinations [startingDestination]=startingDestination></app-map>
+  <app-map [destinations]=destinations [startingDestination]=startingDestination [encodedPolyline]=encodedPolyline>
+  </app-map>
 
   Destinations:
   <p-table [value]="destinations">

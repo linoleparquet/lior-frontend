@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import * as L from "leaflet";
+import * as PolyUtils from "polyline-encoded";
 import { Destination } from "models/destination.model";
 
 @Component({
@@ -12,13 +13,16 @@ export class MapComponent implements OnInit {
 
   @Input() startingDestination: Destination;
   @Input() destinations: Destination[];
+  @Input() encodedPolyline: string;
 
   constructor() {}
 
   ngOnInit(): void {
     this.initMap();
     this.initMarkers();
-  }
+
+    L.polyline(PolyUtils.decode(this.encodedPolyline), {color: 'red'}).addTo(this.map);
+   }
 
   initMap() {
     this.map = L.map("map").setView([50.6311634, 3.0599573], 12);
@@ -33,7 +37,7 @@ export class MapComponent implements OnInit {
 
   initMarkers() {
     let bounds = []
-    
+
     // StartingDestination Marker
     const x = this.startingDestination.coordinate.x;
     const y = this.startingDestination.coordinate.y;
