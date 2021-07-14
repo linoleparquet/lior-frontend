@@ -12,7 +12,6 @@ export const ROUTES: RouteInfo[] = [
     { path: '/doctors', title: 'Doctors', icon: 'nc-single-02', class: '' },
     { path: '/visits', title: 'Visits', icon: 'nc-chat-33', class: '' },
     { path: '/establishments', title: 'Establishments', icon: 'nc-bank', class: '' },
-    { path: '/find-route', title: 'Find Route', icon: 'nc-settings-gear-65', class: '' },
     { path: '/settings', title: 'Settings', icon: 'nc-settings-gear-65', class: '' }
 ];
 

@@ -13,7 +13,6 @@ import { EstablishmentComponent } from 'app/pages/establishment/establishment.co
 import { EditEstablishmentComponent } from 'app/pages/edit-establishment/edit-establishment.component';
 import { NewEstablishmentComponent } from 'app/pages/new-establishment/new-establishment.component';
 import { EstablishmentsComponent } from 'app/pages/establishments/establishments.component';
-import { FindRouteComponent } from 'app/components/find-route/find-route.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -29,6 +28,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'establishments/:id/view', component: EstablishmentComponent },
     { path: 'establishments/:id/edit', component: EditEstablishmentComponent },
     { path: 'establishments/new', component: NewEstablishmentComponent },
-    { path: 'find-route', component: FindRouteComponent },
     
 ];
