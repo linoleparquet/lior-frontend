@@ -12,16 +12,18 @@
         <th>Doctor</th>
         <th>Address</th>
         <th>Arrival Time</th>
+        <th>End Time</th>
         <th>Duration</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-destination>
+    <ng-template pTemplate="body" let-destination let-i="rowIndex">
       <tr>
-        <td>{{destination.index}}</td>
+        <td>{{ i+1 }}</td>
         <td>{{destination.doctorName}}</td>
         <td>{{destination.address}}</td>
-        <td>{{destination.arrivalTime | slice:0:-3}}</td>
-        <td>{{destination.duration | slice:0:-3}}</td>
+        <td>{{destination.arrivalTime === "00:00:00" ? "" : destination.arrivalTime | slice:0:-3}}</td>
+        <td>{{destination.endTime === "00:00:00" ? "" : destination.endTime | slice:0:-3}}</td>
+        <td>{{destination.duration === "00:00:00" ? "" : destination.duration | slice:0:-3}}</td>
       </tr>
     </ng-template>
   </p-table>
