@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from "ngx-toastr";
 import { HttpClientModule } from '@angular/common/http';
@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { FindRouteComponent } from './components/find-route/find-route.component';
+import { GlobalErrorHandlerService } from "./services/global-error-handler.service";
 
 
 
@@ -35,7 +35,7 @@ import { FindRouteComponent } from './components/find-route/find-route.component
     HttpClientModule
 
   ],
-  providers: [],
+  providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandlerService }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
