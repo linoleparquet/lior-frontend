@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Doctor } from 'models/doctor.model';
 import { Router } from '@angular/router';
-import { VisitService } from 'app/services/visit.service';
 
 @Component({
   selector: 'app-table-doctor',
