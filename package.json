@@ -35,6 +35,7 @@
     "express": "4.17.1",
     "jquery": "3.4.1",
     "leaflet": "^1.7.1",
+    "leaflet-transitionedicon": "^0.2.1",
     "leaflet.motion": "^0.2.4",
     "ngx-toastr": "10.0.4",
     "polyline-encoded": "0.0.9",

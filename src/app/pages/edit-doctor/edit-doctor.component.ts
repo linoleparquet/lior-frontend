@@ -28,7 +28,6 @@ export class EditDoctorComponent implements OnInit {
 
   update(doctor: Doctor) {
     this.doctorService.putUpdateOneDoctor(doctor).subscribe(() => this.location.back())
-
   }
 
   delete(id: number) {

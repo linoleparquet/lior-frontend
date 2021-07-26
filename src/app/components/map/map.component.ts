@@ -21,12 +21,12 @@ export class MapComponent implements OnInit {
   ngOnInit(): void {
     this.initMap();
     this.initMarkers();
-    this.initPolyline()
+    this.initPolyline();
    }
 
   initPolyline() {
     (L as any).motion.polyline(PolyUtils.decode(this.encodedPolyline), {
-      color: "red"
+      color: "blue"
     }, {
       auto: true,
       duration: 10000,
@@ -36,7 +36,7 @@ export class MapComponent implements OnInit {
     , {
       removeOnEnd: true,
       showMarker: false,
-      icon: L.divIcon({html: "<i class='fa fa-car fa-2x' aria-hidden='true'></i>", iconSize: L.point(27.5, 24)})
+      icon: L.divIcon({html: "<i></i>", iconSize: L.point(1, 1)})
     }
     ).addTo(this.map);
   }

@@ -19,6 +19,8 @@ import { NewVisitComponent } from 'app/pages/new-visit/new-visit.component';
 import { NewDoctorComponent } from 'app/pages/new-doctor/new-doctor.component';
 import { TableVisitPerDoctorComponent } from 'app/components/table-visit-per-doctor/table-visit-per-doctor.component';
 import { TableVisitComponent } from 'app/components/table-visit/table-visit.component';
+import { FormUserPreferenceComponent } from 'app/components/form-user-preference/form-user-preference.component';
+import { SettingsComponent } from 'app/pages/settings/settings.component';
 
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import { TableModule } from 'primeng/table';
@@ -70,7 +72,9 @@ import { FindRouteComponent } from 'app/components/find-route/find-route.compone
     EstablishmentsComponent,
     FormEstablishmentComponent,
     MapComponent,
-    FindRouteComponent
+    FindRouteComponent,
+    FormUserPreferenceComponent,
+    SettingsComponent
   ]
 })
 
