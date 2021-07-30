@@ -26,7 +26,7 @@ export class MapComponent implements OnInit {
 
   initPolyline() {
     (L as any).motion.polyline(PolyUtils.decode(this.encodedPolyline), {
-      color: "blue"
+      color: "#2DC4DC"
     }, {
       auto: true,
       duration: 10000,
@@ -36,7 +36,7 @@ export class MapComponent implements OnInit {
     , {
       removeOnEnd: true,
       showMarker: false,
-      icon: L.divIcon({html: "<i></i>", iconSize: L.point(1, 1)})
+      icon: L.divIcon({html: "<i color='#54E2C1'></i>", iconSize: L.point(1, 1)})
     }
     ).addTo(this.map);
   }
@@ -55,6 +55,12 @@ export class MapComponent implements OnInit {
   initMarkers() {
     let bounds = []
 
+    const icon = new L.Icon({
+      iconUrl: "assets/svg/map-marker.svg",
+      iconSize: [32,32],
+      iconAnchor: [16,32]
+    })
+
     // StartingDestination Marker
     const x = this.startingDestination.coordinate.x;
     const y = this.startingDestination.coordinate.y;
@@ -70,6 +76,7 @@ export class MapComponent implements OnInit {
     const duration = this.startingDestination.duration;
 
     const marker = L.marker([y, x])
+        .setIcon(icon)
         .bindPopup(
           `<b>${doctorName}</b>
           <br>${address}
@@ -96,6 +103,7 @@ export class MapComponent implements OnInit {
       const duration = destination.duration;
 
       const marker = L.marker([y, x])
+        .setIcon(icon)
         .bindPopup(
           `<b>${doctorName}</b>
           <br>${address}
