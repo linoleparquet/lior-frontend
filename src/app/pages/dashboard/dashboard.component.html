@@ -1,10 +1,10 @@
 <div *ngIf="doctorsVisitPlannedForActualMonth as doctors">
-  <app-table-doctor *ngIf="doctors != 0" [title]="'Doctors to visit this month'" [doctors]="doctors">
+  <app-table-doctor *ngIf="doctors != 0" [title]="'Active appointments'" [doctors]="doctors">
   </app-table-doctor>
   <!-- ngIf !doctor.length -->
 </div>
 <div *ngIf="doctorsVisitPlannedBeforeActualMonth as doctors">
-  <app-table-doctor *ngIf="doctors != 0" [title]="'Doctors late'" [doctors]="doctors">
+  <app-table-doctor *ngIf="doctors != 0" [title]="'Missed appointments'" [doctors]="doctors">
   </app-table-doctor>
 </div>
 <div *ngIf="doctorsProspect as doctors">
