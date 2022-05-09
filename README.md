@@ -22,7 +22,7 @@ docker build -t lior-frontend .
 
 ## Running the image
 ```bash
-docker run -p80:80 lior-frontend
+docker run -p80:80 lior-frontend -d
 ```
 
 ## Accessing dashboard
