@@ -22,6 +22,7 @@ import { TableVisitComponent } from 'app/components/table-visit/table-visit.comp
 import { FormUserPreferenceComponent } from 'app/components/form-user-preference/form-user-preference.component';
 import { SettingsComponent } from 'app/pages/settings/settings.component';
 
+import { TimelineModule } from 'primeng/timeline'
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
@@ -48,7 +49,8 @@ import { FindRouteComponent } from 'app/components/find-route/find-route.compone
     TableModule,
     DialogModule,
     ProgressSpinnerModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    TimelineModule
 
   ],
   declarations: [

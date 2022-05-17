@@ -1,36 +1,67 @@
-<button class="btn btn-success btn-round" (click)="button()"> Find Route </button>
+<div class="row">
+  <div class="update ml-auto mr-auto">
+    <button class="btn btn-success btn-round" (click)="button()">
+      Find Route
+    </button>
+  </div>
+</div>
 
 <div *ngIf="destinations">
-  <app-map [destinations]=destinations [startingDestination]=startingDestination [encodedPolyline]=encodedPolyline>
+  <h2>Route representation</h2>
+  <app-map [destinations]="destinations" [encodedPolyline]="encodedPolyline">
   </app-map>
 
-  Destinations:
-  <p-table [value]="destinations">
-    <ng-template pTemplate="header">
-      <tr>
-        <th>Index</th>
-        <th>Doctor</th>
-        <th>Address</th>
-        <th>Arrival Time</th>
-        <th>End Time</th>
-        <th>Duration</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-destination let-i="rowIndex">
-      <tr>
-        <td>{{ i+1 }}</td>
-        <td>{{destination.doctorName}}</td>
-        <td>{{destination.address}}</td>
-        <td>{{destination.arrivalTime === "00:00:00" ? "" : destination.arrivalTime | slice:0:-3}}</td>
-        <td>{{destination.endTime === "00:00:00" ? "" : destination.endTime | slice:0:-3}}</td>
-        <td>{{destination.duration === "00:00:00" ? "" : destination.duration | slice:0:-3}}</td>
-      </tr>
-    </ng-template>
-  </p-table>
+  <div>
+    <h2>Route Timeline</h2>
 
-  Doctors not visited:
+    <div class="row">
+      <div class="ml-auto mr-auto">
+        <p-timeline [value]="destinations" align="alternate">
+          <ng-template pTemplate="content" let-destination>
+            <div class="card">
+              <h5 class="card-header">
+                {{
+                  destination.doctorName
+                    ? destination.doctorName
+                    : destination.arrivalTime === "00:00:00"
+                    ? "Start"
+                    : "End"
+                }}
+              </h5>
+              <div class="card-body">
+                <div>
+                  <span>
+                    {{
+                      destination.arrivalTime === "00:00:00"
+                        ? ""
+                        : (destination.arrivalTime | slice: 0:-3)
+                    }}
+                    {{
+                      destination.arrivalTime === "00:00:00" ||
+                      destination.endTime === "00:00:00"
+                        ? ""
+                        : "-"
+                    }}
+                    {{
+                      destination.endTime === "00:00:00"
+                        ? ""
+                        : (destination.endTime | slice: 0:-3)
+                    }}
+                  </span>
+                </div>
+                <div>{{ destination.address }}</div>
+              </div>
+            </div>
+          </ng-template>
+        </p-timeline>
+      </div>
+    </div>
+  </div>
+
+  <h2>Appointment not scheduled</h2>
   <ul>
-    <li *ngFor="let destination of destinationsNotVisited">{{ destination.doctorName }}</li>
+    <li *ngFor="let destination of destinationsNotVisited">
+      {{ destination.doctorName }}
+    </li>
   </ul>
-
 </div>
