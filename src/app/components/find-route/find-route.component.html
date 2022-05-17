@@ -8,11 +8,7 @@
 
 <div *ngIf="destinations">
   <h2>Route representation</h2>
-  <app-map
-    [destinations]="destinations"
-    [startingDestination]="startingDestination"
-    [encodedPolyline]="encodedPolyline"
-  >
+  <app-map [destinations]="destinations" [encodedPolyline]="encodedPolyline">
   </app-map>
 
   <div>
