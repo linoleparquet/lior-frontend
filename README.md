@@ -11,6 +11,14 @@ It's an Angular project based on the [Paper Dashboard Angular Project](https://w
 The map comes from mapbox
 The svg marker comes from [Iconic](https://useiconic.com/open/)
 
+## Local developement
+
+```bash
+docker run -p8080:8080 --rm lior-backend java -jar -Dspring.profiles.active=h2 app.jar
+npm i
+npm start
+```
+
 ## Running the app for local developement
 
 ```bash
@@ -18,19 +26,20 @@ npm install
 npm start
 ```
 
-## Building the image
+## Building and running the image
 
 ```bash
 docker build -t lior-frontend .
 ```
 
-## Running the image
-
 ```bash
 docker run -p80:80 lior-frontend -d
 ```
 
-## Accessing dashboard
+## Accessing the application
+
+The frontend application need the backend to be up. To run the backend of the application run:
+`docker run
 
 `http://localhost`
 
