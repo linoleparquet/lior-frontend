@@ -1,5 +1,8 @@
-<fixedplugin-cmp></fixedplugin-cmp>
+<!-- <fixedplugin-cmp></fixedplugin-cmp> -->
 
 <div *ngIf="userPreference$ | async as userPreference">
-  <app-form-user-preference [userPreference]=userPreference (confirmation)="update($event)"></app-form-user-preference>
+  <app-form-user-preference
+    [userPreference]="userPreference"
+    (confirmation)="update($event)"
+  ></app-form-user-preference>
 </div>
