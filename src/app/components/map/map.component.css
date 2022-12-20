@@ -1,9 +1,25 @@
 #map {
   width: 100%;
   height: 600px;
+  z-index: 1;
 }
 
 .map-border {
   border: 3px solid lightgray;
   height: 100%;
+}
+
+#map,
+.timetable {
+  position: relative;
+}
+
+.timetable {
+  z-index: 100000;
+  padding: 10px 60px;
+  pointer-events: none;
+}
+
+.timetable > * {
+  pointer-events: auto;
 }

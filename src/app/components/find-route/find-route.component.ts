@@ -10,7 +10,9 @@ import { Destination } from "models/destination.model";
 export class FindRouteComponent implements OnInit {
   constructor(private routingService: RoutingService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.button();
+  }
 
   destinations: Destination[];
   destinationsNotVisited: Destination[];
