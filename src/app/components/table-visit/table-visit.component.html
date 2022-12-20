@@ -2,42 +2,51 @@
   <div class="card-header">
     <div class="row">
       <div class="col">
-        <h5>{{title}}</h5>
+        <h5>{{ title }}</h5>
       </div>
       <div class="col">
         <span class="p-input-icon-right float-right">
           <i class="pi pi-search"></i>
-          <input pInputText type="text" (input)="table.filterGlobal($event.target.value, 'contains')"
-            placeholder="Search..." />
+          <input
+            pInputText
+            type="text"
+            (input)="table.filterGlobal($event.target.value, 'contains')"
+            placeholder="Search..."
+          />
         </span>
       </div>
     </div>
   </div>
   <div class="card-body">
-
-    <p-table #table [value]="visits" class="table table-responsive table-hover"
-      [globalFilterFields]="['doctor','date','notes']">
+    <p-table
+      #table
+      [value]="visits"
+      class="table table-responsive table-hover"
+      [globalFilterFields]="['doctor', 'date', 'notes']"
+    >
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="doctor">Doctor<p-sortIcon field="doctor"></p-sortIcon>
+          <th pSortableColumn="doctor">
+            Doctor<p-sortIcon field="doctor"></p-sortIcon>
           </th>
-          <th pSortableColumn="date">Date<p-sortIcon field="date"></p-sortIcon>
+          <th pSortableColumn="date">
+            Date<p-sortIcon field="date"></p-sortIcon>
           </th>
-          <th pSortableColumn="notes">Notes<p-sortIcon field="notes"></p-sortIcon>
+          <th pSortableColumn="notes">
+            Notes<p-sortIcon field="notes"></p-sortIcon>
           </th>
-
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-visit>
         <tr (click)="openEditVisitPage(visit.id)">
           <td>
-            {{visit.doctorName}}
+            {{ visit.doctorName }}
           </td>
           <td>
-            {{visit.date | date: 'dd/MM/yyyy'}}
+            {{ visit.date | date : "dd/MM/yyyy" }}
           </td>
           <td>
-            {{visit.notes}}
+            {{ visit.notes }}
           </td>
         </tr>
       </ng-template>

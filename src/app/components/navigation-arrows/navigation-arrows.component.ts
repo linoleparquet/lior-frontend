@@ -1,25 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
+import { Component, OnInit } from "@angular/core";
+import { Location } from "@angular/common";
 
 @Component({
-  selector: 'app-navigation-arrows',
-  templateUrl: './navigation-arrows.component.html',
-  styleUrls: ['./navigation-arrows.component.css']
+  selector: "app-navigation-arrows",
+  templateUrl: "./navigation-arrows.component.html",
+  styleUrls: ["./navigation-arrows.component.css"],
 })
 export class NavigationArrowsComponent implements OnInit {
+  constructor(private location: Location) {}
 
-  constructor(
-    private location: Location
-  ) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onLeft() {
-    this.location.back()
+    this.location.back();
   }
 
   onRight() {
-    this.location.forward()
+    this.location.forward();
   }
 }

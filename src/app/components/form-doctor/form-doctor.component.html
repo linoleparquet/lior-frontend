@@ -2,11 +2,16 @@
   <div class="card-header">
     <div class="row">
       <div class="col">
-        <h5 class="card-title">{{isEdit? 'Edit Profile': 'New Doctor'}}</h5>
+        <h5 class="card-title">{{ isEdit ? "Edit Profile" : "New Doctor" }}</h5>
       </div>
       <div *ngIf="isEdit" class="col">
-        <button type="submit" class="btn btn-danger btn-round float-right" (click)='onDelete()'>Delete
-          Profile</button>
+        <button
+          type="submit"
+          class="btn btn-danger btn-round float-right"
+          (click)="onDelete()"
+        >
+          Delete Profile
+        </button>
       </div>
     </div>
   </div>
@@ -16,22 +21,34 @@
         <div class="col">
           <div class="form-group">
             <label>Surame</label>
-            <input required id="surname" class="form-control" formControlName="surname">
-            <div *ngIf="surname.invalid && (surname.dirty || surname.touched)" class="alert alert-danger">
-              <div *ngIf="surname.errors.required">
-                Surname is required.
-              </div>
+            <input
+              required
+              id="surname"
+              class="form-control"
+              formControlName="surname"
+            />
+            <div
+              *ngIf="surname.invalid && (surname.dirty || surname.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="surname.errors.required">Surname is required.</div>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
             <label>Name</label>
-            <input required id="name" class="form-control" formControlName="name">
-            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
-              <div *ngIf="name.errors.required">
-                Name is required.
-              </div>
+            <input
+              required
+              id="name"
+              class="form-control"
+              formControlName="name"
+            />
+            <div
+              *ngIf="name.invalid && (name.dirty || name.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="name.errors.required">Name is required.</div>
             </div>
           </div>
         </div>
@@ -41,13 +58,30 @@
         <div class="col">
           <div class="form-group">
             <label>Establishment</label>
-            <select required class="custom-select" formControlName="establishmentId" name="establishment">
-              <option [ngValue]="null" ng-selected>Select the establishment</option>
-              <option *ngFor="let establishment of establishments$ | async" [ngValue]="establishment.id" ng-selected>
-                {{establishment.name}}</option>
+            <select
+              required
+              class="custom-select"
+              formControlName="establishmentId"
+              name="establishment"
+            >
+              <option [ngValue]="null" ng-selected>
+                Select the establishment
+              </option>
+              <option
+                *ngFor="let establishment of establishments$ | async"
+                [ngValue]="establishment.id"
+                ng-selected
+              >
+                {{ establishment.name }}
+              </option>
             </select>
-            <div *ngIf="establishmentId.invalid && (establishmentId.dirty || establishmentId.touched)"
-              class="alert alert-danger">
+            <div
+              *ngIf="
+                establishmentId.invalid &&
+                (establishmentId.dirty || establishmentId.touched)
+              "
+              class="alert alert-danger"
+            >
               <div *ngIf="establishmentId.errors.required">
                 Establishment is required.
               </div>
@@ -57,9 +91,22 @@
         <div class="col">
           <div class="form-group">
             <label>Periodicity</label>
-            <input required type="number" min="1" name="periodicity" class="form-control" formControlName="periodicity"
-              placeholder="Every x months">
-            <div *ngIf="periodicity.invalid && (periodicity.dirty || periodicity.touched)" class="alert alert-danger">
+            <input
+              required
+              type="number"
+              min="1"
+              name="periodicity"
+              class="form-control"
+              formControlName="periodicity"
+              placeholder="Every x months"
+            />
+            <div
+              *ngIf="
+                periodicity.invalid &&
+                (periodicity.dirty || periodicity.touched)
+              "
+              class="alert alert-danger"
+            >
               <div *ngIf="periodicity.errors.required">
                 Periodicity is required.
               </div>
@@ -67,12 +114,17 @@
           </div>
         </div>
       </div>
-
     </form>
     <div class="row">
       <div class="ml-auto mr-auto">
-        <button type="submit" class="btn btn-success btn-round" [disabled]="form.invalid"
-          (click)="onConfirmation()">{{isEdit? 'Update': 'Confirm'}}</button>
+        <button
+          type="submit"
+          class="btn btn-success btn-round"
+          [disabled]="form.invalid"
+          (click)="onConfirmation()"
+        >
+          {{ isEdit ? "Update" : "Confirm" }}
+        </button>
       </div>
     </div>
   </div>

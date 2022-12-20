@@ -3,8 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Doctor } from "models/doctor.model";
 import { HttpParams } from "@angular/common/http";
-import { environment } from 'environments/environment';
-
+import { environment } from "environments/environment";
 
 @Injectable({
   providedIn: "root",
@@ -47,6 +46,4 @@ export class DoctorService {
     let params = new HttpParams().set("establishment", "" + id);
     return this.http.get<Doctor[]>(url, { params: params });
   }
-
-
 }

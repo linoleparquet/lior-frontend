@@ -1,5 +1,4 @@
 .table {
-
   .img-wrapper {
     width: 40px;
     height: 40px;
@@ -35,18 +34,18 @@
   .card-tasks .card-body & {
     margin-bottom: 0;
 
-    >thead>tr>th,
-    >tbody>tr>th,
-    >tfoot>tr>th,
-    >thead>tr>td,
-    >tbody>tr>td,
-    >tfoot>tr>td {
+    > thead > tr > th,
+    > tbody > tr > th,
+    > tfoot > tr > th,
+    > thead > tr > td,
+    > tbody > tr > td,
+    > tfoot > tr > td {
       padding-top: 0;
       padding-bottom: 0;
     }
   }
 
-  >thead>tr>th {
+  > thead > tr > th {
     font-size: 14px;
     font-weight: $font-weight-bold;
     padding-bottom: 0;
@@ -66,7 +65,6 @@
     }
 
     label {
-
       &:after,
       &:before {
         top: -17px;
@@ -75,12 +73,12 @@
     }
   }
 
-  >thead>tr>th,
-  >tbody>tr>th,
-  >tfoot>tr>th,
-  >thead>tr>td,
-  >tbody>tr>td,
-  >tfoot>tr>td {
+  > thead > tr > th,
+  > tbody > tr > th,
+  > tfoot > tr > th,
+  > thead > tr > td,
+  > tbody > tr > td,
+  > tfoot > tr > td {
     padding: 12px 7px;
     vertical-align: middle;
   }
@@ -109,18 +107,18 @@
     margin: 0px;
   }
 
-  >tbody>tr {
+  > tbody > tr {
     position: relative;
   }
 }
 
 .table-shopping {
-  >thead>tr>th {
+  > thead > tr > th {
     font-size: $font-size-h6;
     text-transform: uppercase;
   }
 
-  >tbody>tr>td {
+  > tbody > tr > td {
     font-size: $font-paragraph;
 
     b {
@@ -178,6 +176,6 @@
   margin-bottom: 30px;
 }
 
-.table-hover>tbody>tr:hover {
+.table-hover > tbody > tr:hover {
   background-color: #f5f5f5;
 }

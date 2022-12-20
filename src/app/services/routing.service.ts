@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { environment } from 'environments/environment';
+import { environment } from "environments/environment";
 
 @Injectable({
   providedIn: "root",
@@ -9,7 +9,7 @@ import { environment } from 'environments/environment';
 export class RoutingService {
   constructor(private http: HttpClient) {}
 
-  private apiUrl = environment.apiUrl + "/routing";;
+  private apiUrl = environment.apiUrl + "/routing";
 
   // ------------------- HTTP Request -------------------
 

@@ -2,44 +2,54 @@
   <div class="card-header">
     <div class="row">
       <div class="col">
-        <h5>{{title}}</h5>
+        <h5>{{ title }}</h5>
       </div>
       <div class="col">
         <span class="p-input-icon-right float-right">
           <i class="pi pi-search"></i>
-          <input pInputText type="text" (input)="table.filterGlobal($event.target.value, 'contains')"
-            placeholder="Search..." />
+          <input
+            pInputText
+            type="text"
+            (input)="table.filterGlobal($event.target.value, 'contains')"
+            placeholder="Search..."
+          />
         </span>
       </div>
     </div>
   </div>
   <div class="card-body">
-
-    <p-table #table [value]="establishments" class="table table-responsive table-hover"
-      [globalFilterFields]="['name','department','city']">
+    <p-table
+      #table
+      [value]="establishments"
+      class="table table-responsive table-hover"
+      [globalFilterFields]="['name', 'department', 'city']"
+    >
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon>
+          <th pSortableColumn="name">
+            Name<p-sortIcon field="name"></p-sortIcon>
           </th>
-          <th pSortableColumn="department">Department<p-sortIcon field="department"></p-sortIcon>
+          <th pSortableColumn="department">
+            Department<p-sortIcon field="department"></p-sortIcon>
           </th>
-          <th pSortableColumn="city">City<p-sortIcon field="city"></p-sortIcon>
+          <th pSortableColumn="city">
+            City<p-sortIcon field="city"></p-sortIcon>
           </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-establishment>
         <tr (click)="OpenEstablishmentPage(establishment.id)">
           <td>
-            {{establishment.name}}
+            {{ establishment.name }}
           </td>
           <td>
-            {{establishment.department}}
+            {{ establishment.department }}
           </td>
           <td>
-            {{establishment.city}}
+            {{ establishment.city }}
           </td>
-
         </tr>
       </ng-template>
     </p-table>
   </div>
+</div>

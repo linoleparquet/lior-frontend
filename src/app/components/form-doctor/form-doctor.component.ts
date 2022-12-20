@@ -1,17 +1,16 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Doctor } from 'models/doctor.model';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { EstablishmentService } from 'app/services/establishment.service';
-import { Establishment } from 'models/establishment.model';
-import { Observable } from 'rxjs';
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Doctor } from "models/doctor.model";
+import { FormGroup, Validators, FormBuilder } from "@angular/forms";
+import { EstablishmentService } from "app/services/establishment.service";
+import { Establishment } from "models/establishment.model";
+import { Observable } from "rxjs";
 
 @Component({
-  selector: 'app-form-doctor',
-  templateUrl: './form-doctor.component.html',
-  styleUrls: ['./form-doctor.component.css']
+  selector: "app-form-doctor",
+  templateUrl: "./form-doctor.component.html",
+  styleUrls: ["./form-doctor.component.css"],
 })
 export class FormDoctorComponent implements OnInit {
-
   @Input() doctor: Doctor;
   @Input() isEdit: boolean;
   @Output() confirmation: EventEmitter<Doctor>;
@@ -20,14 +19,12 @@ export class FormDoctorComponent implements OnInit {
   form: FormGroup;
   establishments$: Observable<Establishment[]>;
 
-
   constructor(
     private fb: FormBuilder,
     private establishmentService: EstablishmentService
   ) {
     this.confirmation = new EventEmitter<Doctor>();
     this.delete = new EventEmitter<MouseEvent>();
-
   }
 
   ngOnInit(): void {
@@ -36,8 +33,8 @@ export class FormDoctorComponent implements OnInit {
       establishmentId: [this.doctor.establishmentId, Validators.required],
       name: [this.doctor.name, Validators.required],
       surname: [this.doctor.surname, Validators.required],
-      periodicity: [this.doctor.periodicity, Validators.required]
-    })
+      periodicity: [this.doctor.periodicity, Validators.required],
+    });
 
     this.establishments$ = this.establishmentService.getAllEstablishments();
   }
@@ -50,8 +47,16 @@ export class FormDoctorComponent implements OnInit {
     this.delete.emit();
   }
 
-  get establishmentId() { return this.form.get('establishmentId') }
-  get name() { return this.form.get('name') }
-  get surname() { return this.form.get('surname') }
-  get periodicity() { return this.form.get('periodicity') }
+  get establishmentId() {
+    return this.form.get("establishmentId");
+  }
+  get name() {
+    return this.form.get("name");
+  }
+  get surname() {
+    return this.form.get("surname");
+  }
+  get periodicity() {
+    return this.form.get("periodicity");
+  }
 }

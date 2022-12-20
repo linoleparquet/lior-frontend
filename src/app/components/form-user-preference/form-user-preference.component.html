@@ -1,11 +1,11 @@
 <form [formGroup]="form">
   <div class="row">
-    <h3 class=mx-auto>Schedule</h3>
+    <h3 class="mx-auto">Schedule</h3>
   </div>
   <div class="row">
     <div class="col-4">
       <div class="card card-stats">
-        <div class="card-body ">
+        <div class="card-body">
           <div class="row">
             <div class="col-5 col-md-4">
               <div class="icon-big text-center icon-warning">
@@ -16,14 +16,27 @@
               <div class="numbers">
                 <p class="card-category">Earliest Start</p>
                 <p class="card-title">
-                  <input required type="time" name="earliestStart" class="form-control" formControlName="earliestStart">
-                  <div *ngIf="earliestStart.invalid && (earliestStart.dirty || earliestStart.touched)"
-                    class="alert alert-danger">
-                    <div *ngIf="earliestStart.errors.required">
-                      Earliest Start is required.
-                    </div>
+                  <input
+                    required
+                    type="time"
+                    name="earliestStart"
+                    class="form-control"
+                    formControlName="earliestStart"
+                  />
+                </p>
+
+                <div
+                  *ngIf="
+                    earliestStart.invalid &&
+                    (earliestStart.dirty || earliestStart.touched)
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="earliestStart.errors.required">
+                    Earliest Start is required.
                   </div>
-                  <p>
+                </div>
+                <p></p>
               </div>
             </div>
           </div>
@@ -32,7 +45,7 @@
     </div>
     <div class="col-4">
       <div class="card card-stats">
-        <div class="card-body ">
+        <div class="card-body">
           <div class="row">
             <div class="col-5 col-md-4">
               <div class="icon-big text-center icon-warning">
@@ -43,14 +56,27 @@
               <div class="numbers">
                 <p class="card-category">Latest Arrival</p>
                 <p class="card-title">
-                  <input required type="time" name="latestArrival" class="form-control" formControlName="latestArrival">
-                  <div *ngIf="latestArrival.invalid && (latestArrival.dirty || latestArrival.touched)"
-                    class="alert alert-danger">
-                    <div *ngIf="latestArrival.errors.required">
-                      Latest arrival is required.
-                    </div>
+                  <input
+                    required
+                    type="time"
+                    name="latestArrival"
+                    class="form-control"
+                    formControlName="latestArrival"
+                  />
+                </p>
+
+                <div
+                  *ngIf="
+                    latestArrival.invalid &&
+                    (latestArrival.dirty || latestArrival.touched)
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="latestArrival.errors.required">
+                    Latest arrival is required.
                   </div>
-                  <p>
+                </div>
+                <p></p>
               </div>
             </div>
           </div>
@@ -59,7 +85,7 @@
     </div>
     <div class="col-4">
       <div class="card card-stats">
-        <div class="card-body ">
+        <div class="card-body">
           <div class="row">
             <div class="col-5 col-md-4">
               <div class="icon-big text-center icon-warning">
@@ -70,14 +96,27 @@
               <div class="numbers">
                 <p class="card-category">Waiting Time</p>
                 <p class="card-title">
-                  <input required type="time" name="waitingTime" class="form-control" formControlName="waitingTime">
-                  <div *ngIf="waitingTime.invalid && (waitingTime.dirty || waitingTime.touched)"
-                    class="alert alert-danger">
-                    <div *ngIf="waitingTime.errors.required">
-                      Waiting Time is required.
-                    </div>
+                  <input
+                    required
+                    type="time"
+                    name="waitingTime"
+                    class="form-control"
+                    formControlName="waitingTime"
+                  />
+                </p>
+
+                <div
+                  *ngIf="
+                    waitingTime.invalid &&
+                    (waitingTime.dirty || waitingTime.touched)
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="waitingTime.errors.required">
+                    Waiting Time is required.
                   </div>
-                  <p>
+                </div>
+                <p></p>
               </div>
             </div>
           </div>
@@ -93,7 +132,7 @@
   <div class="row">
     <div class="col-lg-6">
       <div class="card card-stats">
-        <div class="card-body ">
+        <div class="card-body">
           <div class="row">
             <div class="col-5 col-md-4">
               <div class="icon-big text-center icon-warning">
@@ -104,14 +143,26 @@
               <div class="numbers">
                 <p class="card-category">Name of the departing location</p>
                 <p class="card-title">
-                  <input required name="locationName" class="form-control" formControlName="locationName">
-                  <div *ngIf="locationName.invalid && (locationName.dirty || locationName.touched)"
-                    class="alert alert-danger">
-                    <div *ngIf="locationName.errors.required">
-                      The name of the departing location is required.
-                    </div>
+                  <input
+                    required
+                    name="locationName"
+                    class="form-control"
+                    formControlName="locationName"
+                  />
+                </p>
+
+                <div
+                  *ngIf="
+                    locationName.invalid &&
+                    (locationName.dirty || locationName.touched)
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="locationName.errors.required">
+                    The name of the departing location is required.
                   </div>
-                  <p>
+                </div>
+                <p></p>
               </div>
             </div>
           </div>
@@ -120,7 +171,7 @@
     </div>
     <div class="col-lg-4">
       <div class="card card-stats">
-        <div class="card-body ">
+        <div class="card-body">
           <div class="row">
             <div class="col-5 col-md-4">
               <div class="icon-big text-center icon-warning">
@@ -130,8 +181,11 @@
             <div class="col-7 col-md-8">
               <div class="numbers">
                 <p class="card-category">Address</p>
-                <p-autoComplete [suggestions]="results" (completeMethod)="search($event)"
-                  (onSelect)="fillInputs($event)">
+                <p-autoComplete
+                  [suggestions]="results"
+                  (completeMethod)="search($event)"
+                  (onSelect)="fillInputs($event)"
+                >
                 </p-autoComplete>
               </div>
             </div>
@@ -148,7 +202,7 @@
   <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6">
       <div class="card card-stats">
-        <div class="card-body ">
+        <div class="card-body">
           <div class="row">
             <div class="col-5 col-md-4">
               <div class="icon-big text-center icon-warning">
@@ -159,16 +213,27 @@
               <div class="numbers">
                 <p class="card-category">Max destination per day</p>
                 <p class="card-title">
-                  <input required type="number" name="maxDestinationPerDay" class="form-control"
-                    formControlName="maxDestinationPerDay">
-                  <div
-                    *ngIf="maxDestinationPerDay.invalid && (maxDestinationPerDay.dirty || maxDestinationPerDay.touched)"
-                    class="alert alert-danger">
-                    <div *ngIf="maxDestinationPerDay.errors.required">
-                      The maximum number of destianation per day is required.
-                    </div>
+                  <input
+                    required
+                    type="number"
+                    name="maxDestinationPerDay"
+                    class="form-control"
+                    formControlName="maxDestinationPerDay"
+                  />
+                </p>
+
+                <div
+                  *ngIf="
+                    maxDestinationPerDay.invalid &&
+                    (maxDestinationPerDay.dirty || maxDestinationPerDay.touched)
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="maxDestinationPerDay.errors.required">
+                    The maximum number of destianation per day is required.
                   </div>
-                  <p>
+                </div>
+                <p></p>
               </div>
             </div>
           </div>
@@ -180,7 +245,13 @@
 
 <div class="row">
   <div class="update ml-auto mr-auto">
-    <button type="submit" class="btn btn-success btn-round" [disabled]="form.invalid"
-      (click)="onConfirmation()">Save</button>
+    <button
+      type="submit"
+      class="btn btn-success btn-round"
+      [disabled]="form.invalid"
+      (click)="onConfirmation()"
+    >
+      Save
+    </button>
   </div>
 </div>

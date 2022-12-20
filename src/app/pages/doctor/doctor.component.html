@@ -1,21 +1,28 @@
 <div *ngIf="doctor$ | async as doctor">
   <div class="row">
     <div class="col">
-      <h1>{{doctor.name}} {{doctor.surname}}</h1>
+      <h1>{{ doctor.name }} {{ doctor.surname }}</h1>
     </div>
     <div class="col">
-      <a [routerLink]="['/doctors',doctor.id,'edit']" class="btn btn-warning btn-round float-right">Edit Profile</a>
-      <a [routerLink]="['/visits/new']" [queryParams]="{doctor: this.doctor.id}"
-        class="btn btn-success btn-round float-right">Add a visit</a>
+      <a
+        [routerLink]="['/doctors', doctor.id, 'edit']"
+        class="btn btn-warning btn-round float-right"
+        >Edit Profile</a
+      >
+      <a
+        [routerLink]="['/visits/new']"
+        [queryParams]="{ doctor: this.doctor.id }"
+        class="btn btn-success btn-round float-right"
+        >Add a visit</a
+      >
     </div>
   </div>
   <h3 class="text-muted">
-    <div>{{doctor.department}} - {{doctor.establishmentName}}</div>
-    <div>{{getPeriodicityText(doctor.periodicity)}}</div>
-    <div>Next Visit : {{doctor.nextVisit | date}}</div>
+    <div>{{ doctor.department }} - {{ doctor.establishmentName }}</div>
+    <div>{{ getPeriodicityText(doctor.periodicity) }}</div>
+    <div>Next Visit : {{ doctor.nextVisit | date }}</div>
   </h3>
 </div>
-
 
 <div *ngIf="visits$ | async as visits">
   <app-table-visit-per-doctor [visits]="visits"></app-table-visit-per-doctor>

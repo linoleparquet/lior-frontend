@@ -1,16 +1,15 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { map, filter } from 'rxjs/operators'
-import { Establishment } from 'models/establishment.model';
-import { environment } from 'environments/environment';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable, of } from "rxjs";
+import { map, filter } from "rxjs/operators";
+import { Establishment } from "models/establishment.model";
+import { environment } from "environments/environment";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class EstablishmentService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   private apiUrl = environment.apiUrl + "/establishments";
 
@@ -19,7 +18,9 @@ export class EstablishmentService {
     return this.http.get<Establishment[]>(url);
   }
 
-  postCreateOneEstablishment(establishment: Establishment): Observable<Establishment> {
+  postCreateOneEstablishment(
+    establishment: Establishment
+  ): Observable<Establishment> {
     const url = `${this.apiUrl}`;
     return this.http.post<Establishment>(url, establishment);
   }
@@ -29,7 +30,9 @@ export class EstablishmentService {
     return this.http.get<Establishment>(url);
   }
 
-  putUpdateOneEstablishment(establishment: Establishment): Observable<Establishment> {
+  putUpdateOneEstablishment(
+    establishment: Establishment
+  ): Observable<Establishment> {
     const url = `${this.apiUrl}/${establishment.id}`;
     return this.http.put<Establishment>(url, establishment);
   }
@@ -38,5 +41,4 @@ export class EstablishmentService {
     const url = `${this.apiUrl}/${establishment}`;
     return this.http.delete<Establishment>(url);
   }
-
 }

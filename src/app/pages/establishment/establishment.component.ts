@@ -1,19 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { DoctorService } from 'app/services/doctor.service';
-import { EstablishmentService } from 'app/services/establishment.service';
-import { Doctor } from 'models/doctor.model';
-import { Establishment } from 'models/establishment.model';
-import { Observable } from 'rxjs';
-
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { DoctorService } from "app/services/doctor.service";
+import { EstablishmentService } from "app/services/establishment.service";
+import { Doctor } from "models/doctor.model";
+import { Establishment } from "models/establishment.model";
+import { Observable } from "rxjs";
 
 @Component({
-  selector: 'app-establishment',
-  templateUrl: './establishment.component.html',
-  styleUrls: ['./establishment.component.css']
+  selector: "app-establishment",
+  templateUrl: "./establishment.component.html",
+  styleUrls: ["./establishment.component.css"],
 })
 export class EstablishmentComponent implements OnInit {
-
   establishment$: Observable<Establishment>;
   doctors$: Observable<Doctor[]>;
   id: number;
@@ -22,12 +20,13 @@ export class EstablishmentComponent implements OnInit {
     private doctorService: DoctorService,
     private establishmentService: EstablishmentService,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.id = +this.route.snapshot.paramMap.get('id');
+    this.id = +this.route.snapshot.paramMap.get("id");
     this.doctors$ = this.doctorService.getDoctorsByEstablishment(this.id);
-    this.establishment$ = this.establishmentService.getOneEstablishment(this.id);
+    this.establishment$ = this.establishmentService.getOneEstablishment(
+      this.id
+    );
   }
-
 }

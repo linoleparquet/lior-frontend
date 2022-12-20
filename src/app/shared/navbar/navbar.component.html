@@ -1,4 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+<nav
+  class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent"
+>
   <div class="container-fluid">
     <div class="navbar-wrapper">
       <div class="navbar-toggle">
@@ -8,17 +10,25 @@
           <span class="navbar-toggler-bar bar3"></span>
         </button>
       </div>
-      <a class="navbar-brand" href="javascript:void(0)">{{getTitle()}}</a>
+      <a class="navbar-brand" href="javascript:void(0)">{{ getTitle() }}</a>
     </div>
-    <button class="navbar-toggler" type="button" (click)="collapse()" [attr.aria-expanded]="!isCollapsed"
-      aria-controls="collapseItems">
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="collapse()"
+      [attr.aria-expanded]="!isCollapsed"
+      aria-controls="collapseItems"
+    >
       <span class="navbar-toggler-bar navbar-kebab"></span>
       <span class="navbar-toggler-bar navbar-kebab"></span>
       <span class="navbar-toggler-bar navbar-kebab"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end" id="collapseItems" [ngbCollapse]="isCollapsed">
-      <form>
-      </form>
+    <div
+      class="collapse navbar-collapse justify-content-end"
+      id="collapseItems"
+      [ngbCollapse]="isCollapsed"
+    >
+      <form></form>
       <ul class="navbar-nav">
         <li class="nav-item btn-rotate" ngbDropdown placement="bottom-left">
           <a class="nav-link" ngbDropdownToggle id="navbarDropdownMenuLink">
@@ -27,10 +37,16 @@
               <span class="d-lg-none d-md-block">Add</span>
             </p>
           </a>
-          <div ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-right">
+          <div
+            ngbDropdownMenu
+            aria-labelledby="navbarDropdownMenuLink"
+            class="dropdown-menu dropdown-menu-right"
+          >
             <a ngbDropdownItem [routerLink]="['/visits/new']">Add a visit</a>
             <a ngbDropdownItem [routerLink]="['/doctors/new']">Add a doctor</a>
-            <a ngbDropdownItem [routerLink]="['/establishments/new']">Add an establishment</a>
+            <a ngbDropdownItem [routerLink]="['/establishments/new']"
+              >Add an establishment</a
+            >
           </div>
         </li>
       </ul>

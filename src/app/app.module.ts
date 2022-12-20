@@ -1,41 +1,35 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { ErrorHandler, NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { ErrorHandler, NgModule } from "@angular/core";
+import { RouterModule } from "@angular/router";
 import { ToastrModule } from "ngx-toastr";
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from "@angular/common/http";
 
-import { SidebarModule } from './sidebar/sidebar.module';
-import { FooterModule } from './shared/footer/footer.module';
-import { NavbarModule } from './shared/navbar/navbar.module';
-import { FixedPluginModule } from './shared/fixedplugin/fixedplugin.module';
+import { SidebarModule } from "./sidebar/sidebar.module";
+import { FooterModule } from "./shared/footer/footer.module";
+import { NavbarModule } from "./shared/navbar/navbar.module";
+import { FixedPluginModule } from "./shared/fixedplugin/fixedplugin.module";
 
-import { AppComponent } from './app.component';
-import { AppRoutes } from './app.routing';
+import { AppComponent } from "./app.component";
+import { AppRoutes } from "./app.routing";
 
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { GlobalErrorHandlerService } from "./services/global-error-handler.service";
 
-
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    AdminLayoutComponent
-  ],
+  declarations: [AppComponent, AdminLayoutComponent],
   imports: [
     BrowserAnimationsModule,
     RouterModule.forRoot(AppRoutes, {
-      useHash: true
+      useHash: true,
     }),
     SidebarModule,
     NavbarModule,
     ToastrModule.forRoot(),
     FooterModule,
     FixedPluginModule,
-    HttpClientModule
-
+    HttpClientModule,
   ],
   providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandlerService }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

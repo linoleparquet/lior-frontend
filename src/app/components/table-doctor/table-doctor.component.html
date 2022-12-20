@@ -2,58 +2,79 @@
   <div class="card-header">
     <div class="row">
       <div class="col">
-        <h5>{{title}}</h5>
+        <h5>{{ title }}</h5>
       </div>
       <div class="col">
         <span class="p-input-icon-right float-right">
           <i class="pi pi-search"></i>
-          <input pInputText type="text" (input)="table.filterGlobal($event.target.value, 'contains')"
-            placeholder="Search..." />
+          <input
+            pInputText
+            type="text"
+            (input)="table.filterGlobal($event.target.value, 'contains')"
+            placeholder="Search..."
+          />
         </span>
       </div>
     </div>
   </div>
   <div class="card-body">
-
-    <p-table #table [value]="doctors" class="table table-responsive table-hover"
-      [globalFilterFields]="['surname','name','city','department','lastVisitDate','nextVisitDate']">
+    <p-table
+      #table
+      [value]="doctors"
+      class="table table-responsive table-hover"
+      [globalFilterFields]="[
+        'surname',
+        'name',
+        'city',
+        'department',
+        'lastVisitDate',
+        'nextVisitDate'
+      ]"
+    >
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="surname">Surname<p-sortIcon field="surname"></p-sortIcon>
+          <th pSortableColumn="surname">
+            Surname<p-sortIcon field="surname"></p-sortIcon>
           </th>
-          <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon>
+          <th pSortableColumn="name">
+            Name<p-sortIcon field="name"></p-sortIcon>
           </th>
-          <th pSortableColumn="department">Department<p-sortIcon field="department"></p-sortIcon>
+          <th pSortableColumn="department">
+            Department<p-sortIcon field="department"></p-sortIcon>
           </th>
-          <th pSortableColumn="establishment">Establishment<p-sortIcon field="establishment"></p-sortIcon>
+          <th pSortableColumn="establishment">
+            Establishment<p-sortIcon field="establishment"></p-sortIcon>
           </th>
-          <th pSortableColumn="lastVisitDate">Last Visit<p-sortIcon field="lastVisitDate"></p-sortIcon>
+          <th pSortableColumn="lastVisitDate">
+            Last Visit<p-sortIcon field="lastVisitDate"></p-sortIcon>
           </th>
-          <th pSortableColumn="nextVisitDate">Next Visit<p-sortIcon field="nextVisitDate"></p-sortIcon>
+          <th pSortableColumn="nextVisitDate">
+            Next Visit<p-sortIcon field="nextVisitDate"></p-sortIcon>
           </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-doctor>
         <tr (click)="OpenDoctorPage(doctor.id)">
           <td>
-            {{doctor.surname}}
+            {{ doctor.surname }}
           </td>
           <td>
-            {{doctor.name}}
+            {{ doctor.name }}
           </td>
           <td>
-            {{doctor.department}}
+            {{ doctor.department }}
           </td>
           <td>
-            {{doctor.establishmentName}}
+            {{ doctor.establishmentName }}
           </td>
           <td>
-            {{doctor.lastVisit | date: 'dd/MM/yyyy'}}
+            {{ doctor.lastVisit | date : "dd/MM/yyyy" }}
           </td>
           <td>
-            {{doctor.nextVisit | date: 'dd/MM/yyyy'}}
+            {{ doctor.nextVisit | date : "dd/MM/yyyy" }}
           </td>
         </tr>
       </ng-template>
     </p-table>
   </div>
+</div>
