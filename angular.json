@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pd-free-angularcli": {
+    "lior": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -73,14 +73,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pd-free-angularcli:build"
+            "browserTarget": "lior:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pd-free-angularcli:build:production"
+              "browserTarget": "lior:build:production"
             },
             "development": {
-              "browserTarget": "pd-free-angularcli:build:development"
+              "browserTarget": "lior:build:development"
             },
             "defaultConfiguration": "development"
           }
@@ -88,7 +88,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pd-free-angularcli:build"
+            "browserTarget": "lior:build"
           }
         },
         "test": {
@@ -122,7 +122,7 @@
         }
       }
     },
-    "pd-free-angularcli-e2e": {
+    "lior-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -131,7 +131,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "pd-free-angularcli:serve"
+            "devServerTarget": "lior:serve"
           }
         },
         "lint": {
@@ -144,11 +144,11 @@
       }
     }
   },
-  "defaultProject": "pd-free-angularcli",
+  "defaultProject": "lior",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
-      "styleext": "scss"
+      "style": "scss"
     },
     "@schematics/angular:directive": {
       "prefix": "app"

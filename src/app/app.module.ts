@@ -14,6 +14,14 @@ import { AppRoutes } from "./app.routing";
 
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { GlobalErrorHandlerService } from "./services/global-error-handler.service";
+import { environment } from "environments/environment";
+
+// https://www.positronx.io/angular-google-social-login-tutorial-with-example/
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+  GoogleLoginProvider,
+} from "@abacritt/angularx-social-login";
 
 @NgModule({
   declarations: [AppComponent, AdminLayoutComponent],
@@ -29,7 +37,26 @@ import { GlobalErrorHandlerService } from "./services/global-error-handler.servi
     FixedPluginModule,
     HttpClientModule,
   ],
-  providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandlerService }],
-  bootstrap: [AppComponent],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandlerService,
+    },
+    {
+      provide: "SocialAuthServiceConfig",
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              environment.GOOGLE_OAUTH2_CLIENT_ID
+            ),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

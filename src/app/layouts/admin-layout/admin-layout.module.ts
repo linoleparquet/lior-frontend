@@ -35,6 +35,7 @@ import { EstablishmentsComponent } from "app/pages/establishments/establishments
 import { FormEstablishmentComponent } from "app/components/form-establishment/form-establishment.component";
 import { MapComponent } from "app/components/map/map.component";
 import { FindRouteComponent } from "app/components/find-route/find-route.component";
+import { LoginComponent } from "app/components/login/login.component";
 
 @NgModule({
   imports: [
@@ -73,6 +74,7 @@ import { FindRouteComponent } from "app/components/find-route/find-route.compone
     FindRouteComponent,
     FormUserPreferenceComponent,
     SettingsComponent,
+    LoginComponent,
   ],
 })
 export class AdminLayoutModule {}
