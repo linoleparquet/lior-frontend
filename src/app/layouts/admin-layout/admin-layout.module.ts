@@ -35,6 +35,7 @@ import { EstablishmentsComponent } from "app/pages/establishments/establishments
 import { FormEstablishmentComponent } from "app/components/form-establishment/form-establishment.component";
 import { MapComponent } from "app/components/map/map.component";
 import { FindRouteComponent } from "app/components/find-route/find-route.component";
+import { TimetableComponent } from "app/components/map/timetable/timetable.component";
 
 @NgModule({
   imports: [
@@ -73,6 +74,7 @@ import { FindRouteComponent } from "app/components/find-route/find-route.compone
     FindRouteComponent,
     FormUserPreferenceComponent,
     SettingsComponent,
+    TimetableComponent,
   ],
 })
 export class AdminLayoutModule {}
