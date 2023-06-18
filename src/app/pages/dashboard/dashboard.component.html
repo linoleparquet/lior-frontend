@@ -1,7 +1,7 @@
 <div *ngIf="doctorsVisitPlannedForActualMonth as doctors">
   <app-table-doctor
     *ngIf="doctors != 0"
-    [title]="'Active appointments'"
+    [title]="'Active Appointments'"
     [doctors]="doctors"
   >
   </app-table-doctor>
@@ -9,7 +9,7 @@
 <div *ngIf="doctorsVisitPlannedBeforeActualMonth as doctors">
   <app-table-doctor
     *ngIf="doctors != 0"
-    [title]="'Missed appointments'"
+    [title]="'Missed Appointments'"
     [doctors]="doctors"
   >
   </app-table-doctor>
