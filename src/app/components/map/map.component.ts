@@ -56,7 +56,7 @@ export class MapComponent implements OnInit {
         token,
       {
         attribution: "Map",
-        id: "mapbox/light-v9",
+        id: "mapbox/light-v11",
       }
     ).addTo(this.map);
   }
