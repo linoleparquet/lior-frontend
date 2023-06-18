@@ -49,8 +49,11 @@ export class MapComponent implements OnInit {
 
   initMap() {
     this.map = L.map("map").setView([50.6311634, 3.0599573], 12);
+    const token =
+      "sk.eyJ1IjoibGlub2xlcGFycWV0IiwiYSI6ImNsajF4cDhmbTE4aDIzbm51eWs1anRydzcifQ.BjH5n_lTmlYUJtNuhbGrWA";
     L.tileLayer(
-      "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
+      "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=" +
+        token,
       {
         attribution: "Map",
         id: "mapbox/light-v9",
