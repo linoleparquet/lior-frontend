@@ -14,7 +14,7 @@ The svg marker comes from [Iconic](https://useiconic.com/open/)
 ## Local developement
 
 ```bash
-docker run -p8080:8080 --rm lior-backend java -jar -Dspring.profiles.active=h2 app.jar
+docker run -p8080:8080 -d --rm lior-backend java -jar -Dspring.profiles.active=h2 app.jar
 npm i
 npm start
 ```
